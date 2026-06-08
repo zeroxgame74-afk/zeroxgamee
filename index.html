@@ -6,7 +6,6 @@
 <title>ZEROX</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -15,8 +14,13 @@
     --main:#B61C1C;
 }
 
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     font-family:'Vazirmatn', sans-serif;
     background:#0a0a0a;
     color:white;
@@ -24,47 +28,46 @@ body{
 
 /* لوگو */
 .logo{
+    width:100%;
     display:flex;
     justify-content:center;
-    padding:20px;
+    align-items:center;
+    padding:25px 0;
 }
 
 .logo img{
     width:780px;
-    max-width:95%;
-    height:auto;
-    /* بدون نور طبق خواسته */
-    filter:none;
+    max-width:90%;
 }
 
 /* منو شیشه‌ای */
 nav{
+    width:90%;
+    margin:0 auto;
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
     gap:15px;
-    margin:10px auto;
-    padding:12px;
-    width:90%;
-    
+
     background:rgba(255,255,255,0.06);
     border:1px solid rgba(255,255,255,0.15);
     border-radius:15px;
+    padding:12px;
+
     backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
 }
 
-/* آیتم‌های منو */
+/* آیتم منو */
 nav a{
     color:white;
     text-decoration:none;
     padding:10px 14px;
     border-radius:10px;
     font-weight:700;
-    cursor:pointer;
     display:flex;
-    align-items:center;
     gap:8px;
-    transition:0.3s;
+    align-items:center;
+    cursor:pointer;
 }
 
 nav a i{
@@ -81,23 +84,24 @@ nav a:hover{
     padding:20px;
 }
 
-.active{
+.section.active{
     display:block;
 }
 
-/* کارت خبر */
+/* کارت */
 .card{
     background:#141414;
     border:1px solid var(--main);
     border-radius:12px;
     padding:15px;
+    margin-top:15px;
 }
 
 .card h2{
     color:var(--main);
-    font-weight:900;
 }
 
+/* دکمه */
 button{
     background:var(--main);
     border:none;
@@ -106,6 +110,7 @@ button{
     border-radius:8px;
     cursor:pointer;
     font-weight:700;
+    margin-top:10px;
 }
 
 .more{
@@ -124,17 +129,14 @@ footer{
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- لوگو -->
 <div class="logo">
     <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png">
 </div>
 
-<!-- منو شیشه‌ای -->
 <nav>
 <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
 <a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار</a>
@@ -143,45 +145,28 @@ footer{
 <a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
 </nav>
 
-<!-- خانه -->
 <div id="home" class="section active">
     <h2>به ZEROX خوش اومدی 🔥</h2>
 </div>
 
-<!-- اخبار -->
 <div id="news" class="section">
-
     <div class="card">
-        <h2>GTA VI خبر جدید</h2>
-        <p>جدیدترین اطلاعات GTA 6 منتشر شد.</p>
+        <h2>GTA VI</h2>
+        <p>جدیدترین اخبار GTA 6 منتشر شد</p>
 
         <button onclick="toggle(this)">توضیحات بیشتر</button>
 
         <div class="more">
-            GTA 6 دارای بزرگ‌ترین نقشه سری GTA است و AI بسیار پیشرفته دارد.
+            GTA 6 نقشه بزرگ‌تر و AI پیشرفته‌تر دارد.
         </div>
     </div>
-
 </div>
 
-<!-- شاپ -->
-<div id="shop" class="section">
-    <h2>زروکس شاپ به زودی</h2>
-</div>
+<div id="shop" class="section"><h2>زروکس شاپ</h2></div>
+<div id="video" class="section"><h2>ویدیوها</h2></div>
+<div id="story" class="section"><h2>داستان‌ها</h2></div>
 
-<!-- ویدیو -->
-<div id="video" class="section">
-    <h2>ویدیوها</h2>
-</div>
-
-<!-- داستان -->
-<div id="story" class="section">
-    <h2>داستان‌ها</h2>
-</div>
-
-<footer>
-© 2026 ZEROX | دنیای گیمینگ
-</footer>
+<footer>© 2026 ZEROX</footer>
 
 <script>
 
