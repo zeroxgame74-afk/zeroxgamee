@@ -22,10 +22,8 @@
 
 body{
     font-family:'Vazirmatn', sans-serif;
+    background:var(--main);
     color:white;
-
-    /* 🔴 تم کامل قرمز */
-    background: linear-gradient(180deg, #B61C1C, #3a0a0a);
 }
 
 /* لوگو */
@@ -40,7 +38,7 @@ body{
     max-width:90%;
 }
 
-/* منو شیشه‌ای */
+/* منو */
 nav{
     width:90%;
     margin:0 auto;
@@ -49,34 +47,37 @@ nav{
     flex-wrap:wrap;
     gap:15px;
 
-    background:rgba(0,0,0,0.25);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:15px;
     padding:12px;
-
-    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:15px;
 }
 
 nav a{
-    color:white;
+    color:white; /* متن سفید */
     text-decoration:none;
     padding:10px 14px;
     border-radius:10px;
     font-weight:700;
-    cursor:pointer;
     display:flex;
     align-items:center;
     gap:8px;
+    cursor:pointer;
     transition:0.3s;
 }
 
+/* آیکون‌ها قرمز */
 nav a i{
-    color:white;
+    color:var(--main);
+    background:white;
+    padding:5px;
+    border-radius:50%;
+    font-size:12px;
 }
 
+/* hover */
 nav a:hover{
     background:white;
-    color:#B61C1C;
+    color:var(--main);
 }
 
 /* بخش‌ها */
@@ -91,19 +92,13 @@ nav a:hover{
 
 /* کارت */
 .card{
-    background:rgba(0,0,0,0.35);
+    background:rgba(255,255,255,0.2);
     border:1px solid white;
     border-radius:12px;
     padding:15px;
     margin-top:15px;
-    transition:0.3s;
 }
 
-.card:hover{
-    transform:scale(1.02);
-}
-
-/* عنوان */
 .card h2{
     color:white;
     font-weight:900;
@@ -112,7 +107,7 @@ nav a:hover{
 /* دکمه */
 button{
     background:white;
-    color:#B61C1C;
+    color:var(--main);
     border:none;
     padding:8px 12px;
     border-radius:8px;
@@ -125,7 +120,7 @@ button{
 .more{
     display:none;
     margin-top:10px;
-    color:#eee;
+    color:white;
     line-height:1.7;
 }
 
@@ -133,10 +128,10 @@ button{
 footer{
     text-align:center;
     padding:15px;
-    background:rgba(0,0,0,0.4);
     color:white;
     margin-top:20px;
     font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.4);
 }
 
 </style>
@@ -170,7 +165,7 @@ footer{
         <button onclick="toggle(this)">توضیحات بیشتر</button>
 
         <div class="more">
-            GTA 6 بزرگ‌ترین نقشه تاریخ سری GTA را دارد و AI بسیار پیشرفته شده است.
+            GTA 6 دارای بزرگ‌ترین نقشه سری GTA و AI پیشرفته‌تر است.
         </div>
     </div>
 
