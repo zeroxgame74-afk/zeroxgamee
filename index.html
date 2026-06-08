@@ -11,6 +11,10 @@
 
 <style>
 
+:root{
+    --main:#B61C1C;
+}
+
 body{
     margin:0;
     font-family:'Vazirmatn', sans-serif;
@@ -21,22 +25,35 @@ body{
 
 /* هدر */
 header{
-    background:#B61C1C;
-    padding:18px;
+    background:var(--main);
     text-align:center;
-    font-size:32px;
-    font-weight:900;
-    box-shadow:0 0 18px #B61C1C;
+    padding:15px;
+}
+
+/* لوگو وسط */
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px 0 10px 0;
+    background:#0a0a0a;
+}
+
+.logo img{
+    width:160px;
+    max-width:70%;
+    filter: drop-shadow(0 0 10px var(--main));
 }
 
 /* منو */
 nav{
     display:flex;
     justify-content:center;
-    gap:20px;
+    gap:18px;
     background:#111;
     padding:12px;
     flex-wrap:wrap;
+    border-top:2px solid var(--main);
 }
 
 nav a{
@@ -49,15 +66,16 @@ nav a{
     gap:8px;
     font-weight:800;
     cursor:pointer;
+    transition:0.3s;
 }
 
 nav a i{
-    color:#ff3b3b;
+    color:var(--main);
 }
 
 nav a:hover{
-    background:#B61C1C;
-    box-shadow:0 0 12px #B61C1C;
+    background:var(--main);
+    transform:scale(1.05);
 }
 
 /* بخش‌ها */
@@ -73,7 +91,7 @@ nav a:hover{
 /* کارت خبر */
 .card{
     background:#141414;
-    border:1px solid #B61C1C;
+    border:1px solid var(--main);
     border-radius:12px;
     overflow:hidden;
     margin-bottom:20px;
@@ -82,29 +100,26 @@ nav a:hover{
 
 .card:hover{
     transform:scale(1.02);
-    box-shadow:0 0 20px #B61C1C;
+    box-shadow:0 0 20px var(--main);
 }
 
-/* عکس خبر */
 .card img{
     width:100%;
     height:180px;
     object-fit:cover;
 }
 
-/* محتوا */
 .card-content{
     padding:15px;
 }
 
 .card h2{
-    color:#ff3b3b;
+    color:var(--main);
     font-weight:900;
 }
 
-/* دکمه */
 .btn{
-    background:#B61C1C;
+    background:var(--main);
     color:white;
     border:none;
     padding:10px;
@@ -114,7 +129,6 @@ nav a:hover{
     margin-top:10px;
 }
 
-/* توضیحات بیشتر */
 .more{
     display:none;
     margin-top:10px;
@@ -139,8 +153,14 @@ footer{
 
 <body>
 
-<header>ZEROX</header>
+<header> </header>
 
+<!-- لوگو -->
+<div class="logo">
+    <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX LOGO">
+</div>
+
+<!-- منو -->
 <nav>
 <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
 <a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار گیم</a>
@@ -152,7 +172,6 @@ footer{
 <!-- خانه -->
 <div id="home" class="section active">
     <h2>به ZEROX خوش اومدی 🔥</h2>
-    <p>دنیای گیمینگ و اخبار اینجاست.</p>
 </div>
 
 <!-- اخبار -->
@@ -162,15 +181,14 @@ footer{
         <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d3" alt="GTA">
         
         <div class="card-content">
-            <h2>🔥 GTA VI</h2>
+            <h2>🔥 GTA VI خبر جدید</h2>
             <p>جدیدترین اطلاعات از GTA 6 منتشر شد.</p>
 
             <button class="btn" onclick="toggleMore(this)">توضیحات بیشتر</button>
 
             <div class="more">
-                GTA 6 دارای بزرگ‌ترین نقشه تاریخ سری GTA خواهد بود.
-                همچنین هوش مصنوعی NPC ها بسیار پیشرفته‌تر شده و
-                تجربه بازی کاملاً واقعی‌تر شده است.
+                GTA 6 دارای بزرگ‌ترین نقشه تاریخ سری GTA خواهد بود و
+                هوش مصنوعی NPC ها خیلی پیشرفته‌تر شده است.
             </div>
         </div>
     </div>
@@ -189,14 +207,13 @@ footer{
 <script>
 
 function showTab(tab){
-    let sections = document.querySelectorAll('.section');
-    sections.forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(tab).classList.add('active');
 }
 
 function toggleMore(btn){
     let more = btn.nextElementSibling;
-    
+
     if(more.style.display === "block"){
         more.style.display = "none";
         btn.innerText = "توضیحات بیشتر";
