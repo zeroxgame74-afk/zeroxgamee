@@ -59,7 +59,7 @@ nav{
 nav a{
     color:white;
     text-decoration:none;
-    padding:8px 14px;
+    padding:8px 12px;
     border-radius:10px;
     font-weight:800;
     display:flex;
@@ -67,7 +67,7 @@ nav a{
     gap:8px;
     cursor:pointer;
     transition:0.2s;
-    font-size:14px;
+    font-size:13px;
 }
 nav a i{
     color:var(--main);
@@ -693,6 +693,73 @@ nav a:hover{
     margin-top:10px;
 }
 
+/* ========== کانال‌هامون ========== */
+.channels-container{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    max-width:800px;
+    margin:0 auto;
+}
+.channel-card{
+    background:white;
+    border-radius:32px;
+    padding:35px 25px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+.channel-card:hover{
+    transform:translateY(-6px);
+}
+.channel-icon{
+    font-size:70px;
+    margin-bottom:20px;
+    display:inline-block;
+    animation:float 2s ease-in-out infinite;
+    color:var(--main);
+    filter:drop-shadow(0 8px 15px rgba(182,28,28,0.3));
+}
+.channel-card h3{
+    font-size:1.6rem;
+    color:var(--main);
+    margin-bottom:15px;
+}
+.channel-card p{
+    font-size:1rem;
+    color:#555;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+.channel-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--main);
+    color:white;
+    padding:12px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:1rem;
+    transition:0.2s;
+}
+.channel-link i{
+    font-size:1.2rem;
+}
+.channel-link:hover{
+    background:#8a1010;
+    transform:scale(1.03);
+}
+.coming-soon{
+    background:#f5f5f5;
+    border-radius:20px;
+    padding:15px;
+    margin-top:15px;
+    color:#888;
+    font-weight:600;
+}
+
 /* گرید اخبار و داستان‌ها */
 .news-grid{
     display:grid;
@@ -745,6 +812,7 @@ footer{
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
         <a onclick="showTab('about')"><i class="fa-solid fa-info-circle"></i> درباره ما</a>
+        <a onclick="showTab('channels')"><i class="fa-solid fa-database"></i> کانال‌هامون!</a>
     </nav>
 </div>
 
@@ -826,6 +894,29 @@ footer{
     </div>
 </div>
 
+<!-- کانال‌هامون -->
+<div id="channels" class="section">
+    <div class="channels-container">
+        <div class="channel-card">
+            <div class="channel-icon"><i class="fa-solid fa-tv"></i></div>
+            <h3>کانال آپارات</h3>
+            <p>اینجا کانال اصلی آپارات خفن زروکسه!</p>
+            <a href="https://www.aparat.com/ZEROX_GAME" target="_blank" class="channel-link"><i class="fa-solid fa-play-circle"></i> بازدید از کانال آپارات</a>
+            <div style="margin-top:20px;">
+                <p style="font-size:0.9rem; color:#666;">مارا در روبیکا هم دنبال کنید!</p>
+                <a href="https://rubika.ir/@ZEROX_GAME" target="_blank" class="channel-link" style="background:#222; margin-top:10px;"><i class="fa-solid fa-paper-plane"></i> @ZEROX_GAME در روبیکا</a>
+            </div>
+        </div>
+        <div class="channel-card">
+            <div class="icon-3d" style="animation:floatSlow 2.5s ease-in-out infinite;"><i class="fa-brands fa-youtube"></i></div>
+            <h3>کانال یوتیوب</h3>
+            <div class="coming-soon">
+                <i class="fa-regular fa-clock"></i> به زودی...
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
 
 <script>
@@ -844,33 +935,7 @@ const newsData = [
 
 // داستان‌ها
 const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
-
-اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
-
-یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
-
-آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
-
-در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
-
-هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
-
-کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
-
-بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
-
-و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
-
-اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
-
-در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
-
-آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
-
-بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
-
-و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
+    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه...` }
 ];
 
 // موسیقی
