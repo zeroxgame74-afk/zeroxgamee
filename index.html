@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZEROX</title>
 
-<!-- فونت وزیرمتن -->
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;600;800;900&display=swap" rel="stylesheet">
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -28,7 +26,6 @@ header{
     text-align:center;
     font-size:32px;
     font-weight:900;
-    letter-spacing:2px;
     box-shadow:0 0 18px #B61C1C;
 }
 
@@ -50,8 +47,9 @@ nav a{
     display:flex;
     align-items:center;
     gap:8px;
-    transition:0.3s;
     font-weight:800;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 nav a i{
@@ -64,15 +62,17 @@ nav a:hover{
     transform:scale(1.05);
 }
 
-/* محتوا */
-.container{
+/* بخش‌ها */
+.section{
+    display:none;
     padding:25px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
 }
 
-/* کارت */
+.active{
+    display:block;
+}
+
+/* کارت خبر */
 .card{
     background:#141414;
     border:1px solid #B61C1C;
@@ -82,7 +82,7 @@ nav a:hover{
 }
 
 .card:hover{
-    transform:scale(1.05);
+    transform:scale(1.03);
     box-shadow:0 0 20px #B61C1C;
 }
 
@@ -91,17 +91,12 @@ nav a:hover{
     font-weight:900;
 }
 
-.card p{
-    font-weight:600;
-}
-
 /* فوتر */
 footer{
     text-align:center;
     padding:15px;
     background:#111;
     color:#aaa;
-    margin-top:20px;
     font-size:13px;
     font-weight:600;
 }
@@ -115,34 +110,62 @@ footer{
 <header>ZEROX</header>
 
 <nav>
-
-<a href="#"><i class="fa-solid fa-gamepad"></i> اخبار گیم</a>
-
-<a href="#"><i class="fa-solid fa-shop"></i> زروکس شاپ</a>
-
-<a href="#"><i class="fa-solid fa-video"></i> ویدیوها</a>
-
-<a href="#"><i class="fa-solid fa-book"></i> داستان‌ها</a>
-
+<a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
+<a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار گیم</a>
+<a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> زروکس شاپ</a>
+<a onclick="showTab('video')"><i class="fa-solid fa-video"></i> ویدیوها</a>
+<a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
 </nav>
 
-<div class="container">
-
-<div class="card">
-<h2>GTA VI</h2>
-<p>آخرین اخبار GTA 6 داغ شده! نقشه بزرگ‌تر و گرافیک نسل جدید در راه است.</p>
+<!-- خانه -->
+<div id="home" class="section active">
+    <h2>به ZEROX خوش اومدی 🔥</h2>
+    <p>دنیای اخبار و گیمینگ اینجاست.</p>
 </div>
 
-<div class="card">
-<h2>Call of Duty</h2>
-<p>آپدیت جدید COD منتشر شد با مودها و سلاح‌های جدید.</p>
+<!-- اخبار -->
+<div id="news" class="section">
+
+    <div class="card">
+        <h2>🔥 GTA VI خبر جدید</h2>
+        <p>
+            طبق آخرین اخبار، GTA 6 دارای بزرگ‌ترین نقشه تاریخ سری GTA خواهد بود
+            و سیستم هوش مصنوعی NPC ها به شدت پیشرفته شده است.
+        </p>
+    </div>
+
 </div>
 
+<!-- شاپ -->
+<div id="shop" class="section">
+    <h2>زروکس شاپ</h2>
+    <p>به زودی فعال می‌شود...</p>
+</div>
+
+<!-- ویدیو -->
+<div id="video" class="section">
+    <h2>ویدیوها</h2>
+    <p>به زودی...</p>
+</div>
+
+<!-- داستان -->
+<div id="story" class="section">
+    <h2>داستان‌ها</h2>
+    <p>به زودی...</p>
 </div>
 
 <footer>
 © 2026 ZEROX | دنیای گیمینگ حرفه‌ای
 </footer>
+
+<script>
+function showTab(tab){
+    let sections = document.querySelectorAll('.section');
+    sections.forEach(s => s.classList.remove('active'));
+
+    document.getElementById(tab).classList.add('active');
+}
+</script>
 
 </body>
 </html>
