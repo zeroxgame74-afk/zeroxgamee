@@ -416,16 +416,16 @@ nav a:hover{
     padding:22px;
     text-align:center;
 }
-/* باکس عنوان و تگ پلتفرم */
+/* باکس عنوان و تگ پلتفرم - هم رنگ با باکس‌های دیگر */
 .title-platform-box{
-    background:white;
+    background:#f9f9f9;
     border-radius:20px;
     padding:12px 15px;
     margin-bottom:12px;
-    box-shadow:0 1px 4px rgba(0,0,0,0.05);
+    text-align:center;
 }
 .title-platform-box h3{
-    font-size:1.4rem;
+    font-size:1.3rem;
     margin-bottom:10px;
     font-weight:900;
     color:var(--main);
@@ -434,15 +434,16 @@ nav a:hover{
     display:inline-flex;
     align-items:center;
     gap:10px;
-    background:#f0f0f0;
+    background:white;
     padding:8px 20px;
     border-radius:50px;
-    font-size:18px;
+    font-size:16px;
     color:var(--main);
     font-weight:800;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
 }
 .platform-badge i{
-    font-size:22px;
+    font-size:20px;
 }
 .composers-section{
     background:#f9f9f9;
@@ -484,7 +485,7 @@ nav a:hover{
     font-size:11px;
 }
 .music-desc-box{
-    background:#f5f5f5;
+    background:#f9f9f9;
     border-radius:20px;
     padding:12px 15px;
     margin:12px 0;
@@ -948,7 +949,6 @@ function renderMusic(){
     const container = document.getElementById('musicGrid');
     if(!container) return;
     if(musicData.length===0){ container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`; return; }
-    // مرتب‌سازی بر اساس id نزولی (جدیدترین اول)
     const sortedMusic = [...musicData].sort((a,b)=>b.id - a.id);
     container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'"><div class="music-info"><div class="title-platform-box"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div></div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
 }
@@ -978,4 +978,4 @@ renderMusic();
 setupFilters();
 </script>
 </body>
-                                                                             </html>
+    </html>
