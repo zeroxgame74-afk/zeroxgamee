@@ -1,1 +1,388 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ZEROX | GAME</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Vazirmatn',sans-serif;font-weight:700;background-color:#B61C1C;color:#1a1a1a;min-height:100vh;}
+        .header{text-align:center;padding:20px 20px 10px;position:relative;}
+        .logo-raw{width:auto;height:800px;object-fit:contain;margin-bottom:20px;cursor:pointer;}
+        .menu{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:10px;}
+        .menu a{color:white;text-decoration:none;font-weight:800;font-size:17px;transition:0.2s;padding:5px 0;display:inline-flex;align-items:center;gap:8px;cursor:pointer;}
+        .menu a i{font-size:18px;}
+        .menu a:hover{border-bottom:2px solid white;transform:translateY(-2px);}
+        .slider-container{max-width:1080px;margin:20px auto;padding:0 25px;position:relative;}
+        .slider{position:relative;width:100%;border-radius:24px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.2);}
+        .slides{display:flex;transition:transform 0.5s ease-in-out;}
+        .slide{min-width:100%;}
+        .slide img{width:100%;height:auto;display:block;}
+        .dots{text-align:center;padding:15px 0 5px;}
+        .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);margin:0 6px;cursor:pointer;transition:0.2s;}
+        .dot.active{background:white;transform:scale(1.2);}
+        .nav-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);color:white;border:none;border-radius:50%;width:40px;height:40px;font-size:20px;cursor:pointer;z-index:10;transition:0.2s;}
+        .nav-arrow:hover{background:#B61C1C;}
+        .prev{left:15px;}
+        .next{right:15px;}
+        .container{max-width:1300px;margin:40px auto;padding:0 25px;}
+        .section-title{font-size:1.8rem;font-weight:900;margin-bottom:25px;border-right:4px solid white;padding-right:15px;display:flex;align-items:center;gap:10px;color:white;}
+        .cards-grid,.news-grid,.videos-grid,.music-grid,.gallery-grid,.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;margin-bottom:40px;}
+        .thumbnail-card,.news-card,.video-card,.music-card,.gallery-card,.product-card{background:white;border-radius:24px;overflow:hidden;transition:0.3s ease;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+        .thumbnail-card:hover,.news-card:hover,.video-card:hover,.music-card:hover,.gallery-card:hover,.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);}
+        .thumbnail-img,.news-img,.video-thumb,.music-img,.gallery-img,.product-img{width:100%;height:200px;object-fit:cover;display:block;}
+        .card-content,.news-content,.video-info,.music-info,.gallery-info,.product-info{padding:20px;text-align:center;}
+        .card-content h3,.news-content h3,.video-info h3,.music-info h3,.gallery-info h3,.product-title{font-size:1.4rem;margin-bottom:10px;font-weight:900;color:#B61C1C;}
+        .product-price{font-size:1.2rem;font-weight:800;margin:10px 0;display:flex;align-items:center;justify-content:center;gap:6px;color:#2c3e50;}
+        .product-price i{color:#f1c40f;}
+        .card-content p,.news-content p,.video-info p,.music-info p,.gallery-info p{font-size:0.9rem;color:#444;margin-bottom:15px;line-height:1.5;font-weight:500;}
+        .news-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:0.7rem;color:#777;justify-content:center;}
+        .news-meta i{color:#B61C1C;}
+        .btn-card{background:#B61C1C;border:none;padding:6px 20px;border-radius:40px;color:white;font-weight:800;cursor:pointer;transition:0.2s;font-size:12px;font-family:'Vazirmatn',sans-serif;display:inline-block;}
+        .btn-card:hover{background:#8a1010;transform:scale(1.02);}
+        .buy-btn{background:#B61C1C;border:none;padding:8px 25px;border-radius:40px;color:white;font-weight:800;cursor:pointer;transition:0.2s;width:100%;font-family:'Vazirmatn',sans-serif;}
+        .buy-btn:hover{background:#8a1010;}
+        .video-badge{position:absolute;top:15px;right:15px;background:#B61C1C;color:white;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:900;}
+        .video-card{position:relative;}
+        .more-btn{background:transparent;border:1px solid #B61C1C;padding:5px 12px;border-radius:20px;color:#B61C1C;font-size:12px;cursor:pointer;margin-top:8px;font-family:'Vazirmatn',sans-serif;font-weight:900;}
+        .more-btn:hover{background:#B61C1C;color:white;}
+        .full-text{display:none;margin-top:10px;padding:10px;background:#f9f9f9;border-radius:12px;text-align:right;}
+        .footer{text-align:center;padding:35px;margin-top:50px;border-top:1px solid rgba(255,255,255,0.2);color:white;}
+        .comments-section{background:white;border-radius:24px;padding:25px;margin-top:30px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+        .comments-section h3{color:#B61C1C;margin-bottom:20px;font-size:1.5rem;}
+        .comment-form{display:flex;flex-direction:column;gap:12px;margin-bottom:25px;background:#f9f9f9;padding:15px;border-radius:20px;}
+        .comment-form input,.comment-form textarea{padding:10px;border-radius:16px;border:1px solid #ddd;font-family:'Vazirmatn',sans-serif;font-size:14px;resize:vertical;}
+        .comment-form textarea{min-height:80px;}
+        .comment-list .single-comment{background:#f5f5f5;border-radius:16px;padding:12px 15px;margin-bottom:12px;}
+        .comment-name{font-weight:900;color:#B61C1C;margin-left:10px;}
+        .comment-text{color:#333;}
+        .comment-reply{background:#e8e8e8;border-radius:12px;padding:8px 12px;margin-top:8px;margin-right:20px;font-size:13px;border-right:3px solid #B61C1C;}
+        .reply-label{color:#B61C1C;font-weight:800;margin-left:5px;}
+        .admin-actions{display:flex;gap:8px;margin-top:8px;justify-content:flex-end;}
+        .delete-comment{background:#ff4444;color:white;border:none;border-radius:30px;padding:4px 12px;cursor:pointer;font-size:11px;font-weight:bold;}
+        .reply-comment{background:#28a745;color:white;border:none;border-radius:30px;padding:4px 12px;cursor:pointer;font-size:11px;font-weight:bold;}
+        .admin-panel{display:none;position:fixed;bottom:20px;left:20px;background:#222;color:white;padding:10px 15px;border-radius:30px;z-index:9999;gap:10px;align-items:center;}
+        .reply-input{display:none;margin-top:8px;gap:8px;flex-wrap:wrap;}
+        .reply-input input{flex:1;padding:6px 10px;border-radius:20px;border:1px solid #ddd;}
+        .admin-news-panel,.admin-videos-panel,.admin-slider-panel,.admin-music-panel,.admin-shop-panel,.admin-gallery-panel{background:#1e1e2f;color:white;border-radius:24px;padding:25px;margin-bottom:30px;}
+        .admin-news-panel h3,.admin-videos-panel h3,.admin-slider-panel h3,.admin-music-panel h3,.admin-shop-panel h3,.admin-gallery-panel h3{color:#B61C1C;margin-bottom:20px;}
+        .admin-news-panel input,.admin-news-panel textarea,.admin-videos-panel input,.admin-videos-panel textarea,.admin-slider-panel input,.admin-music-panel input,.admin-music-panel textarea,.admin-shop-panel input,.admin-shop-panel select,.admin-shop-panel textarea,.admin-gallery-panel input{width:100%;padding:10px;margin-bottom:15px;border-radius:16px;border:none;font-family:'Vazirmatn',sans-serif;}
+        .admin-shop-panel select{background:white;}
+        .admin-news-panel button,.admin-videos-panel button,.admin-slider-panel button,.admin-music-panel button,.admin-shop-panel button,.admin-gallery-panel button{background:#B61C1C;border:none;padding:8px 20px;border-radius:30px;color:white;cursor:pointer;margin-left:10px;margin-top:5px;font-family:'Vazirmatn',sans-serif;font-weight:800;}
+        .news-item-admin,.video-item-admin,.slider-item-admin,.music-item-admin,.product-item-admin,.gallery-item-admin{background:#2a2a3a;border-radius:16px;padding:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+        .news-item-admin button,.video-item-admin button,.slider-item-admin button,.music-item-admin button,.product-item-admin button,.gallery-item-admin button{margin-right:8px;background:#ff4444;padding:4px 12px;border-radius:20px;border:none;color:white;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-weight:700;}
+        .edit-btn{background:#ffc107 !important;color:#1a1a1a !important;}
+        .featured{background:white;border-radius:24px;padding:30px;text-align:center;}
+        .datetime-group{display:flex;gap:10px;margin-bottom:15px;}
+        .datetime-group input{flex:1;}
+        .filter-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:25px;justify-content:center;}
+        .filter-btn{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:8px 20px;border-radius:40px;color:white;cursor:pointer;transition:0.2s;font-family:'Vazirmatn',sans-serif;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:8px;backdrop-filter:blur(4px);}
+        .filter-btn i{font-size:14px;}
+        .filter-btn:hover{background:#B61C1C;border-color:#B61C1C;transform:translateY(-2px);}
+        .filter-btn.active{background:#B61C1C;border-color:#B61C1C;box-shadow:0 0 10px rgba(182,28,28,0.5);}
+        .audio-player{width:100%;margin-top:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+        .audio-player audio{flex:1;min-width:150px;border-radius:30px;}
+        .download-btn{background:#B61C1C;border:none;border-radius:30px;padding:8px 12px;color:white;cursor:pointer;transition:0.2s;font-size:14px;display:inline-flex;align-items:center;gap:6px;font-family:'Vazirmatn',sans-serif;font-weight:800;}
+        .download-btn i{font-size:14px;}
+        .download-btn:hover{background:#8a1010;}
+        .music-game-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(182,28,28,0.1);padding:4px 12px;border-radius:30px;margin:8px auto;width:fit-content;}
+        .music-game-badge i{font-size:14px;color:#B61C1C;}
+        .music-desc-box{background:linear-gradient(135deg,#f5f5f5,#fff);border-radius:16px;padding:12px;margin:10px 0;border-right:3px solid #B61C1C;text-align:right;font-size:13px;}
+        .gallery-download-btn{background:#B61C1C;border:none;padding:8px 20px;border-radius:40px;color:white;font-weight:800;cursor:pointer;transition:0.2s;font-size:13px;font-family:'Vazirmatn',sans-serif;display:inline-flex;align-items:center;gap:8px;margin-top:5px;width:auto;}
+        .gallery-download-btn i{font-size:14px;}
+        .gallery-download-btn:hover{background:#8a1010;transform:scale(1.02);}
+        @media (max-width:700px){.logo-raw{height:380px;}.menu a{font-size:13px;gap:6px;}.datetime-group{flex-direction:column;}.filter-btn{padding:5px 14px;font-size:12px;}.nav-arrow{width:30px;height:30px;font-size:14px;}.audio-player{flex-direction:column;}.audio-player audio{width:100%;}}
+    </style>
+</head>
+<body>
 
+<header class="header">
+    <img class="logo-raw" src="https://cdn.imgurl.ir/uploads/s547003_Zerox.png" alt="Zerox Logo" id="secretAdminLogo">
+    <div class="menu">
+        <a onclick="showPage('home')"><i class="fas fa-home"></i> خانه</a>
+        <a onclick="showPage('stories')"><i class="fas fa-book-open"></i> داستان‌ها</a>
+        <a onclick="showPage('videos')"><i class="fas fa-video"></i> ویدیوها</a>
+        <a onclick="showPage('music')"><i class="fas fa-music"></i> موسیقی</a>
+        <a onclick="showPage('news')"><i class="fas fa-newspaper"></i> اخبار</a>
+        <a onclick="showPage('shop')"><i class="fas fa-store"></i> زروکس‌شاپ</a>
+        <a onclick="showPage('gallery')"><i class="fas fa-images"></i> گالری</a>
+        <a onclick="showPage('about')"><i class="fas fa-info-circle"></i> درباره ما</a>
+    </div>
+</header>
+
+<div id="secretAdminPanel" class="admin-panel" style="display:none;">
+    <span>🔐 ادمین: Zerox</span>
+    <button onclick="exitAdminMode()">خروج</button>
+</div>
+
+<div class="slider-container">
+    <div class="slider">
+        <button class="nav-arrow prev" onclick="changeSlide(-1)">❮</button>
+        <div class="slides" id="slidesContainer"></div>
+        <button class="nav-arrow next" onclick="changeSlide(1)">❯</button>
+    </div>
+    <div class="dots" id="dotsContainer"></div>
+</div>
+
+<div class="container" id="contentContainer">
+    <div id="homePage">
+        <div class="section-title"><i class="fas fa-fire"></i> ویدیوهای جدید</div>
+        <div class="videos-grid" id="homeVideosGrid"></div>
+        <div class="section-title"><i class="fas fa-newspaper"></i> آخرین اخبار بازی</div>
+        <div class="news-grid" id="homeNewsGrid"></div>
+        <div class="section-title"><i class="fas fa-book-open"></i> داستان‌های جدید</div>
+        <div class="cards-grid" id="homeStoriesGrid"></div>
+    </div>
+
+    <div id="storiesPage" style="display:none;">
+        <div class="section-title"><i class="fas fa-book-open"></i> داستان‌های بازی</div>
+        <div class="cards-grid" id="storiesGrid"></div>
+    </div>
+
+    <div id="videosPage" style="display:none;">
+        <div class="section-title"><i class="fas fa-video"></i> ویدیوها</div>
+        <div class="filter-buttons" id="filterButtons">
+            <button class="filter-btn active" data-category="همه"><i class="fas fa-globe"></i> همه</button>
+            <button class="filter-btn" data-category="تخیلی"><i class="fas fa-meteor"></i> تخیلی</button>
+            <button class="filter-btn" data-category="اکشن"><i class="fas fa-bolt"></i> اکشن</button>
+            <button class="filter-btn" data-category="ماجراجویی"><i class="fas fa-map"></i> ماجراجویی</button>
+            <button class="filter-btn" data-category="ترسناک"><i class="fas fa-ghost"></i> ترسناک</button>
+            <button class="filter-btn" data-category="هیجانی"><i class="fas fa-heartbeat"></i> هیجانی</button>
+        </div>
+        <div id="adminVideosPanel" style="display:none;" class="admin-videos-panel">
+            <h3>➕ مدیریت ویدیوها</h3>
+            <input type="text" id="videoTitle" placeholder="عنوان ویدیو"><textarea id="videoDesc" placeholder="توضیحات کوتاه"></textarea><input type="text" id="videoThumb" placeholder="لینک عکس تامنیل"><input type="text" id="videoLink" placeholder="لینک ویدیو در آپارات"><select id="videoCategory"><option value="تخیلی">🔮 تخیلی</option><option value="اکشن">⚡ اکشن</option><option value="ماجراجویی">🗺️ ماجراجویی</option><option value="ترسناک">👻 ترسناک</option><option value="هیجانی">🎢 هیجانی</option></select><div class="datetime-group"><input type="text" id="videoDate" placeholder="تاریخ"><input type="text" id="videoTime" placeholder="ساعت"></div><textarea id="videoFullText" placeholder="متن کامل ویدیو"></textarea><button onclick="addVideo()">➕ اضافه کردن ویدیو</button><hr><h4>✏️ ویرایش/حذف ویدیوها</h4><div id="videosListAdmin"></div>
+        </div>
+        <div class="videos-grid" id="videosGrid"></div>
+    </div>
+
+    <div id="musicPage" style="display:none;">
+        <div class="section-title"><i class="fas fa-music"></i> موسیقی بازی‌ها</div>
+        <div id="adminMusicPanel" style="display:none;" class="admin-music-panel">
+            <h3>🎵 مدیریت موسیقی</h3>
+            <input type="text" id="musicTitle" placeholder="نام آهنگ"><input type="text" id="musicGame" placeholder="نام بازی"><input type="text" id="musicPlatform" placeholder="پلتفرم (PS/Xbox/PC/Nintendo)"><input type="text" id="musicCover" placeholder="لینک کاور"><input type="text" id="musicFile" placeholder="لینک فایل صوتی"><textarea id="musicDesc" placeholder="توضیحات"></textarea><button onclick="addMusic()">➕ اضافه کردن آهنگ</button><hr><h4>✏️ ویرایش/حذف آهنگ‌ها</h4><div id="musicListAdmin"></div>
+        </div>
+        <div class="music-grid" id="musicGrid"></div>
+    </div>
+
+    <div id="newsPage" style="display:none;">
+        <div class="section-title"><i class="fas fa-newspaper"></i> همه اخبار</div>
+        <div id="adminSliderPanel" style="display:none;" class="admin-slider-panel">
+            <h3>🖼️ مدیریت اسلایدر</h3>
+            <input type="text" id="sliderImage" placeholder="لینک عکس جدید"><button onclick="addSlider()">➕ اضافه کردن اسلاید</button><hr><h4>✏️ ویرایش/حذف اسلایدها</h4><div id="sliderListAdmin"></div>
+        </div>
+        <div id="adminNewsPanel" style="display:none;" class="admin-news-panel">
+            <h3>➕ مدیریت اخبار</h3>
+            <input type="text" id="newsTitle" placeholder="عنوان خبر"><textarea id="newsSummary" placeholder="خلاصه خبر"></textarea><input type="text" id="newsImage" placeholder="لینک عکس خبر"><div class="datetime-group"><input type="text" id="newsDate" placeholder="تاریخ"><input type="text" id="newsTime" placeholder="ساعت"></div><textarea id="newsFullText" placeholder="متن کامل خبر"></textarea><button onclick="addNews()">➕ اضافه کردن خبر</button><hr><h4>✏️ ویرایش/حذف اخبار</h4><div id="newsListAdmin"></div>
+        </div>
+        <div class="news-grid" id="newsGrid"></div>
+    </div>
+
+    <div id="shopPage" style="display:none;">
+        <div class="section-title"><i class="fas fa-store"></i> زروکس‌شاپ | فروشگاه تخصصی گیمینگ</div>
+        <div id="adminShopPanel" style="display:none;" class="admin-shop-panel">
+            <h3>🛍️ مدیریت فروشگاه</h3>
+            <input type="text" id="productTitle" placeholder="نام محصول">
+            <textarea id="productDesc" placeholder="توضیحات محصول"></textarea>
+            <input type="text" id="productPrice" placeholder="قیمت (تومان)">
+            <input type="text" id="productImage" placeholder="لینک عکس محصول">
+            <select id="productShape">
+                <option value="square">مربع</option>
+                <option value="rectangle">مستطیل</option>
+                <option value="large">بزرگ</option>
+            </select>
+            <button onclick="addProduct()">➕ اضافه کردن محصول</button>
+            <hr>
+            <h4>✏️ ویرایش/حذف محصولات</h4>
+            <div id="productsListAdmin"></div>
+        </div>
+        <div class="shop-grid" id="shopGrid"></div>
+    </div>
+
+    <div id="galleryPage" style="display:none;">
+        <div class="section-title"><i class="fas fa-images"></i> گالری عکس بازی‌ها</div>
+        <div id="adminGalleryPanel" style="display:none;" class="admin-gallery-panel">
+            <h3>🖼️ مدیریت گالری عکس</h3>
+            <input type="text" id="galleryImageUrl" placeholder="لینک عکس جدید">
+            <input type="text" id="galleryImageTitle" placeholder="عنوان عکس (اختیاری)">
+            <button onclick="addGalleryImage()">➕ اضافه کردن عکس به گالری</button>
+            <hr>
+            <h4>✏️ ویرایش/حذف عکس‌ها</h4>
+            <div id="galleryListAdmin"></div>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+
+    <div id="aboutPage" style="display:none;">
+        <div class="featured"><h2 style="color:#B61C1C;">درباره ZEROX | GAME</h2><p>اینجا بهشت گیمر هاست!</p><p>ما گروه زروکس هستیم و خوشحال هستیم که توی این سایت هستین</p><p>اگر مشکلی توی سایت بود لطفا به ایدی: <strong>@support_Zerox</strong> پیام بدید</p><hr><p><strong>سازنده سایت:</strong> @mohamad_hossein_ev18</p><p><strong>برای ارتباط با سازنده سایت:</strong> تلگرام پیام بدید</p></div>
+    </div>
+</div>
+
+<footer class="footer"><p>© 2025 ZEROX | GAME — هر بازی یک حماسه</p></footer>
+
+<script>
+    // =============== داده‌های ثابت اولیه (فقط برای بار اول) ===============
+    const DEFAULT_VIDEOS = [
+        { id: 1, title: "داستان کامل بازی نه من انسان نیستم", desc: "اولین ویدیوی چنل", thumb: "https://cdn.imgurl.ir/uploads/n43644_71129478-9827-l__3296.jpg", link: "https://www.aparat.com/v/itl9b8h", category: "ترسناک", date: "شنبه ۱۶ خرداد ۱۴۰۵", time: "۰۸:۳۶", fullText: "" },
+        { id: 2, title: "داستان کامل بازی Outlast", desc: "بررسی تیمارستان Mount Massive", thumb: "https://up.20script.ir/file/a2a2-Zerox-th12.png", link: "https://www.aparat.com/v/gkcxc4t", category: "ترسناک", date: "جمعه ۲۲ خرداد ۱۴۰۵", time: "۰۹:۵۲", fullText: "در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم..." }
+    ];
+    const DEFAULT_NEWS = [
+        { id: 1, title: "GTA 6", summary: "اخبار جدید", image: "https://up.20script.ir/file/aab9-InShot-20260606-000830042.jpg", date: "شنبه ۱۶ خرداد ۱۴۰۵", time: "۰۸:۳۶", fullText: "" },
+        { id: 2, title: "رزیدنت اویل", summary: "اخبار جدید", image: "https://up.20script.ir/file/4a42-InShot-20260606-005725188.jpg", date: "جمعه ۱۶ خرداد ۱۴۰۴", time: "۰۹:۴۸", fullText: "" },
+        { id: 3, title: "د لست اف اس", summary: "اخبار جدید", image: "https://up.20script.ir/file/fb9e-InShot-20260606-114430356.jpg", date: "جمعه ۱۶ خرداد ۱۴۰۵", time: "۱۱:۵۶", fullText: "" }
+    ];
+    const DEFAULT_SLIDER = [
+        { id: 1, image: "https://uploadkon.ir/uploads/257306_26InShot-20260605-195526606.jpg" },
+        { id: 2, image: "https://up.20script.ir/file/e091-InShot-20260605-200640757.jpg" }
+    ];
+    const DEFAULT_GALLERY = [
+        { id: 1, title: "God of War Ragnarok", image: "https://cdn.zoomg.ir/2022/11/god-of-war-ragnarok-11.jpg" },
+        { id: 2, title: "The Last of Us Part II", image: "https://cdn.zoomg.ir/2020/06/the-last-of-us-2-10.jpg" }
+    ];
+    const storiesData = [
+        { title: "رستاخیز سرزمین‌های فراموش‌شده", desc: "تحلیل کامل داستان", img: "https://cdn.imgurl.ir/uploads/r97029_Negar_1780663640432.jpg" },
+        { title: "حماسه آخرین بازمانده", desc: "روایت نجات و بقا", img: "https://cdn.imgurl.ir/uploads/r97029_Negar_1780663640432.jpg" }
+    ];
+    
+    // بارگذاری امن داده‌ها - اگر خالی یا خراب بود از دیتای پیش‌فرض استفاده کن
+    function loadData(key, defaultValue) {
+        try {
+            const saved = localStorage.getItem(key);
+            if (saved && saved !== 'undefined' && saved !== 'null') {
+                const parsed = JSON.parse(saved);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    return parsed;
+                }
+            }
+        } catch(e) { console.log(e); }
+        return defaultValue;
+    }
+    
+    let sliderData = loadData('zeroxSlider', DEFAULT_SLIDER);
+    let videosData = loadData('zeroxVideos', DEFAULT_VIDEOS);
+    let musicData = loadData('zeroxMusic', []);
+    let newsData = loadData('zeroxNews', DEFAULT_NEWS);
+    let productsData = loadData('zeroxProducts', []);
+    let galleryData = loadData('zeroxGallery', DEFAULT_GALLERY);
+    
+    function saveSlider() { localStorage.setItem('zeroxSlider', JSON.stringify(sliderData)); }
+    function saveVideos() { localStorage.setItem('zeroxVideos', JSON.stringify(videosData)); }
+    function saveMusic() { localStorage.setItem('zeroxMusic', JSON.stringify(musicData)); }
+    function saveNews() { localStorage.setItem('zeroxNews', JSON.stringify(newsData)); }
+    function saveProducts() { localStorage.setItem('zeroxProducts', JSON.stringify(productsData)); }
+    function saveGallery() { localStorage.setItem('zeroxGallery', JSON.stringify(galleryData)); }
+    
+    // ذخیره اولیه اگر خالی بود
+    if(!localStorage.getItem('zeroxSlider')) saveSlider();
+    if(!localStorage.getItem('zeroxVideos')) saveVideos();
+    if(!localStorage.getItem('zeroxNews')) saveNews();
+    if(!localStorage.getItem('zeroxGallery')) saveGallery();
+    
+    function downloadImage(url, title) {
+        fetch(url).then(r=>r.blob()).then(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=title+'.jpg';a.click();URL.revokeObjectURL(a.href);}).catch(()=>window.open(url,'_blank'));
+    }
+    
+    // =============== اسلایدر ===============
+    let currentSlideIndex = 0, autoSlideInterval;
+    function renderSlider() {
+        const slidesContainer = document.getElementById('slidesContainer'), dotsContainer = document.getElementById('dotsContainer');
+        if (!slidesContainer) return;
+        slidesContainer.innerHTML = sliderData.map((s,i)=>`<div class="slide"><img src="${s.image}"></div>`).join('');
+        dotsContainer.innerHTML = sliderData.map((_,i)=>`<div class="dot ${i===currentSlideIndex?'active':''}" onclick="goToSlide(${i})"></div>`).join('');
+        if(sliderData.length) slidesContainer.style.transform = `translateX(-${currentSlideIndex*100}%)`;
+    }
+    function changeSlide(n) { if(!sliderData.length) return; currentSlideIndex = (currentSlideIndex+n+sliderData.length)%sliderData.length; renderSlider(); }
+    function goToSlide(i) { currentSlideIndex=i; renderSlider(); }
+    function addSlider(){const img=document.getElementById('sliderImage').value.trim();if(!img)return;sliderData.push({id:Date.now(),image:img});saveSlider();document.getElementById('sliderImage').value='';loadAdminSliderList();renderSlider();if(autoSlideInterval)clearInterval(autoSlideInterval);if(sliderData.length>1)autoSlideInterval=setInterval(()=>changeSlide(1),5000);alert('اسلاید اضافه شد!');}
+    function deleteSlider(id){if(confirm('حذف شود؟')){sliderData=sliderData.filter(s=>s.id!==id);if(currentSlideIndex>=sliderData.length)currentSlideIndex=Math.max(0,sliderData.length-1);saveSlider();loadAdminSliderList();renderSlider();alert('حذف شد!');}}
+    function editSlider(id){const s=sliderData.find(s=>s.id===id);if(!s)return;const newImg=prompt('لینک جدید:',s.image);if(newImg&&newImg.trim()){s.image=newImg.trim();saveSlider();loadAdminSliderList();renderSlider();alert('ویرایش شد!');}}
+    function loadAdminSliderList(){const c=document.getElementById('sliderListAdmin');if(!c)return;c.innerHTML=sliderData.length?sliderData.map(s=>`<div class="slider-item-admin"><span>اسلاید ${s.id}</span><div><button class="edit-btn" onclick="editSlider(${s.id})">✏️</button><button onclick="deleteSlider(${s.id})">🗑</button></div></div>`).join(''):'<p>هیچ اسلایدی نیست</p>';}
+    
+    // =============== موسیقی ===============
+    function getPlatformIcon(p){const pl=p?.toLowerCase()||'';if(pl.includes('ps'))return'<i class="fab fa-playstation"></i>';if(pl.includes('xbox'))return'<i class="fab fa-xbox"></i>';if(pl.includes('pc'))return'<i class="fab fa-windows"></i>';if(pl.includes('nintendo'))return'<i class="fab fa-nintendo-switch"></i>';return'<i class="fas fa-gamepad"></i>';}
+    function downloadMusic(url,title){fetch(url).then(r=>r.blob()).then(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`${title}.mp3`;a.click();}).catch(()=>window.open(url,'_blank'));}
+    function loadMusic(){const g=document.getElementById('musicGrid');if(!g)return;if(!musicData.length){g.innerHTML='<div class="music-card" style="text-align:center;padding:50px;"><i class="fas fa-headphones" style="font-size:48px;color:#B61C1C;"></i><h3>هنوز آهنگی اضافه نشده</h3></div>';return;}g.innerHTML=musicData.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}"><div class="music-info"><h3>${m.title}</h3><div class="music-game-badge">${getPlatformIcon(m.platform)} ${m.game}</div>${m.desc?`<div class="music-desc-box">${m.desc}</div>`:''}<div class="audio-player"><audio controls src="${m.file}"></audio><button class="download-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}','${m.title}')"><i class="fas fa-download"></i> دانلود</button></div></div></div>`).join('');}
+    function addMusic(){const t=document.getElementById('musicTitle').value.trim(),g=document.getElementById('musicGame').value.trim(),p=document.getElementById('musicPlatform').value.trim(),c=document.getElementById('musicCover').value.trim(),f=document.getElementById('musicFile').value.trim(),d=document.getElementById('musicDesc').value.trim();if(!t||!g||!c||!f){alert('لطفاً نام آهنگ، نام بازی، کاور و فایل صوتی را وارد کنید!');return;}musicData.push({id:Date.now(),title:t,game:g,platform:p||'PS',cover:c,file:f,desc:d});saveMusic();document.getElementById('musicTitle').value='';document.getElementById('musicGame').value='';document.getElementById('musicPlatform').value='';document.getElementById('musicCover').value='';document.getElementById('musicFile').value='';document.getElementById('musicDesc').value='';loadAdminMusicList();loadMusic();alert('آهنگ اضافه شد!');}
+    function deleteMusic(id){if(confirm('حذف شود؟')){musicData=musicData.filter(m=>m.id!==id);saveMusic();loadAdminMusicList();loadMusic();alert('حذف شد!');}}
+    function editMusic(id){const m=musicData.find(m=>m.id===id);if(!m)return;const nt=prompt('نام جدید:',m.title);if(nt)m.title=nt;const ng=prompt('نام بازی جدید:',m.game);if(ng)m.game=ng;const np=prompt('پلتفرم جدید:',m.platform);if(np)m.platform=np;const nc=prompt('لینک کاور جدید:',m.cover);if(nc)m.cover=nc;const nf=prompt('لینک فایل جدید:',m.file);if(nf)m.file=nf;const nd=prompt('توضیحات جدید:',m.desc);if(nd!==null)m.desc=nd;saveMusic();loadAdminMusicList();loadMusic();alert('ویرایش شد!');}
+    function loadAdminMusicList(){const c=document.getElementById('musicListAdmin');if(!c)return;c.innerHTML=musicData.length?musicData.map(m=>`<div class="music-item-admin"><span>${m.title} (${m.game})</span><div><button class="edit-btn" onclick="editMusic(${m.id})">✏️</button><button onclick="deleteMusic(${m.id})">🗑</button></div></div>`).join(''):'<p>هیچ آهنگی نیست</p>';}
+    
+    // =============== ویدیوها ===============
+    function loadVideos(containerId, filter='همه'){const filtered=filter==='همه'?videosData:videosData.filter(v=>v.category===filter);const catIcon=c=>c==='تخیلی'?'<i class="fas fa-meteor"></i>':c==='اکشن'?'<i class="fas fa-bolt"></i>':c==='ماجراجویی'?'<i class="fas fa-map"></i>':c==='ترسناک'?'<i class="fas fa-ghost"></i>':'<i class="fas fa-heartbeat"></i>';document.getElementById(containerId).innerHTML=filtered.length?filtered.map(v=>`<div class="video-card" onclick="window.open('${v.link}','_blank')"><img class="video-thumb" src="${v.thumb}"><div class="video-badge">▶ تماشا</div><div class="video-info"><h3>${v.title}</h3><p>${v.desc}</p><div class="news-meta"><i class="fas fa-calendar-alt"></i> ${v.date} <i class="fas fa-clock"></i> ${v.time} ${catIcon(v.category)} ${v.category}</div>${v.fullText?`<div class="full-text" id="fullText-${v.id}">${v.fullText}</div><button class="more-btn" onclick="event.stopPropagation(); toggleText('fullText-${v.id}',this)">بیشتر...</button>`:''}<button class="btn-card">مشاهده ویدیو</button></div></div>`).join(''):'<div style="text-align:center;color:white;padding:50px;">ویدیویی در این دسته یافت نشد.</div>';}
+    function addVideo(){const t=document.getElementById('videoTitle').value.trim(),d=document.getElementById('videoDesc').value.trim(),th=document.getElementById('videoThumb').value.trim(),l=document.getElementById('videoLink').value.trim(),c=document.getElementById('videoCategory').value,dt=document.getElementById('videoDate').value.trim(),tm=document.getElementById('videoTime').value.trim(),ft=document.getElementById('videoFullText').value.trim();if(!t||!d||!th||!l||!dt||!tm){alert('همه فیلدها را پر کنید!');return;}videosData.push({id:Date.now(),title:t,desc:d,thumb:th,link:l,category:c,date:dt,time:tm,fullText:ft});saveVideos();clearVideoForm();loadAdminVideosList();refreshAllVideos();alert('ویدیو اضافه شد!');}
+    function deleteVideo(id){if(confirm('حذف شود؟')){videosData=videosData.filter(v=>v.id!==id);saveVideos();loadAdminVideosList();refreshAllVideos();}}
+    function editVideo(id){const v=videosData.find(v=>v.id===id);if(!v)return;const nt=prompt('عنوان جدید:',v.title);if(nt)v.title=nt;const nd=prompt('توضیحات جدید:',v.desc);if(nd)v.desc=nd;const nth=prompt('لینک عکس جدید:',v.thumb);if(nth)v.thumb=nth;const nl=prompt('لینک ویدیو جدید:',v.link);if(nl)v.link=nl;const nc=prompt('سبک جدید:',v.category);if(nc)v.category=nc;const ndt=prompt('تاریخ جدید:',v.date);if(ndt)v.date=ndt;const ntm=prompt('ساعت جدید:',v.time);if(ntm)v.time=ntm;const nft=prompt('متن کامل جدید:',v.fullText);if(nft!==null)v.fullText=nft;saveVideos();loadAdminVideosList();refreshAllVideos();alert('ویرایش شد!');}
+    function loadAdminVideosList(){const c=document.getElementById('videosListAdmin');if(!c)return;c.innerHTML=videosData.length?videosData.map(v=>`<div class="video-item-admin"><span>${v.title} (${v.category})</span><div><button class="edit-btn" onclick="editVideo(${v.id})">✏️</button><button onclick="deleteVideo(${v.id})">🗑</button></div></div>`).join(''):'<p>هیچ ویدیویی نیست</p>';}
+    function clearVideoForm(){document.getElementById('videoTitle').value='';document.getElementById('videoDesc').value='';document.getElementById('videoThumb').value='';document.getElementById('videoLink').value='';document.getElementById('videoCategory').value='تخیلی';document.getElementById('videoDate').value='';document.getElementById('videoTime').value='';document.getElementById('videoFullText').value='';}
+    function refreshAllVideos(){loadVideos('homeVideosGrid','همه');if(typeof currentFilter!=='undefined')loadVideos('videosGrid',currentFilter);else loadVideos('videosGrid','همه');}
+    
+    // =============== اخبار ===============
+    function loadNews(containerId){const sorted=[...newsData].reverse();document.getElementById(containerId).innerHTML=sorted.map(n=>`<div class="news-card" onclick="showFullNews(${n.id})"><img class="news-img" src="${n.image}"><div class="news-content"><div class="news-meta"><i class="fas fa-calendar-alt"></i> ${n.date} <i class="fas fa-clock"></i> ${n.time}</div><h3>${n.title}</h3><p>${n.summary}</p><button class="btn-card">ادامه مطلب</button></div></div>`).join('');}
+    function loadStories(containerId){document.getElementById(containerId).innerHTML=storiesData.map(s=>`<div class="thumbnail-card" onclick="window.open('https://www.aparat.com/zerox_game','_blank')"><img class="thumbnail-img" src="${s.img}"><div class="card-content"><h3>${s.title}</h3><p>${s.desc}</p><button class="btn-card">بیشتر بخوانید</button></div></div>`).join('');}
+    let currentNewsId=null;
+    function showFullNews(id){const n=newsData.find(n=>n.id===id);if(!n)return;currentNewsId=id;document.getElementById('contentContainer').innerHTML=`<div style="background:white;border-radius:28px;padding:30px;max-width:800px;margin:20px auto;"><button class="btn-card" onclick="location.reload()">بازگشت</button><h1 style="color:#B61C1C;">${n.title}</h1><img src="${n.image}" style="width:100%;border-radius:16px;margin:15px 0;"><div class="news-meta" style="justify-content:flex-start;margin-bottom:20px;"><i class="fas fa-calendar-alt"></i> ${n.date} <i class="fas fa-clock"></i> ${n.time}</div><div>${n.fullText}</div><div id="commentsSectionHere"></div></div>`;loadCommentsForCurrentNews();}
+    function loadCommentsForNews(id){return JSON.parse(localStorage.getItem(`comments_${id}`))||[];}
+    function saveCommentsForNews(id,list){localStorage.setItem(`comments_${id}`,JSON.stringify(list));}
+    function loadCommentsForCurrentNews(){const div=document.getElementById('commentsSectionHere');if(!div||!currentNewsId)return;const list=loadCommentsForNews(currentNewsId);let html=list.length===0?'<p style="text-align:center;color:#888;">هنوز نظری ثبت نشده.</p>':'';for(let i=0;i<list.length;i++){const c=list[i];const adminActions=isAdmin?`<div class="admin-actions"><button class="reply-comment" onclick="showReplyInputNews(${i})">📝 پاسخ</button><button class="delete-comment" onclick="deleteCommentNews(${i})">🗑 حذف</button></div><div id="replyInputNews-${i}" class="reply-input" style="display:none;"><input type="text" id="replyTextNews-${i}" placeholder="متن پاسخ..."><button onclick="submitReplyNews(${i})">ارسال</button></div>`:'';const replyHtml=c.reply?`<div class="comment-reply"><span class="reply-label">👑 Zerox (ادمین):</span> ${c.reply}</div>`:'';html+=`<div class="single-comment"><div><span class="comment-name">${c.name}</span> <span class="comment-text">${c.text}</span></div>${replyHtml}${adminActions}</div>`;}div.innerHTML=`<div class="comments-section"><h3>💬 نظرات کاربران</h3><div class="comment-list">${html}</div><div class="comment-form"><input type="text" id="commentName" placeholder="نام شما"><textarea id="commentText" placeholder="نظر خود را بنویسید..."></textarea><button class="btn-card" onclick="addCommentNews()">ارسال نظر</button></div></div>`;}
+    function addCommentNews(){const name=document.getElementById('commentName').value.trim(),text=document.getElementById('commentText').value.trim();if(!name||!text){alert('لطفاً نام و متن نظر را وارد کنید.');return;}const userId=localStorage.getItem('userId');if(userId&&localStorage.getItem(`commented_${currentNewsId}_${userId}`)==='true'){alert('شما قبلاً نظر خود را ثبت کرده اید!');return;}const newUserId=userId||Date.now().toString();if(!userId)localStorage.setItem('userId',newUserId);const list=loadCommentsForNews(currentNewsId);list.push({name,text,reply:null});saveCommentsForNews(currentNewsId,list);localStorage.setItem(`commented_${currentNewsId}_${newUserId}`,'true');loadCommentsForCurrentNews();document.getElementById('commentName').value='';document.getElementById('commentText').value='';}
+    function showReplyInputNews(index){const div=document.getElementById(`replyInputNews-${index}`);div.style.display=div.style.display==='flex'?'none':'flex';}
+    function submitReplyNews(index){if(!isAdmin){alert('فقط ادمین می‌تونه پاسخ بده!');return;}const reply=document.getElementById(`replyTextNews-${index}`).value.trim();if(!reply){alert('متن پاسخ را وارد کنید.');return;}const list=loadCommentsForNews(currentNewsId);list[index].reply=reply;saveCommentsForNews(currentNewsId,list);loadCommentsForCurrentNews();}
+    function deleteCommentNews(index){if(!isAdmin){alert('دسترسی غیرمجاز!');return;}if(confirm('حذف شود؟')){const list=loadCommentsForNews(currentNewsId);list.splice(index,1);saveCommentsForNews(currentNewsId,list);loadCommentsForCurrentNews();}}
+    function addNews(){const t=document.getElementById('newsTitle').value.trim(),s=document.getElementById('newsSummary').value.trim(),i=document.getElementById('newsImage').value.trim(),d=document.getElementById('newsDate').value.trim(),tm=document.getElementById('newsTime').value.trim(),ft=document.getElementById('newsFullText').value.trim();if(!t||!s||!i||!d||!tm||!ft){alert('همه فیلدها را پر کنید!');return;}newsData.push({id:Date.now(),title:t,summary:s,image:i,date:d,time:tm,fullText:ft});saveNews();clearNewsForm();loadAdminNewsList();refreshAllNews();alert('خبر اضافه شد!');}
+    function deleteNews(id){if(confirm('حذف شود؟')){newsData=newsData.filter(n=>n.id!==id);saveNews();loadAdminNewsList();refreshAllNews();}}
+    function editNews(id){const n=newsData.find(n=>n.id===id);if(!n)return;const nt=prompt('عنوان جدید:',n.title);if(nt)n.title=nt;const ns=prompt('خلاصه جدید:',n.summary);if(ns)n.summary=ns;const ni=prompt('لینک عکس جدید:',n.image);if(ni)n.image=ni;const nd=prompt('تاریخ جدید:',n.date);if(nd)n.date=nd;const ntm=prompt('ساعت جدید:',n.time);if(ntm)n.time=ntm;const nft=prompt('متن کامل جدید:',n.fullText);if(nft)n.fullText=nft;saveNews();loadAdminNewsList();refreshAllNews();alert('ویرایش شد!');}
+    function loadAdminNewsList(){const c=document.getElementById('newsListAdmin');if(!c)return;c.innerHTML=newsData.length?newsData.map(n=>`<div class="news-item-admin"><span>${n.title}</span><div><button class="edit-btn" onclick="editNews(${n.id})">✏️</button><button onclick="deleteNews(${n.id})">🗑</button></div></div>`).join(''):'<p>هیچ خبری نیست</p>';}
+    function clearNewsForm(){document.getElementById('newsTitle').value='';document.getElementById('newsSummary').value='';document.getElementById('newsImage').value='';document.getElementById('newsDate').value='';document.getElementById('newsTime').value='';document.getElementById('newsFullText').value='';}
+    function refreshAllNews(){loadNews('homeNewsGrid');loadNews('newsGrid');}
+    
+    // =============== فروشگاه ===============
+    function loadProducts(){
+        const grid = document.getElementById('shopGrid');
+        if(!grid) return;
+        if(productsData.length === 0){
+            grid.innerHTML = '<div class="product-card" style="text-align:center;padding:50px;"><i class="fas fa-box-open" style="font-size:48px;color:#B61C1C;"></i><h3>هنوز محصولی وجود ندارد</h3><p>از پنل ادمین محصول جدید اضافه کنید</p></div>';
+            return;
+        }
+        grid.innerHTML = productsData.map(p => `<div class="product-card ${p.shape || 'square'}"><img class="product-img" src="${p.image}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'"><div class="product-info"><h3 class="product-title">${p.title}</h3><p>${p.desc}</p><div class="product-price"><i class="fas fa-coins"></i> ${Number(p.price).toLocaleString()} تومان</div><button class="buy-btn" onclick="alert('برای خرید با پشتیبانی تماس بگیرید: @support_Zerox')"><i class="fas fa-shopping-cart"></i> خرید محصول</button></div></div>`).join('');
+    }
+    function addProduct(){const title=document.getElementById('productTitle').value.trim(),desc=document.getElementById('productDesc').value.trim(),price=document.getElementById('productPrice').value.trim(),image=document.getElementById('productImage').value.trim(),shape=document.getElementById('productShape').value;if(!title||!desc||!price||!image){alert('❌ همه فیلدها را پر کنید!');return;}const priceNum=parseInt(price);if(isNaN(priceNum)){alert('❌ قیمت را به عدد وارد کنید!');return;}productsData.push({id:Date.now(),title:title,desc:desc,price:priceNum,image:image,shape:shape});saveProducts();document.getElementById('productTitle').value='';document.getElementById('productDesc').value='';document.getElementById('productPrice').value='';document.getElementById('productImage').value='';loadAdminProductsList();loadProducts();alert('✅ محصول با موفقیت اضافه شد!');}
+    function deleteProduct(id){if(confirm('آیا از حذف این محصول مطمئنی؟')){productsData=productsData.filter(p=>p.id!==id);saveProducts();loadAdminProductsList();loadProducts();alert('محصول حذف شد!');}}
+    function editProduct(id){const p=productsData.find(p=>p.id===id);if(!p)return;const newTitle=prompt('نام جدید:',p.title);if(newTitle)p.title=newTitle;const newDesc=prompt('توضیحات جدید:',p.desc);if(newDesc)p.desc=newDesc;const newPrice=prompt('قیمت جدید:',p.price);if(newPrice)p.price=parseInt(newPrice);const newImage=prompt('لینک عکس جدید:',p.image);if(newImage)p.image=newImage;const newShape=prompt('شکل جدید (square/rectangle/large):',p.shape);if(newShape)p.shape=newShape;saveProducts();loadAdminProductsList();loadProducts();alert('ویرایش شد!');}
+    function loadAdminProductsList(){const container=document.getElementById('productsListAdmin');if(!container)return;if(productsData.length===0){container.innerHTML='<p style="color:#ccc;">هیچ محصولی وجود ندارد.</p>';return;}container.innerHTML=productsData.map(p=>`<div class="product-item-admin"><span style="flex:1;">${p.title} - ${p.price.toLocaleString()} تومان</span><div><button class="edit-btn" onclick="editProduct(${p.id})">✏️</button><button onclick="deleteProduct(${p.id})">🗑</button></div></div>`).join('');}
+
+    // =============== گالری ===============
+    function loadGallery(){const gc=document.getElementById('galleryGrid');if(!gc)return;if(galleryData.length===0){gc.innerHTML='<div class="gallery-card" style="text-align:center;padding:50px;"><i class="fas fa-camera" style="font-size:48px; color:#B61C1C;"></i><h3>گالری خالی است</h3><p>از پنل ادمین عکس جدید اضافه کنید</p></div>';return;}gc.innerHTML=galleryData.map(img=>`<div class="gallery-card"><img class="gallery-img" src="${img.image}" alt="${img.title||'گالری'}"><div class="gallery-info"><h3>${img.title||'بدون عنوان'}</h3><button class="gallery-download-btn" onclick="event.stopPropagation(); downloadImage('${img.image}', '${img.title||'gallery-image'}')"><i class="fas fa-download"></i> دانلود عکس</button></div></div>`).join('');}
+    function addGalleryImage(){const url=document.getElementById('galleryImageUrl').value.trim(),title=document.getElementById('galleryImageTitle').value.trim();if(!url){alert('لطفاً لینک عکس را وارد کنید!');return;}galleryData.push({id:Date.now(),title:title||'عکس جدید',image:url});saveGallery();document.getElementById('galleryImageUrl').value='';document.getElementById('galleryImageTitle').value='';loadAdminGalleryList();loadGallery();alert('✅ عکس با موفقیت به گالری اضافه شد!');}
+    function deleteGalleryImage(id){if(confirm('آیا از حذف این عکس مطمئنی؟')){galleryData=galleryData.filter(img=>img.id!==id);saveGallery();loadAdminGalleryList();loadGallery();alert('عکس حذف شد!');}}
+    function editGalleryImage(id){const img=galleryData.find(img=>img.id===id);if(!img)return;const nt=prompt('عنوان جدید:',img.title);if(nt!==null)img.title=nt;const nu=prompt('لینک عکس جدید:',img.image);if(nu&&nu.trim())img.image=nu.trim();saveGallery();loadAdminGalleryList();loadGallery();alert('ویرایش انجام شد!');}
+    function loadAdminGalleryList(){const c=document.getElementById('galleryListAdmin');if(!c)return;if(galleryData.length===0){c.innerHTML='<p style="color:#ccc;">هیچ عکسی در گالری وجود ندارد.</p>';return;}c.innerHTML=galleryData.map(img=>`<div class="gallery-item-admin"><span style="flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${img.title||'بدون عنوان'}</span><div><button class="edit-btn" onclick="editGalleryImage(${img.id})">✏️</button><button onclick="deleteGalleryImage(${img.id})">🗑</button></div></div>`).join('');}
+    
+    // =============== ادمین ===============
+    let isAdmin=false,clickCount=0,clickTimer;
+    document.getElementById('secretAdminLogo').addEventListener('click',()=>{clickCount++;clearTimeout(clickTimer);clickTimer=setTimeout(()=>clickCount=0,800);if(clickCount===3){clickCount=0;const pwd=prompt('🔐 رمز ادمین:');if(pwd==='ZeroxAdmin'){isAdmin=true;document.getElementById('secretAdminPanel').style.display='flex';document.getElementById('adminNewsPanel').style.display='block';document.getElementById('adminVideosPanel').style.display='block';document.getElementById('adminSliderPanel').style.display='block';document.getElementById('adminMusicPanel').style.display='block';document.getElementById('adminShopPanel').style.display='block';document.getElementById('adminGalleryPanel').style.display='block';loadAdminNewsList();loadAdminVideosList();loadAdminSliderList();loadAdminMusicList();loadAdminProductsList();loadAdminGalleryList();alert('حالت ادمین فعال شد.');}else alert('رمز اشتباه است!');}});
+    function exitAdminMode(){isAdmin=false;document.getElementById('secretAdminPanel').style.display='none';document.getElementById('adminNewsPanel').style.display='none';document.getElementById('adminVideosPanel').style.display='none';document.getElementById('adminSliderPanel').style.display='none';document.getElementById('adminMusicPanel').style.display='none';document.getElementById('adminShopPanel').style.display='none';document.getElementById('adminGalleryPanel').style.display='none';alert('حالت ادمین غیرفعال شد.');}
+    function toggleText(id,btn){const e=document.getElementById(id);if(e.style.display==='none'||e.style.display===''){e.style.display='block';btn.innerText='بستن';}else{e.style.display='none';btn.innerText='بیشتر...';}}
+    
+    // =============== صفحه‌بندی ===============
+    let currentFilter='همه';
+    function setupFilters(){document.querySelectorAll('#filterButtons .filter-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('#filterButtons .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentFilter=btn.getAttribute('data-category');loadVideos('videosGrid',currentFilter);});});}
+    function showPage(page){
+        document.getElementById('homePage').style.display='none';document.getElementById('storiesPage').style.display='none';document.getElementById('videosPage').style.display='none';document.getElementById('musicPage').style.display='none';document.getElementById('newsPage').style.display='none';document.getElementById('shopPage').style.display='none';document.getElementById('galleryPage').style.display='none';document.getElementById('aboutPage').style.display='none';
+        if(page==='home'){document.getElementById('homePage').style.display='block';loadVideos('homeVideosGrid','همه');loadNews('homeNewsGrid');loadStories('homeStoriesGrid');}
+        else if(page==='stories'){document.getElementById('storiesPage').style.display='block';loadStories('storiesGrid');}
+        else if(page==='videos'){document.getElementById('videosPage').style.display='block';loadVideos('videosGrid',currentFilter);setupFilters();if(isAdmin)document.getElementById('adminVideosPanel').style.display='block';}
+        else if(page==='music'){document.getElementById('musicPage').style.display='block';loadMusic();if(isAdmin)document.getElementById('adminMusicPanel').style.display='block';}
+        else if(page==='news'){document.getElementById('newsPage').style.display='block';loadNews('newsGrid');if(isAdmin){document.getElementById('adminNewsPanel').style.display='block';document.getElementById('adminSliderPanel').style.display='block';}}
+        else if(page==='shop'){document.getElementById('shopPage').style.display='block';loadProducts();if(isAdmin)document.getElementById('adminShopPanel').style.display='block';}
+        else if(page==='gallery'){document.getElementById('galleryPage').style.display='block';loadGallery();if(isAdmin)document.getElementById('adminGalleryPanel').style.display='block';}
+        else if(page==='about')document.getElementById('aboutPage').style.display='block';
+    }
+    
+    // اجرای اولیه
+    loadVideos('homeVideosGrid','همه'); loadNews('homeNewsGrid'); loadStories('homeStoriesGrid'); loadStories('storiesGrid'); loadVideos('videosGrid','همه'); loadNews('newsGrid'); loadMusic(); loadProducts(); loadGallery(); renderSlider();
+    if(sliderData.length>1) autoSlideInterval=setInterval(()=>changeSlide(1),5000);
+</script>
+</body>
+</html>
