@@ -380,63 +380,108 @@ nav a:hover{
     border-right:3px solid var(--main);
 }
 
-/* ========== کارت موسیقی ========== */
+/* ========== کارت موسیقی با پلیر خوشگل ========== */
 .music-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
     gap:30px;
     margin-bottom:40px;
 }
 .music-card{
     background:white;
-    border-radius:24px;
+    border-radius:28px;
     overflow:hidden;
     transition:0.3s ease;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 .music-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);
+    box-shadow:0 25px 35px -12px rgba(0,0,0,0.3);
 }
 .music-img{
     width:100%;
-    height:180px;
+    height:210px;
     object-fit:cover;
+    transition:0.3s;
+}
+.music-card:hover .music-img{
+    transform:scale(1.02);
 }
 .music-info{
-    padding:20px;
+    padding:22px;
     text-align:center;
 }
 .music-info h3{
-    font-size:1.4rem;
-    margin-bottom:8px;
+    font-size:1.5rem;
+    margin-bottom:6px;
     font-weight:900;
     color:var(--main);
 }
 .music-game-tag{
     display:inline-flex;
     align-items:center;
-    gap:6px;
+    gap:8px;
     background:#f0f0f0;
-    padding:4px 12px;
-    border-radius:30px;
+    padding:6px 16px;
+    border-radius:40px;
     font-size:12px;
     color:var(--main);
     font-weight:800;
-    margin-bottom:12px;
-}
-.audio-player{
-    margin:15px 0;
-}
-.audio-player audio{
-    width:100%;
-    border-radius:30px;
+    margin-bottom:15px;
 }
 .music-desc{
     font-size:13px;
     color:#555;
-    margin:10px 0;
-    line-height:1.5;
+    margin:12px 0;
+    line-height:1.6;
+}
+/* پلیر خوشگل جدید */
+.custom-player{
+    background:#f8f8f8;
+    border-radius:60px;
+    padding:10px 18px;
+    margin-top:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
+    border:1px solid #eee;
+    transition:0.2s;
+}
+.custom-player:hover{
+    border-color:var(--main);
+    background:#fff;
+}
+.custom-player audio{
+    flex:1;
+    min-width:160px;
+    height:40px;
+    border-radius:40px;
+    outline:none;
+}
+.custom-player audio::-webkit-media-controls-panel{
+    background:#f0f0f0;
+}
+.download-music-btn{
+    background:var(--main);
+    color:white;
+    border:none;
+    padding:8px 18px;
+    border-radius:40px;
+    cursor:pointer;
+    font-family:'Vazirmatn',sans-serif;
+    font-weight:800;
+    font-size:12px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:0.2s;
+    text-decoration:none;
+}
+.download-music-btn:hover{
+    background:#8a1010;
+    transform:scale(1.03);
 }
 
 /* گرید اخبار و داستان‌ها */
@@ -553,31 +598,37 @@ footer{
 
 // ویدیوها
 const videosData = [
-    { id:1, title:"بازی شیطان صفت", desc:"داستان ترسناک و واقعی", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۶", time:"۲۰:۳۰", fullText:"در این ویدیو به بررسی بازی Outlast و فضای تاریک آن می‌پردازیم. داستان درباره یک روزنامه‌نگار است که وارد تیمارستانی مخوف می‌شود." },
-    { id:2, title:"شکارچی روح", desc:"تجربه‌ای هیجانی و پراسترس", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"هیجانی", date:"۱۴۰۵/۰۳/۱۵", time:"۱۸:۱۵", fullText:"بازی جدید با گرافیک فوق‌العاده و داستانی نفسگیر. شما در نقش یک شکارچی روح باید موجودات فراطبیعی را شکار کنید." },
-    { id:3, title:"سفر به مریخ", desc:"علمی تخیلی و حماسی", thumb:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", link:"https://youtube.com", category:"علمی", date:"۱۴۰۵/۰۳/۱۴", time:"۲۲:۰۰", fullText:"نگاهی به بازی Starfield و دنیای وسیع آن. بتسدا بزرگترین بازی خود را ساخته و شما میتوانید به هزاران سیاره سفر کنید." },
-    { id:4, title:"معرفی GTA VI", desc:"همه چیز درباره GTA جدید", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"معرفی", date:"۱۴۰۵/۰۳/۱۳", time:"۱۶:۴۵", fullText:"جزئیات کامل از نقشه، شخصیت‌ها و گیم‌پلی. نقشه GTA 6 بزرگترین نقشه تاریخ راکستار خواهد بود." },
-    { id:5, title:"بازی Alan Wake 2", desc:"ترس و روانشناسی تاریک", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۲", time:"۲۱:۲۰", fullText:"بررسی داستان پیچیده و فضای وهم‌آلود. الن ویک ۲ یکی از ترسناک‌ترین بازی‌های سال است." }
+    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم  | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" }
 ];
 
-// اخبار (تاریخ ولورین اصلاح شد)
+// اخبار
 const newsData = [
-    { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند.", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار برای بهینه‌سازی بیشتر، تاریخ انتشار GTA 6 را به اوایل ۲۰۲۶ تغییر داده است. گفته می‌شود که این بازی بزرگترین نقشه تاریخ راکستار را خواهد داشت." },
-    { id:2, title:"بازی جدید سایلنت هیل", summary:"بازگشت به ریشه‌های ترس", image:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", date:"۱۴۰۵/۰۳/۱۵", time:"۱۴:۲۰", fullText:"کونامی از نسخه جدید سایلنت هیل با همکاری استودیو بلوپوینت رونمایی کرد. این بازی قرار است در سال ۲۰۲۶ منتشر شود." },
-    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی و اضافه شدن محتوای جدید", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک ۲۰۷۷ با رفع باگ‌های فراوان و اضافه شدن سیستم پلیس جدید منتشر شد. همچنین بهینه‌سازی‌های زیادی برای کنسول‌ها انجام شده." },
-    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم. بسیاری از گیمرها معتقدن این بازی می‌تونه یکی از بزرگ‌ترین انحصاری‌های پلی‌استیشن در سال ۲۰۲۶ باشه. — زروکس گیم" }
+    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم. بسیاری از گیمرها معتقدن این بازی می‌تونه یکی از بزرگ‌ترین انحصاری‌های پلی‌استیشن در سال ۲۰۲۶ باشه. — زروکس گیم" },
+    { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند.", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار برای بهینه‌سازی بیشتر، تاریخ انتشار GTA 6 را به اوایل ۲۰۲۶ تغییر داده است." },
+    { id:2, title:"بازی جدید سایلنت هیل", summary:"بازگشت به ریشه‌های ترس", image:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", date:"۱۴۰۵/۰۳/۱۵", time:"۱۴:۲۰", fullText:"کونامی از نسخه جدید سایلنت هیل رونمایی کرد." },
+    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک با رفع باگ‌های فراوان منتشر شد." }
 ];
 
 // داستان‌ها
 const storiesData = [
-    { title:"رستاخیز سرزمین‌های فراموش‌شده", desc:"تحلیل کامل داستان", img:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", full:"در این داستان به ماجرای قهرمانی می‌پردازیم که پس از سالها تبعید بازمی‌گردد تا سرزمینش را نجات دهد..." },
-    { title:"حماسه آخرین بازمانده", desc:"روایت نجات و بقا", img:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", full:"داستان پس از آخرالزمانی که انسانیت در آستانه نابودی است و یک بازمانده باید راهی برای نجات پیدا کند..." }
+    { title:"رستاخیز سرزمین‌های فراموش‌شده", desc:"تحلیل کامل داستان", img:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", full:"در این داستان به ماجرای قهرمانی می‌پردازیم..." },
+    { title:"حماسه آخرین بازمانده", desc:"روایت نجات و بقا", img:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", full:"داستان پس از آخرالزمان..." }
 ];
 
-// موسیقی (یک فایل نمونه)
+// موسیقی
 const musicData = [
-    { id:1, title:"تم حماسی God of War", game:"God of War Ragnarök", platform:"PS/PC", cover:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", desc:"موسیقی حماسی و حماسی کرتوس در نبرد با خدایان" }
+    { id:1, title:"تم حماسی God of War", game:"God of War Ragnarök", cover:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", desc:"موسیقی حماسی کرتوس در نبرد با خدایان" }
 ];
+
+function downloadMusic(url, title){
+    fetch(url).then(r=>r.blob()).then(b=>{
+        const a=document.createElement('a');
+        a.href=URL.createObjectURL(b);
+        a.download=title+'.mp3';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    }).catch(()=>window.open(url,'_blank'));
+}
 
 function getCatIcon(cat){
     if(cat==="ترسناک") return '<i class="fa-solid fa-ghost"></i>';
@@ -592,7 +643,7 @@ function renderVideos(containerId, filter="همه"){
     if(!container) return;
     let filtered = filter==="همه" ? videosData : videosData.filter(v=>v.category===filter);
     if(filtered.length===0){
-        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main); grid-column:span 2;"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی در این دسته یافت نشد</h3></div>`;
+        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی در این دسته یافت نشد</h3></div>`;
         return;
     }
     container.innerHTML = filtered.map(v=>`
@@ -662,18 +713,19 @@ function renderMusic(){
     const container = document.getElementById('musicGrid');
     if(!container) return;
     if(musicData.length===0){
-        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3><p>به زودی...</p></div>`;
+        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`;
         return;
     }
     container.innerHTML = musicData.map(m=>`
         <div class="music-card">
-            <img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/300x180?text=No+Cover'">
+            <img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/340x210?text=No+Cover'">
             <div class="music-info">
                 <h3>${m.title}</h3>
                 <div class="music-game-tag"><i class="fa-solid fa-gamepad"></i> ${m.game}</div>
                 <div class="music-desc">${m.desc}</div>
-                <div class="audio-player">
+                <div class="custom-player">
                     <audio controls src="${m.file}"></audio>
+                    <button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button>
                 </div>
             </div>
         </div>
@@ -759,4 +811,4 @@ setupFilters();
 </script>
 
 </body>
-    </html>
+        </html>
