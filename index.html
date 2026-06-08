@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZEROX</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -20,52 +20,50 @@ body{
     font-family:'Vazirmatn', sans-serif;
     background:#0a0a0a;
     color:white;
-    font-weight:600;
 }
 
-/* هدر */
-header{
-    background:var(--main);
-    text-align:center;
-    padding:15px;
-}
-
-/* لوگو وسط */
+/* لوگو */
 .logo{
     display:flex;
     justify-content:center;
-    align-items:center;
-    padding:20px 0 10px 0;
-    background:#0a0a0a;
+    padding:20px;
 }
 
 .logo img{
-    width:160px;
-    max-width:70%;
-    filter: drop-shadow(0 0 10px var(--main));
+    width:780px;
+    max-width:95%;
+    height:auto;
+    /* بدون نور طبق خواسته */
+    filter:none;
 }
 
-/* منو */
+/* منو شیشه‌ای */
 nav{
     display:flex;
     justify-content:center;
-    gap:18px;
-    background:#111;
+    gap:15px;
+    margin:10px auto;
     padding:12px;
-    flex-wrap:wrap;
-    border-top:2px solid var(--main);
+    width:90%;
+    
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 }
 
+/* آیتم‌های منو */
 nav a{
     color:white;
     text-decoration:none;
     padding:10px 14px;
     border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
     display:flex;
     align-items:center;
     gap:8px;
-    font-weight:800;
-    cursor:pointer;
     transition:0.3s;
 }
 
@@ -75,13 +73,12 @@ nav a i{
 
 nav a:hover{
     background:var(--main);
-    transform:scale(1.05);
 }
 
 /* بخش‌ها */
 .section{
     display:none;
-    padding:25px;
+    padding:20px;
 }
 
 .active{
@@ -93,23 +90,6 @@ nav a:hover{
     background:#141414;
     border:1px solid var(--main);
     border-radius:12px;
-    overflow:hidden;
-    margin-bottom:20px;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:scale(1.02);
-    box-shadow:0 0 20px var(--main);
-}
-
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.card-content{
     padding:15px;
 }
 
@@ -118,23 +98,20 @@ nav a:hover{
     font-weight:900;
 }
 
-.btn{
+button{
     background:var(--main);
-    color:white;
     border:none;
-    padding:10px;
+    padding:8px 12px;
+    color:white;
     border-radius:8px;
     cursor:pointer;
-    font-weight:800;
-    margin-top:10px;
+    font-weight:700;
 }
 
 .more{
     display:none;
     margin-top:10px;
     color:#ccc;
-    font-size:14px;
-    line-height:1.8;
 }
 
 /* فوتر */
@@ -143,8 +120,7 @@ footer{
     padding:15px;
     background:#111;
     color:#aaa;
-    font-size:13px;
-    font-weight:600;
+    margin-top:20px;
 }
 
 </style>
@@ -153,18 +129,16 @@ footer{
 
 <body>
 
-<header> </header>
-
 <!-- لوگو -->
 <div class="logo">
-    <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX LOGO">
+    <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png">
 </div>
 
-<!-- منو -->
+<!-- منو شیشه‌ای -->
 <nav>
 <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
-<a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار گیم</a>
-<a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> زروکس شاپ</a>
+<a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار</a>
+<a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
 <a onclick="showTab('video')"><i class="fa-solid fa-video"></i> ویدیوها</a>
 <a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
 </nav>
@@ -178,49 +152,47 @@ footer{
 <div id="news" class="section">
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d3" alt="GTA">
-        
-        <div class="card-content">
-            <h2>🔥 GTA VI خبر جدید</h2>
-            <p>جدیدترین اطلاعات از GTA 6 منتشر شد.</p>
+        <h2>GTA VI خبر جدید</h2>
+        <p>جدیدترین اطلاعات GTA 6 منتشر شد.</p>
 
-            <button class="btn" onclick="toggleMore(this)">توضیحات بیشتر</button>
+        <button onclick="toggle(this)">توضیحات بیشتر</button>
 
-            <div class="more">
-                GTA 6 دارای بزرگ‌ترین نقشه تاریخ سری GTA خواهد بود و
-                هوش مصنوعی NPC ها خیلی پیشرفته‌تر شده است.
-            </div>
+        <div class="more">
+            GTA 6 دارای بزرگ‌ترین نقشه سری GTA است و AI بسیار پیشرفته دارد.
         </div>
     </div>
 
 </div>
 
-<!-- بقیه تب‌ها -->
-<div id="shop" class="section"><h2>زروکس شاپ</h2></div>
-<div id="video" class="section"><h2>ویدیوها</h2></div>
-<div id="story" class="section"><h2>داستان‌ها</h2></div>
+<!-- شاپ -->
+<div id="shop" class="section">
+    <h2>زروکس شاپ به زودی</h2>
+</div>
+
+<!-- ویدیو -->
+<div id="video" class="section">
+    <h2>ویدیوها</h2>
+</div>
+
+<!-- داستان -->
+<div id="story" class="section">
+    <h2>داستان‌ها</h2>
+</div>
 
 <footer>
-© 2026 ZEROX | دنیای گیمینگ حرفه‌ای
+© 2026 ZEROX | دنیای گیمینگ
 </footer>
 
 <script>
 
-function showTab(tab){
+function showTab(id){
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(tab).classList.add('active');
+    document.getElementById(id).classList.add('active');
 }
 
-function toggleMore(btn){
+function toggle(btn){
     let more = btn.nextElementSibling;
-
-    if(more.style.display === "block"){
-        more.style.display = "none";
-        btn.innerText = "توضیحات بیشتر";
-    } else {
-        more.style.display = "block";
-        btn.innerText = "بستن";
-    }
+    more.style.display = more.style.display === "block" ? "none" : "block";
 }
 
 </script>
