@@ -32,8 +32,8 @@ body{
     width:100%;
 }
 .logo img{
-    width:1100px;
-    max-width:95%;
+    width:1500px;
+    max-width:98%;
     display:block;
     margin:0 auto;
     margin-bottom:-5px;
@@ -198,7 +198,8 @@ nav a:hover{
     background:#8e1515;
     transform:scale(0.97);
 }
-.news-full-text{
+/* انیمیشن نرم برای باز و بسته شدن */
+.news-full-text, .full-text, .story-full-text{
     display:none;
     margin-top:18px;
     padding:16px;
@@ -208,6 +209,17 @@ nav a:hover{
     line-height:1.8;
     font-size:14px;
     border-right:3px solid var(--main);
+    animation: fadeSlide 0.3s ease-out;
+}
+@keyframes fadeSlide{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 .videos-grid{
     display:grid;
@@ -373,18 +385,6 @@ nav a:hover{
     background:var(--main);
     color:white;
 }
-.full-text{
-    display:none;
-    margin-top:15px;
-    padding:14px;
-    background:#f5f5f5;
-    border-radius:16px;
-    text-align:right;
-    font-size:13px;
-    color:#1a1a1a;
-    line-height:1.8;
-    border-right:3px solid var(--main);
-}
 .music-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
@@ -416,7 +416,6 @@ nav a:hover{
     padding:22px;
     text-align:center;
 }
-/* باکس عنوان و تگ پلتفرم - هم رنگ با باکس‌های دیگر */
 .title-platform-box{
     background:#f9f9f9;
     border-radius:20px;
@@ -882,31 +881,18 @@ const newsData = [
 ];
 const storiesData = [
     { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
-
 اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
-
 یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
-
 آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
-
 در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
-
 هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
-
 کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
-
 بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
-
 و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
-
 اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
-
 در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
-
 آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
-
 بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
-
 و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
 ];
 const musicData = [
@@ -943,7 +929,7 @@ function renderNews(containerId){
 function renderStories(containerId){
     const container = document.getElementById(containerId);
     if(!container) return;
-    container.innerHTML = storiesData.map(s=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${s.img}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-book-open"></i> داستان اختصاصی</div><h2>${s.title}</h2><p class="hybrid-desc">${s.desc.substring(0, 120)}...</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleStoryText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button></div><div class="news-full-text" style="white-space:pre-line; text-align:justify;">${s.full}</div></div></div></div>`).join('');
+    container.innerHTML = storiesData.map(s=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${s.img}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-book-open"></i> داستان اختصاصی</div><h2>${s.title}</h2><p class="hybrid-desc">${s.desc.substring(0, 120)}...</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleStoryText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button></div><div class="story-full-text" style="white-space:pre-line; text-align:justify;">${s.full}</div></div></div></div>`).join('');
 }
 function renderMusic(){
     const container = document.getElementById('musicGrid');
@@ -952,9 +938,36 @@ function renderMusic(){
     const sortedMusic = [...musicData].sort((a,b)=>b.id - a.id);
     container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'"><div class="music-info"><div class="title-platform-box"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div></div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
 }
-function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
-function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
-function toggleStoryText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
+function toggleVideoText(btn){
+    let full = btn.parentElement.nextElementSibling;
+    if(full.style.display === "none" || full.style.display === ""){
+        full.style.display = "block";
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن';
+    } else {
+        full.style.display = "none";
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات';
+    }
+}
+function toggleNewsText(btn){
+    let full = btn.parentElement.nextElementSibling;
+    if(full.style.display === "none" || full.style.display === ""){
+        full.style.display = "block";
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن';
+    } else {
+        full.style.display = "none";
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب';
+    }
+}
+function toggleStoryText(btn){
+    let full = btn.parentElement.nextElementSibling;
+    if(full.style.display === "none" || full.style.display === ""){
+        full.style.display = "block";
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان';
+    } else {
+        full.style.display = "none";
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان';
+    }
+}
 let currentVideoFilter = "همه";
 function setupFilters(){
     document.querySelectorAll('#video .filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ document.querySelectorAll('#video .filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentVideoFilter = btn.getAttribute('data-filter'); renderVideos('videosGrid', currentVideoFilter); }); });
@@ -964,7 +977,7 @@ function showTab(id){
     document.getElementById(id).classList.add('active');
     if(id === 'home'){ renderVideos('homeVideosGrid', 'همه'); renderNews('homeNewsGrid'); renderStories('homeStoriesGrid'); }
     if(id === 'news'){ renderNews('newsGrid'); }
-    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); }
+    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); setupFilters(); }
     if(id === 'music'){ renderMusic(); }
     if(id === 'stories'){ renderStories('storiesGrid'); }
 }
@@ -978,4 +991,4 @@ renderMusic();
 setupFilters();
 </script>
 </body>
-    </html>
+                                                                                    </html>
