@@ -60,7 +60,7 @@ nav{
 nav a{
     color:white;
     text-decoration:none;
-    padding:8px 16px;
+    padding:8px 14px;
     border-radius:10px;
     font-weight:800;
     display:flex;
@@ -68,7 +68,7 @@ nav a{
     gap:8px;
     cursor:pointer;
     transition:0.2s;
-    font-size:15px;
+    font-size:14px;
 }
 nav a i{
     color:var(--main);
@@ -186,7 +186,6 @@ nav a:hover{
     color:#2c2c3a;
     font-weight:500;
 }
-/* دکمه‌های کارت */
 .news-actions{
     display:flex;
     flex-wrap:wrap;
@@ -212,7 +211,6 @@ nav a:hover{
     background:#8e1515;
     transform:scale(0.97);
 }
-/* متن کامل خبر (پایین کارت) */
 .news-full-text{
     display:none;
     margin-top:18px;
@@ -225,7 +223,7 @@ nav a:hover{
     border-right:3px solid var(--main);
 }
 
-/* ========== کارت ویدیو - دو تا کنار هم ========== */
+/* ========== کارت ویدیو ========== */
 .videos-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -382,6 +380,65 @@ nav a:hover{
     border-right:3px solid var(--main);
 }
 
+/* ========== کارت موسیقی ========== */
+.music-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:30px;
+    margin-bottom:40px;
+}
+.music-card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    transition:0.3s ease;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+.music-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);
+}
+.music-img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+.music-info{
+    padding:20px;
+    text-align:center;
+}
+.music-info h3{
+    font-size:1.4rem;
+    margin-bottom:8px;
+    font-weight:900;
+    color:var(--main);
+}
+.music-game-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#f0f0f0;
+    padding:4px 12px;
+    border-radius:30px;
+    font-size:12px;
+    color:var(--main);
+    font-weight:800;
+    margin-bottom:12px;
+}
+.audio-player{
+    margin:15px 0;
+}
+.audio-player audio{
+    width:100%;
+    border-radius:30px;
+}
+.music-desc{
+    font-size:13px;
+    color:#555;
+    margin:10px 0;
+    line-height:1.5;
+}
+
 /* گرید اخبار و داستان‌ها */
 .news-grid{
     display:grid;
@@ -430,6 +487,7 @@ footer{
         <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
         <a onclick="showTab('news')"><i class="fa-solid fa-newspaper"></i> اخبار</a>
         <a onclick="showTab('video')"><i class="fa-solid fa-video"></i> ویدیوها</a>
+        <a onclick="showTab('music')"><i class="fa-solid fa-music"></i> موسیقی</a>
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
     </nav>
@@ -466,6 +524,12 @@ footer{
     <div id="videosGrid" class="videos-grid"></div>
 </div>
 
+<!-- موسیقی -->
+<div id="music" class="section">
+    <div class="section-title"><i class="fa-solid fa-music"></i> موسیقی بازی‌ها</div>
+    <div id="musicGrid" class="music-grid"></div>
+</div>
+
 <!-- شاپ -->
 <div id="shop" class="section">
     <div class="hybrid-card">
@@ -485,7 +549,9 @@ footer{
 <footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
 
 <script>
-// دیتاها
+// ======================== دیتاها ========================
+
+// ویدیوها
 const videosData = [
     { id:1, title:"بازی شیطان صفت", desc:"داستان ترسناک و واقعی", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۶", time:"۲۰:۳۰", fullText:"در این ویدیو به بررسی بازی Outlast و فضای تاریک آن می‌پردازیم. داستان درباره یک روزنامه‌نگار است که وارد تیمارستانی مخوف می‌شود." },
     { id:2, title:"شکارچی روح", desc:"تجربه‌ای هیجانی و پراسترس", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"هیجانی", date:"۱۴۰۵/۰۳/۱۵", time:"۱۸:۱۵", fullText:"بازی جدید با گرافیک فوق‌العاده و داستانی نفسگیر. شما در نقش یک شکارچی روح باید موجودات فراطبیعی را شکار کنید." },
@@ -494,15 +560,23 @@ const videosData = [
     { id:5, title:"بازی Alan Wake 2", desc:"ترس و روانشناسی تاریک", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۲", time:"۲۱:۲۰", fullText:"بررسی داستان پیچیده و فضای وهم‌آلود. الن ویک ۲ یکی از ترسناک‌ترین بازی‌های سال است." }
 ];
 
+// اخبار (تاریخ ولورین اصلاح شد)
 const newsData = [
     { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند.", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار برای بهینه‌سازی بیشتر، تاریخ انتشار GTA 6 را به اوایل ۲۰۲۶ تغییر داده است. گفته می‌شود که این بازی بزرگترین نقشه تاریخ راکستار را خواهد داشت." },
     { id:2, title:"بازی جدید سایلنت هیل", summary:"بازگشت به ریشه‌های ترس", image:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", date:"۱۴۰۵/۰۳/۱۵", time:"۱۴:۲۰", fullText:"کونامی از نسخه جدید سایلنت هیل با همکاری استودیو بلوپوینت رونمایی کرد. این بازی قرار است در سال ۲۰۲۶ منتشر شود." },
-    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی و اضافه شدن محتوای جدید", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک ۲۰۷۷ با رفع باگ‌های فراوان و اضافه شدن سیستم پلیس جدید منتشر شد. همچنین بهینه‌سازی‌های زیادی برای کنسول‌ها انجام شده." }
+    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی و اضافه شدن محتوای جدید", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک ۲۰۷۷ با رفع باگ‌های فراوان و اضافه شدن سیستم پلیس جدید منتشر شد. همچنین بهینه‌سازی‌های زیادی برای کنسول‌ها انجام شده." },
+    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم. بسیاری از گیمرها معتقدن این بازی می‌تونه یکی از بزرگ‌ترین انحصاری‌های پلی‌استیشن در سال ۲۰۲۶ باشه. — زروکس گیم" }
 ];
 
+// داستان‌ها
 const storiesData = [
     { title:"رستاخیز سرزمین‌های فراموش‌شده", desc:"تحلیل کامل داستان", img:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", full:"در این داستان به ماجرای قهرمانی می‌پردازیم که پس از سالها تبعید بازمی‌گردد تا سرزمینش را نجات دهد..." },
     { title:"حماسه آخرین بازمانده", desc:"روایت نجات و بقا", img:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", full:"داستان پس از آخرالزمانی که انسانیت در آستانه نابودی است و یک بازمانده باید راهی برای نجات پیدا کند..." }
+];
+
+// موسیقی (یک فایل نمونه)
+const musicData = [
+    { id:1, title:"تم حماسی God of War", game:"God of War Ragnarök", platform:"PS/PC", cover:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", desc:"موسیقی حماسی و حماسی کرتوس در نبرد با خدایان" }
 ];
 
 function getCatIcon(cat){
@@ -584,6 +658,28 @@ function renderStories(containerId){
     `).join('');
 }
 
+function renderMusic(){
+    const container = document.getElementById('musicGrid');
+    if(!container) return;
+    if(musicData.length===0){
+        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3><p>به زودی...</p></div>`;
+        return;
+    }
+    container.innerHTML = musicData.map(m=>`
+        <div class="music-card">
+            <img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/300x180?text=No+Cover'">
+            <div class="music-info">
+                <h3>${m.title}</h3>
+                <div class="music-game-tag"><i class="fa-solid fa-gamepad"></i> ${m.game}</div>
+                <div class="music-desc">${m.desc}</div>
+                <div class="audio-player">
+                    <audio controls src="${m.file}"></audio>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
 function toggleVideoText(btn){
     let full = btn.parentElement.nextElementSibling;
     if(full.style.display === "none" || full.style.display === ""){
@@ -643,6 +739,9 @@ function showTab(id){
     if(id === 'video'){
         renderVideos('videosGrid', currentVideoFilter);
     }
+    if(id === 'music'){
+        renderMusic();
+    }
     if(id === 'stories'){
         renderStories('storiesGrid');
     }
@@ -655,6 +754,7 @@ renderStories('homeStoriesGrid');
 renderNews('newsGrid');
 renderVideos('videosGrid', 'همه');
 renderStories('storiesGrid');
+renderMusic();
 setupFilters();
 </script>
 
