@@ -416,9 +416,17 @@ nav a:hover{
     padding:22px;
     text-align:center;
 }
-.music-info h3{
-    font-size:1.4rem;
+/* باکس عنوان و تگ پلتفرم */
+.title-platform-box{
+    background:white;
+    border-radius:20px;
+    padding:12px 15px;
     margin-bottom:12px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.05);
+}
+.title-platform-box h3{
+    font-size:1.4rem;
+    margin-bottom:10px;
     font-weight:900;
     color:var(--main);
 }
@@ -432,7 +440,6 @@ nav a:hover{
     font-size:18px;
     color:var(--main);
     font-weight:800;
-    margin-bottom:20px;
 }
 .platform-badge i{
     font-size:22px;
@@ -941,8 +948,9 @@ function renderMusic(){
     const container = document.getElementById('musicGrid');
     if(!container) return;
     if(musicData.length===0){ container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`; return; }
-    const sortedMusic = [...musicData].reverse();
-    container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'"><div class="music-info"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
+    // مرتب‌سازی بر اساس id نزولی (جدیدترین اول)
+    const sortedMusic = [...musicData].sort((a,b)=>b.id - a.id);
+    container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'"><div class="music-info"><div class="title-platform-box"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div></div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
 }
 function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
 function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
@@ -970,4 +978,4 @@ renderMusic();
 setupFilters();
 </script>
 </body>
-    </html>
+                                                                             </html>
