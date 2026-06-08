@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEROX | GAME HUB</title>
+<title>ZEROX.IR</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
+/* تمام استایل‌ها مثل قبل (بدون اسلایدر، با انیمیشن) */
 :root{
     --main:#B61C1C;
 }
@@ -198,7 +199,6 @@ nav a:hover{
     background:#8e1515;
     transform:scale(0.97);
 }
-/* انیمیشن نرم برای باز و بسته شدن */
 .news-full-text, .full-text, .story-full-text{
     display:none;
     margin-top:18px;
@@ -977,7 +977,7 @@ function showTab(id){
     document.getElementById(id).classList.add('active');
     if(id === 'home'){ renderVideos('homeVideosGrid', 'همه'); renderNews('homeNewsGrid'); renderStories('homeStoriesGrid'); }
     if(id === 'news'){ renderNews('newsGrid'); }
-    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); setupFilters(); }
+    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); }
     if(id === 'music'){ renderMusic(); }
     if(id === 'stories'){ renderStories('storiesGrid'); }
 }
@@ -991,4 +991,4 @@ renderMusic();
 setupFilters();
 </script>
 </body>
-                                                                                    </html>
+            </html>
