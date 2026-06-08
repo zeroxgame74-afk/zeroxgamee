@@ -30,30 +30,31 @@ body{
 .logo{
     display:flex;
     justify-content:center;
-    padding:25px 0;
+    padding:15px 0 5px 0;
 }
 
 .logo img{
-    width:780px;
-    max-width:90%;
+    width:840px;
+    max-width:95%;
 }
 
-/* منو */
+/* منو نزدیک‌تر به لوگو */
 nav{
-    width:90%;
-    margin:0 auto;
+    width:92%;
+    margin:5px auto 10px auto; /* فاصله کمتر */
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:15px;
+    gap:12px;
 
-    padding:12px;
+    padding:10px;
     border:1px solid rgba(255,255,255,0.4);
     border-radius:15px;
 }
 
+/* لینک‌ها */
 nav a{
-    color:white; /* متن سفید */
+    color:white;
     text-decoration:none;
     padding:10px 14px;
     border-radius:10px;
@@ -65,7 +66,7 @@ nav a{
     transition:0.3s;
 }
 
-/* آیکون‌ها قرمز */
+/* آیکون‌ها */
 nav a i{
     color:var(--main);
     background:white;
@@ -99,11 +100,6 @@ nav a:hover{
     margin-top:15px;
 }
 
-.card h2{
-    color:white;
-    font-weight:900;
-}
-
 /* دکمه */
 button{
     background:white;
@@ -121,17 +117,16 @@ button{
     display:none;
     margin-top:10px;
     color:white;
-    line-height:1.7;
 }
 
-/* فوتر */
+/* فوتر پایین کامل */
 footer{
     text-align:center;
     padding:15px;
     color:white;
-    margin-top:20px;
-    font-size:13px;
+    margin-top:40px;
     border-top:1px solid rgba(255,255,255,0.4);
+    font-size:13px;
 }
 
 </style>
@@ -165,7 +160,7 @@ footer{
         <button onclick="toggle(this)">توضیحات بیشتر</button>
 
         <div class="more">
-            GTA 6 دارای بزرگ‌ترین نقشه سری GTA و AI پیشرفته‌تر است.
+            GTA 6 دارای بزرگ‌ترین نقشه و AI پیشرفته‌تر است.
         </div>
     </div>
 
