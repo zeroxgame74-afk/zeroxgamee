@@ -23,7 +23,9 @@
 body{
     font-family:'Vazirmatn', sans-serif;
     color:white;
-    background: radial-gradient(circle at top, #1a0a0a, #0a0a0a 60%);
+
+    /* 🔴 تم کامل قرمز */
+    background: linear-gradient(180deg, #B61C1C, #3a0a0a);
 }
 
 /* لوگو */
@@ -47,15 +49,14 @@ nav{
     flex-wrap:wrap;
     gap:15px;
 
-    background:rgba(255,255,255,0.06);
-    border:1px solid rgba(255,255,255,0.15);
+    background:rgba(0,0,0,0.25);
+    border:1px solid rgba(255,255,255,0.2);
     border-radius:15px;
     padding:12px;
 
     backdrop-filter:blur(10px);
 }
 
-/* لینک‌ها */
 nav a{
     color:white;
     text-decoration:none;
@@ -70,11 +71,12 @@ nav a{
 }
 
 nav a i{
-    color:var(--main);
+    color:white;
 }
 
 nav a:hover{
-    background:var(--main);
+    background:white;
+    color:#B61C1C;
 }
 
 /* بخش‌ها */
@@ -87,10 +89,10 @@ nav a:hover{
     display:block;
 }
 
-/* کارت خبر */
+/* کارت */
 .card{
-    background:#141414;
-    border:1px solid var(--main);
+    background:rgba(0,0,0,0.35);
+    border:1px solid white;
     border-radius:12px;
     padding:15px;
     margin-top:15px;
@@ -99,31 +101,31 @@ nav a:hover{
 
 .card:hover{
     transform:scale(1.02);
-    box-shadow:0 0 15px var(--main);
 }
 
+/* عنوان */
 .card h2{
-    color:var(--main);
+    color:white;
     font-weight:900;
 }
 
 /* دکمه */
 button{
-    background:var(--main);
+    background:white;
+    color:#B61C1C;
     border:none;
     padding:8px 12px;
-    color:white;
     border-radius:8px;
     cursor:pointer;
-    font-weight:700;
+    font-weight:800;
     margin-top:10px;
 }
 
-/* متن مخفی */
+/* توضیحات */
 .more{
     display:none;
     margin-top:10px;
-    color:#ccc;
+    color:#eee;
     line-height:1.7;
 }
 
@@ -131,8 +133,8 @@ button{
 footer{
     text-align:center;
     padding:15px;
-    background:#111;
-    color:#aaa;
+    background:rgba(0,0,0,0.4);
+    color:white;
     margin-top:20px;
     font-size:13px;
 }
@@ -143,12 +145,10 @@ footer{
 
 <body>
 
-<!-- لوگو -->
 <div class="logo">
-    <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX">
+    <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png">
 </div>
 
-<!-- منو -->
 <nav>
 <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
 <a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار</a>
@@ -157,12 +157,10 @@ footer{
 <a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
 </nav>
 
-<!-- خانه -->
 <div id="home" class="section active">
     <h2>به ZEROX خوش اومدی 🔥</h2>
 </div>
 
-<!-- اخبار -->
 <div id="news" class="section">
 
     <div class="card">
@@ -172,30 +170,26 @@ footer{
         <button onclick="toggle(this)">توضیحات بیشتر</button>
 
         <div class="more">
-            GTA 6 دارای بزرگ‌ترین نقشه تاریخ سری GTA است و
-            هوش مصنوعی NPC ها خیلی پیشرفته‌تر شده و تجربه بازی واقعی‌تر شده.
+            GTA 6 بزرگ‌ترین نقشه تاریخ سری GTA را دارد و AI بسیار پیشرفته شده است.
         </div>
     </div>
 
 </div>
 
-<!-- شاپ -->
 <div id="shop" class="section">
     <h2>زروکس شاپ به زودی</h2>
 </div>
 
-<!-- ویدیو -->
 <div id="video" class="section">
     <h2>ویدیوها</h2>
 </div>
 
-<!-- داستان -->
 <div id="story" class="section">
     <h2>داستان‌ها</h2>
 </div>
 
 <footer>
-© 2026 ZEROX | دنیای گیمینگ
+© 2026 ZEROX
 </footer>
 
 <script>
