@@ -23,7 +23,7 @@ body{
     color:white;
 }
 
-/* هدر - منو چسبیده به لوگو */
+/* هدر */
 .header{
     display:flex;
     flex-direction:column;
@@ -32,7 +32,6 @@ body{
     padding-top:8px;
 }
 
-/* لوگو - بزرگتر و وسط */
 .logo{
     text-align:center;
     width:100%;
@@ -45,7 +44,6 @@ body{
     margin-bottom:-5px;
 }
 
-/* منو - چسبیده به لوگو */
 nav{
     width:94%;
     display:flex;
@@ -330,7 +328,7 @@ nav a:hover{
     gap:12px;
     margin-top:5px;
 }
-/* انیمیشن نور برای دکمه‌های ویدیو */
+/* انیمیشن نور برای دکمه‌ها */
 @keyframes shine {
     0% { left: -100%; }
     20% { left: 100%; }
@@ -454,37 +452,44 @@ nav a:hover{
     font-weight:800;
     margin-bottom:15px;
 }
-.composers-box{
+.composers-section{
     background:#f9f9f9;
     border-radius:20px;
     padding:12px 15px;
     margin:12px 0;
-    text-align:right;
-    border-right:3px solid var(--main);
+    text-align:center;
 }
-.composers-box .composer-title{
+.composer-title{
     font-size:12px;
     font-weight:800;
     color:var(--main);
-    margin-bottom:8px;
+    margin-bottom:10px;
     display:flex;
     align-items:center;
+    justify-content:center;
     gap:6px;
 }
-.composer-names{
+.composers-list{
     display:flex;
-    flex-wrap:wrap;
+    flex-direction:column;
     gap:8px;
-    justify-content:center;
 }
-.composer-name{
+.composer-item{
     background:white;
     border-radius:30px;
-    padding:4px 12px;
-    font-size:11px;
+    padding:6px 12px;
+    font-size:12px;
     color:#333;
     font-weight:600;
     border:1px solid #eee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+}
+.composer-item i{
+    color:var(--main);
+    font-size:11px;
 }
 .music-desc{
     font-size:13px;
@@ -504,8 +509,6 @@ nav a:hover{
     justify-content:center;
     border:1px solid #eee;
     transition:0.2s;
-    position:relative;
-    overflow:hidden;
 }
 .custom-player:hover{
     border-color:var(--main);
@@ -552,6 +555,114 @@ nav a:hover{
 }
 .download-music-btn:hover::after {
     animation: none;
+}
+
+/* ========== درباره ما ========== */
+.about-container{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    max-width:800px;
+    margin:0 auto;
+}
+.welcome-box{
+    background:white;
+    border-radius:32px;
+    padding:40px 30px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+.welcome-box:hover{
+    transform:translateY(-5px);
+}
+.welcome-icon{
+    font-size:64px;
+    color:var(--main);
+    margin-bottom:20px;
+}
+.welcome-box h2{
+    font-size:2rem;
+    color:var(--main);
+    margin-bottom:15px;
+}
+.welcome-box p{
+    font-size:1.2rem;
+    color:#333;
+    line-height:1.8;
+}
+.info-cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+.info-card{
+    background:white;
+    border-radius:28px;
+    padding:30px 20px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.info-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 35px -12px rgba(0,0,0,0.3);
+}
+/* آیکون سه بعدی با انیمیشن شناور */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes floatSlow {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(3deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+.icon-3d{
+    font-size:70px;
+    margin-bottom:20px;
+    display:inline-block;
+    animation:float 2s ease-in-out infinite;
+    filter:drop-shadow(0 8px 15px rgba(182,28,28,0.3));
+}
+.icon-3d-support{
+    font-size:70px;
+    margin-bottom:20px;
+    display:inline-block;
+    animation:floatSlow 2.5s ease-in-out infinite;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,0.2));
+}
+.info-card h3{
+    font-size:1.4rem;
+    color:var(--main);
+    margin-bottom:15px;
+}
+.info-card p{
+    color:#555;
+    font-size:1rem;
+    line-height:1.6;
+}
+.contact-link{
+    display:inline-block;
+    margin-top:15px;
+    background:var(--main);
+    color:white;
+    padding:8px 20px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:800;
+    transition:0.2s;
+}
+.contact-link:hover{
+    background:#8a1010;
+    transform:scale(1.03);
+}
+.dev-name{
+    font-size:1.1rem;
+    font-weight:800;
+    color:var(--main);
+    margin-top:10px;
 }
 
 /* گرید اخبار و داستان‌ها */
@@ -605,6 +716,7 @@ footer{
         <a onclick="showTab('music')"><i class="fa-solid fa-music"></i> موسیقی</a>
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
+        <a onclick="showTab('about')"><i class="fa-solid fa-info-circle"></i> درباره ما</a>
     </nav>
 </div>
 
@@ -620,7 +732,7 @@ footer{
     <div id="homeStoriesGrid" class="cards-grid"></div>
 </div>
 
-<!-- اخبار (فقط ولورین) -->
+<!-- اخبار -->
 <div id="news" class="section">
     <div class="section-title"><i class="fa-regular fa-newspaper"></i> همه اخبار</div>
     <div id="newsGrid" class="news-grid"></div>
@@ -661,6 +773,31 @@ footer{
     <div id="storiesGrid" class="cards-grid"></div>
 </div>
 
+<!-- درباره ما -->
+<div id="about" class="section">
+    <div class="about-container">
+        <div class="welcome-box">
+            <div class="welcome-icon"><i class="fa-solid fa-gamepad"></i></div>
+            <h2>به زروکس گیم خوش اومدید! 🎮</h2>
+            <p>اینجا بهشت گیمر هاست<br>اینجا یک خانه برای گیمرهای ایرانی هستش! ❤️</p>
+        </div>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="icon-3d-support"><i class="fa-solid fa-headset"></i></div>
+                <h3>پشتیبانی</h3>
+                <p>برای ارتباط با ادمین در روبیکا پیام بدین</p>
+                <a href="https://rubika.ir/@support_Zerox" target="_blank" class="contact-link">@support_Zerox</a>
+            </div>
+            <div class="info-card">
+                <div class="icon-3d"><i class="fa-solid fa-user-astronaut"></i></div>
+                <h3>سازنده سایت</h3>
+                <p class="dev-name">@mohamad_hossein_ev18</p>
+                <p style="font-size:12px; margin-top:10px;">توی تلگرام پیام بدید</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
 
 <script>
@@ -679,10 +816,36 @@ const newsData = [
 
 // داستان‌ها
 const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه...` }
+    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
+
+اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
+
+یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
+
+آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
+
+در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
+
+هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
+
+کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
+
+بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
+
+و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
+
+اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
+
+در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
+
+آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
+
+بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
+
+و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
 ];
 
-// موسیقی (فقط Halo Infinite)
+// موسیقی
 const musicData = [
     { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
@@ -791,7 +954,6 @@ function renderMusic(){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`;
         return;
     }
-    // برعکس کردن ترتیب برای نمایش جدیدترین اول
     const sortedMusic = [...musicData].reverse();
     container.innerHTML = sortedMusic.map(m=>`
         <div class="music-card">
@@ -800,10 +962,10 @@ function renderMusic(){
                 <h3>${m.title}</h3>
                 <div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div>
                 ${m.composers ? `
-                <div class="composers-box">
-                    <div class="composer-title"><i class="fa-solid fa-music"></i> آهنگسازان</div>
-                    <div class="composer-names">
-                        ${m.composers.map(c => `<span class="composer-name">${c}</span>`).join('')}
+                <div class="composers-section">
+                    <div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div>
+                    <div class="composers-list">
+                        ${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}
                     </div>
                 </div>` : ''}
                 <div class="music-desc">${m.desc}</div>
@@ -895,4 +1057,4 @@ setupFilters();
 </script>
 
 </body>
-</html>
+    </html>
