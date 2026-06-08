@@ -381,10 +381,10 @@ nav a:hover{
     border-right:3px solid var(--main);
 }
 
-/* ========== کارت موسیقی ========== */
+/* ========== کارت موسیقی با انیمیشن و آیکون پلتفرم ========== */
 .music-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
     gap:30px;
     margin-bottom:40px;
 }
@@ -401,7 +401,8 @@ nav a:hover{
 }
 .music-img{
     width:100%;
-    height:210px;
+    height:auto;
+    aspect-ratio:1/1;
     object-fit:cover;
     transition:0.3s;
 }
@@ -413,12 +414,12 @@ nav a:hover{
     text-align:center;
 }
 .music-info h3{
-    font-size:1.5rem;
+    font-size:1.4rem;
     margin-bottom:6px;
     font-weight:900;
     color:var(--main);
 }
-.music-game-tag{
+.platform-badge{
     display:inline-flex;
     align-items:center;
     gap:8px;
@@ -448,6 +449,8 @@ nav a:hover{
     justify-content:center;
     border:1px solid #eee;
     transition:0.2s;
+    position:relative;
+    overflow:hidden;
 }
 .custom-player:hover{
     border-color:var(--main);
@@ -459,6 +462,12 @@ nav a:hover{
     height:40px;
     border-radius:40px;
     outline:none;
+}
+/* انیمیشن نور روی دکمه دانلود */
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
 }
 .download-music-btn{
     background:var(--main);
@@ -475,10 +484,25 @@ nav a:hover{
     gap:8px;
     transition:0.2s;
     text-decoration:none;
+    position:relative;
+    overflow:hidden;
+}
+.download-music-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    animation: shine 3s infinite;
 }
 .download-music-btn:hover{
     background:#8a1010;
     transform:scale(1.03);
+}
+.download-music-btn:hover::after {
+    animation: none;
 }
 
 /* گرید اخبار و داستان‌ها */
@@ -593,13 +617,13 @@ footer{
 <script>
 // ======================== دیتاها ========================
 
-// ویدیوها - دو تا ویدیو
+// ویدیوها (ویدیو جدید Outlast اول شده)
 const videosData = [
-    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" },
-    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن با آزمایش‌های مخفی، بیماران دیوانه و موجود ترسناکی به نام Walrider. اگر به بازی‌های ترسناک و داستان‌های تاریک علاقه داری، این ویدیو رو از دست نده!" }
+    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن با آزمایش‌های مخفی، بیماران دیوانه و موجود ترسناکی به نام Walrider. اگر به بازی‌های ترسناک و داستان‌های تاریک علاقه داری، این ویدیو رو از دست نده!" },
+    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" }
 ];
 
-// اخبار (همون اخبار قبلی)
+// اخبار
 const newsData = [
     { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." },
     { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند.", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار برای بهینه‌سازی بیشتر، تاریخ انتشار GTA 6 را به اوایل ۲۰۲۶ تغییر داده است." },
@@ -607,41 +631,23 @@ const newsData = [
     { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک با رفع باگ‌های فراوان منتشر شد." }
 ];
 
-// داستان‌ها - فقط God of War Ragnarök
+// داستان‌ها
 const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
-
-اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
-
-یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
-
-آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
-
-در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
-
-هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
-
-کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
-
-بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
-
-و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
-
-اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
-
-در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
-
-آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
-
-بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
-
-و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
+    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه...` }
 ];
 
-// موسیقی
+// موسیقی (جدیدترین اول: Halo Infinite)
 const musicData = [
-    { id:1, title:"تم حماسی God of War", game:"God of War Ragnarök", cover:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", desc:"موسیقی حماسی کرتوس در نبرد با خدایان" }
+    { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", desc:"Gareth Coker · Curtis Schweitzer · Joel Corelitz — این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" },
+    { id:1, title:"تم حماسی God of War", game:"God of War Ragnarök", platform:"PS", cover:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", desc:"موسیقی حماسی کرتوس در نبرد با خدایان" }
 ];
+
+function getPlatformIcon(platform){
+    if(platform==="Xbox") return '<i class="fab fa-xbox"></i>';
+    if(platform==="PS") return '<i class="fab fa-playstation"></i>';
+    if(platform==="PC") return '<i class="fab fa-windows"></i>';
+    return '<i class="fas fa-gamepad"></i>';
+}
 
 function downloadMusic(url, title){
     fetch(url).then(r=>r.blob()).then(b=>{
@@ -740,12 +746,14 @@ function renderMusic(){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`;
         return;
     }
-    container.innerHTML = musicData.map(m=>`
+    // برعکس کردن ترتیب برای نمایش جدیدترین اول (id بزرگتر = جدیدتر)
+    const sortedMusic = [...musicData].reverse();
+    container.innerHTML = sortedMusic.map(m=>`
         <div class="music-card">
-            <img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/340x210?text=No+Cover'">
+            <img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'">
             <div class="music-info">
                 <h3>${m.title}</h3>
-                <div class="music-game-tag"><i class="fa-solid fa-gamepad"></i> ${m.game}</div>
+                <div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div>
                 <div class="music-desc">${m.desc}</div>
                 <div class="custom-player">
                     <audio controls src="${m.file}"></audio>
