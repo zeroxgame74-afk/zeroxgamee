@@ -26,22 +26,24 @@ body{
     color:white;
 }
 
-/* لوگو */
-.logo{
+/* هدر */
+.header{
     display:flex;
-    justify-content:center;
-    padding:15px 0 5px 0;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    padding-top:10px;
 }
 
+/* لوگو */
 .logo img{
     width:840px;
     max-width:95%;
 }
 
-/* منو نزدیک‌تر به لوگو */
+/* منو */
 nav{
     width:92%;
-    margin:5px auto 10px auto; /* فاصله کمتر */
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
@@ -52,7 +54,6 @@ nav{
     border-radius:15px;
 }
 
-/* لینک‌ها */
 nav a{
     color:white;
     text-decoration:none;
@@ -63,10 +64,8 @@ nav a{
     align-items:center;
     gap:8px;
     cursor:pointer;
-    transition:0.3s;
 }
 
-/* آیکون‌ها */
 nav a i{
     color:var(--main);
     background:white;
@@ -75,7 +74,6 @@ nav a i{
     font-size:12px;
 }
 
-/* hover */
 nav a:hover{
     background:white;
     color:var(--main);
@@ -91,7 +89,7 @@ nav a:hover{
     display:block;
 }
 
-/* کارت */
+/* کارت خبر */
 .card{
     background:rgba(255,255,255,0.2);
     border:1px solid white;
@@ -117,9 +115,54 @@ button{
     display:none;
     margin-top:10px;
     color:white;
+    line-height:1.7;
 }
 
-/* فوتر پایین کامل */
+/* 🎬 ویدیو کارت */
+.video-card{
+    background:white;
+    color:black;
+    border-radius:15px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+.thumb{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.video-content{
+    padding:15px;
+}
+
+.title{
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+.short{
+    color:#444;
+    margin-bottom:10px;
+}
+
+.more-video{
+    display:none;
+    margin-top:10px;
+    color:#333;
+    line-height:1.7;
+}
+
+.video-link{
+    display:inline-block;
+    margin-top:10px;
+    color:var(--main);
+    font-weight:900;
+    text-decoration:none;
+}
+
+/* فوتر */
 footer{
     text-align:center;
     padding:15px;
@@ -135,29 +178,35 @@ footer{
 
 <body>
 
-<div class="logo">
-    <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png">
+<div class="header">
+
+    <div class="logo">
+        <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png">
+    </div>
+
+    <nav>
+        <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
+        <a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار</a>
+        <a onclick="showTab('video')"><i class="fa-solid fa-video"></i> ویدیوها</a>
+        <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
+        <a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
+    </nav>
+
 </div>
 
-<nav>
-<a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
-<a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار</a>
-<a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
-<a onclick="showTab('video')"><i class="fa-solid fa-video"></i> ویدیوها</a>
-<a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
-</nav>
-
+<!-- خانه -->
 <div id="home" class="section active">
     <h2>به ZEROX خوش اومدی 🔥</h2>
 </div>
 
+<!-- اخبار -->
 <div id="news" class="section">
 
     <div class="card">
         <h2>GTA VI خبر جدید</h2>
         <p>جدیدترین اطلاعات GTA 6 منتشر شد.</p>
 
-        <button onclick="toggle(this)">توضیحات بیشتر</button>
+        <button onclick="toggleText(this)">توضیحات بیشتر</button>
 
         <div class="more">
             GTA 6 دارای بزرگ‌ترین نقشه و AI پیشرفته‌تر است.
@@ -166,14 +215,69 @@ footer{
 
 </div>
 
+<!-- ویدیو -->
+<div id="video" class="section">
+
+    <!-- ویدیوی 1 -->
+    <div class="video-card">
+
+        <img class="thumb" src="https://images.unsplash.com/photo-1604079628040-94301bb21b91">
+
+        <div class="video-content">
+
+            <h2 class="title">تریلر GTA VI</h2>
+
+            <p class="short">اولین نگاه به GTA 6</p>
+
+            <button onclick="toggleVideo(this)">توضیحات بیشتر</button>
+
+            <div class="more-video">
+
+                <p>صحنه‌های جدید از وایس سیتی و گیم‌پلی واقعی بازی.</p>
+
+                <a class="video-link" href="https://youtube.com" target="_blank">
+                    ▶ مشاهده ویدیو
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ویدیوی 2 (همونی که گفتی الکی اضافه کنم 😄) -->
+    <div class="video-card">
+
+        <img class="thumb" src="https://images.unsplash.com/photo-1604079628040-94301bb21b91">
+
+        <div class="video-content">
+
+            <h2 class="title">تریلر رسمی GTA VI #2</h2>
+
+            <p class="short">نمای جدید از دنیای بازی</p>
+
+            <button onclick="toggleVideo(this)">توضیحات بیشتر</button>
+
+            <div class="more-video">
+
+                <p>این ویدیو شامل صحنه‌های جدید از شهر و ماشین‌ها است.</p>
+
+                <a class="video-link" href="https://youtube.com" target="_blank">
+                    ▶ مشاهده ویدیو
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- شاپ -->
 <div id="shop" class="section">
     <h2>زروکس شاپ به زودی</h2>
 </div>
 
-<div id="video" class="section">
-    <h2>ویدیوها</h2>
-</div>
-
+<!-- داستان -->
 <div id="story" class="section">
     <h2>داستان‌ها</h2>
 </div>
@@ -189,9 +293,14 @@ function showTab(id){
     document.getElementById(id).classList.add('active');
 }
 
-function toggle(btn){
-    let more = btn.nextElementSibling;
-    more.style.display = more.style.display === "block" ? "none" : "block";
+function toggleText(btn){
+    let box = btn.nextElementSibling;
+    box.style.display = box.style.display === "block" ? "none" : "block";
+}
+
+function toggleVideo(btn){
+    let box = btn.nextElementSibling;
+    box.style.display = box.style.display === "block" ? "none" : "block";
 }
 
 </script>
