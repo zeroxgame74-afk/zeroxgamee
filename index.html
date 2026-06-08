@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZEROX | GAME HUB</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 :root{
     --main:#B61C1C;
@@ -22,8 +20,6 @@ body{
     background:var(--main);
     color:white;
 }
-
-/* هدر */
 .header{
     display:flex;
     flex-direction:column;
@@ -31,7 +27,6 @@ body{
     gap:0px;
     padding-top:8px;
 }
-
 .logo{
     text-align:center;
     width:100%;
@@ -43,7 +38,6 @@ body{
     margin:0 auto;
     margin-bottom:-5px;
 }
-
 nav{
     width:94%;
     display:flex;
@@ -59,7 +53,7 @@ nav{
 nav a{
     color:white;
     text-decoration:none;
-    padding:8px 12px;
+    padding:8px 14px;
     border-radius:10px;
     font-weight:800;
     display:flex;
@@ -67,7 +61,7 @@ nav a{
     gap:8px;
     cursor:pointer;
     transition:0.2s;
-    font-size:13px;
+    font-size:14px;
 }
 nav a i{
     color:var(--main);
@@ -80,8 +74,6 @@ nav a:hover{
     background:white;
     color:var(--main);
 }
-
-/* بخش‌ها */
 .section{
     display:none;
     padding:20px;
@@ -89,8 +81,6 @@ nav a:hover{
 .section.active{
     display:block;
 }
-
-/* فیلترها */
 .filter-buttons{
     display:flex;
     flex-wrap:wrap;
@@ -124,8 +114,6 @@ nav a:hover{
     border-color:var(--main);
     box-shadow:0 0 12px rgba(182,28,28,0.5);
 }
-
-/* کارت حرفه‌ای */
 .hybrid-card{
     background:white;
     border-radius:24px;
@@ -221,8 +209,6 @@ nav a:hover{
     font-size:14px;
     border-right:3px solid var(--main);
 }
-
-/* ========== کارت ویدیو ========== */
 .videos-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -234,7 +220,6 @@ nav a:hover{
         grid-template-columns:1fr;
     }
 }
-
 .video-card{
     background:white;
     border-radius:24px;
@@ -328,7 +313,6 @@ nav a:hover{
     gap:12px;
     margin-top:5px;
 }
-/* انیمیشن نور برای دکمه‌ها */
 @keyframes shine {
     0% { left: -100%; }
     20% { left: 100%; }
@@ -401,8 +385,6 @@ nav a:hover{
     line-height:1.8;
     border-right:3px solid var(--main);
 }
-
-/* ========== کارت موسیقی ========== */
 .music-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
@@ -576,8 +558,6 @@ nav a:hover{
 .download-music-btn:hover::after {
     animation: none;
 }
-
-/* ========== درباره ما ========== */
 .about-container{
     display:flex;
     flex-direction:column;
@@ -634,7 +614,6 @@ nav a:hover{
     transform:translateY(-8px);
     box-shadow:0 25px 35px -12px rgba(0,0,0,0.3);
 }
-/* آیکون سه بعدی با رنگ اصلی */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -692,8 +671,6 @@ nav a:hover{
     color:var(--main);
     margin-top:10px;
 }
-
-/* ========== کانال‌هامون ========== */
 .channels-container{
     display:flex;
     flex-direction:column;
@@ -759,8 +736,6 @@ nav a:hover{
     color:#888;
     font-weight:600;
 }
-
-/* گرید اخبار و داستان‌ها */
 .news-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
@@ -797,9 +772,7 @@ footer{
 }
 </style>
 </head>
-
 <body>
-
 <div class="header">
     <div class="logo">
         <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX">
@@ -815,26 +788,18 @@ footer{
         <a onclick="showTab('channels')"><i class="fa-solid fa-database"></i> کانال‌هامون!</a>
     </nav>
 </div>
-
-<!-- صفحه خانه -->
 <div id="home" class="section active">
     <div class="section-title"><i class="fa-solid fa-fire"></i> آخرین ویدیوها</div>
     <div id="homeVideosGrid" class="videos-grid"></div>
-    
     <div class="section-title"><i class="fa-regular fa-newspaper"></i> آخرین اخبار</div>
     <div id="homeNewsGrid" class="news-grid"></div>
-    
     <div class="section-title"><i class="fa-solid fa-book-open"></i> آخرین داستان‌ها</div>
     <div id="homeStoriesGrid" class="cards-grid"></div>
 </div>
-
-<!-- اخبار -->
 <div id="news" class="section">
     <div class="section-title"><i class="fa-regular fa-newspaper"></i> همه اخبار</div>
     <div id="newsGrid" class="news-grid"></div>
 </div>
-
-<!-- ویدیوها -->
 <div id="video" class="section">
     <div class="section-title"><i class="fa-solid fa-video"></i> ویدیوها</div>
     <div class="filter-buttons">
@@ -846,14 +811,10 @@ footer{
     </div>
     <div id="videosGrid" class="videos-grid"></div>
 </div>
-
-<!-- موسیقی -->
 <div id="music" class="section">
     <div class="section-title"><i class="fa-solid fa-music"></i> موسیقی بازی‌ها</div>
     <div id="musicGrid" class="music-grid"></div>
 </div>
-
-<!-- شاپ -->
 <div id="shop" class="section">
     <div class="hybrid-card">
         <div class="hybrid-content">
@@ -862,14 +823,10 @@ footer{
         </div>
     </div>
 </div>
-
-<!-- داستان‌ها -->
 <div id="stories" class="section">
     <div class="section-title"><i class="fa-solid fa-book-open"></i> داستان‌های بازی</div>
     <div id="storiesGrid" class="cards-grid"></div>
 </div>
-
-<!-- درباره ما -->
 <div id="about" class="section">
     <div class="about-container">
         <div class="welcome-box">
@@ -893,8 +850,6 @@ footer{
         </div>
     </div>
 </div>
-
-<!-- کانال‌هامون -->
 <div id="channels" class="section">
     <div class="channels-container">
         <div class="channel-card">
@@ -910,56 +865,35 @@ footer{
         <div class="channel-card">
             <div class="icon-3d" style="animation:floatSlow 2.5s ease-in-out infinite;"><i class="fa-brands fa-youtube"></i></div>
             <h3>کانال یوتیوب</h3>
-            <div class="coming-soon">
-                <i class="fa-regular fa-clock"></i> به زودی...
-            </div>
+            <div class="coming-soon"><i class="fa-regular fa-clock"></i> به زودی...</div>
         </div>
     </div>
 </div>
-
 <footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
-
 <script>
-// ======================== دیتاها ========================
-
-// ویدیوها
 const videosData = [
-    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن با آزمایش‌های مخفی، بیماران دیوانه و موجود ترسناکی به نام Walrider. اگر به بازی‌های ترسناک و داستان‌های تاریک علاقه داری، این ویدیو رو از دست نده!" },
-    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" }
+    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | داستان کامل Outlast..." },
+    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | داستان کامل بازی نه من انسان نیستم..." }
 ];
-
-// اخبار (فقط ولورین)
 const newsData = [
-    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." }
+    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده..." }
 ];
-
-// داستان‌ها
 const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه...` }
+    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...` }
 ];
-
-// موسیقی
 const musicData = [
+    { id:3, title:"GOD OF WAR | ZEROX", game:"God of War Ragnarök", platform:"PS", cover:"https://uploadkon.ir/uploads/f8ba08_26Negar-1780837093023.jpg", file:"https://uploadkon.ir/uploads/7ea308_26ef9f06-26Zerox-god-of-war.mp3", composers:["Bear McCreary"], desc:"کار روی موسیقی از حدود ۲۰۱۹ شروع شد و هم‌زمان با توسعه بازی جلو رفت، تا اینکه بازی در ۲۰۲۲ منتشر شد. و الان از سایت زروکس گوش میکنید!" },
     { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
-
 function getPlatformIcon(platform){
     if(platform==="Xbox") return '<i class="fab fa-xbox"></i>';
     if(platform==="PS") return '<i class="fab fa-playstation"></i>';
     if(platform==="PC") return '<i class="fab fa-windows"></i>';
     return '<i class="fas fa-gamepad"></i>';
 }
-
 function downloadMusic(url, title){
-    fetch(url).then(r=>r.blob()).then(b=>{
-        const a=document.createElement('a');
-        a.href=URL.createObjectURL(b);
-        a.download=title+'.mp3';
-        a.click();
-        URL.revokeObjectURL(a.href);
-    }).catch(()=>window.open(url,'_blank'));
+    fetch(url).then(r=>r.blob()).then(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=title+'.mp3';a.click();URL.revokeObjectURL(a.href);}).catch(()=>window.open(url,'_blank'));
 }
-
 function getCatIcon(cat){
     if(cat==="ترسناک") return '<i class="fa-solid fa-ghost"></i>';
     if(cat==="هیجانی") return '<i class="fa-solid fa-bolt"></i>';
@@ -967,181 +901,46 @@ function getCatIcon(cat){
     if(cat==="معرفی") return '<i class="fa-solid fa-gamepad"></i>';
     return '<i class="fa-solid fa-tag"></i>';
 }
-
 function renderVideos(containerId, filter="همه"){
     const container = document.getElementById(containerId);
     if(!container) return;
     let filtered = filter==="همه" ? videosData : videosData.filter(v=>v.category===filter);
-    if(filtered.length===0){
-        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی در این دسته یافت نشد</h3></div>`;
-        return;
-    }
-    container.innerHTML = filtered.map(v=>`
-        <div class="video-card">
-            <img class="video-thumb" src="${v.thumb}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
-            <div class="video-badge"><i class="fa-solid fa-play"></i> تماشا</div>
-            <div class="video-info">
-                <h3>${v.title}</h3>
-                <div class="video-meta-row">
-                    <div class="video-cat-tag">${getCatIcon(v.category)} ${v.category}</div>
-                    <div class="date-time"><i class="fa-regular fa-calendar"></i> ${v.date} <i class="fa-regular fa-clock"></i> ${v.time}</div>
-                </div>
-                <p>${v.desc.substring(0, 100)}${v.desc.length > 100 ? '...' : ''}</p>
-                <div class="button-group">
-                    <button class="btn-card" onclick="event.stopPropagation(); window.open('${v.link}','_blank')"><i class="fa-solid fa-play"></i> مشاهده ویدیو</button>
-                    <button class="more-btn" onclick="event.stopPropagation(); toggleVideoText(this)"><i class="fa-regular fa-eye"></i> توضیحات</button>
-                </div>
-                <div class="full-text">${v.fullText}</div>
-            </div>
-        </div>
-    `).join('');
+    if(filtered.length===0){ container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی یافت نشد</h3></div>`; return; }
+    container.innerHTML = filtered.map(v=>`<div class="video-card"><img class="video-thumb" src="${v.thumb}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'"><div class="video-badge"><i class="fa-solid fa-play"></i> تماشا</div><div class="video-info"><h3>${v.title}</h3><div class="video-meta-row"><div class="video-cat-tag">${getCatIcon(v.category)} ${v.category}</div><div class="date-time"><i class="fa-regular fa-calendar"></i> ${v.date} <i class="fa-regular fa-clock"></i> ${v.time}</div></div><p>${v.desc.substring(0, 100)}${v.desc.length > 100 ? '...' : ''}</p><div class="button-group"><button class="btn-card" onclick="event.stopPropagation(); window.open('${v.link}','_blank')"><i class="fa-solid fa-play"></i> مشاهده ویدیو</button><button class="more-btn" onclick="event.stopPropagation(); toggleVideoText(this)"><i class="fa-regular fa-eye"></i> توضیحات</button></div><div class="full-text">${v.fullText}</div></div></div>`).join('');
 }
-
 function renderNews(containerId){
     const container = document.getElementById(containerId);
     if(!container) return;
-    container.innerHTML = newsData.map(n=>`
-        <div class="hybrid-card">
-            <div class="hybrid-inner">
-                <div class="hybrid-media"><img src="${n.image}" onerror="this.src='https://via.placeholder.com/300x200'"></div>
-                <div class="hybrid-content">
-                    <div class="hybrid-badge"><i class="fa-regular fa-newspaper"></i> جدیدترین خبر</div>
-                    <h2>${n.title}</h2>
-                    <div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.7rem; color:#777;"><i class="fa-regular fa-calendar"></i> ${n.date} <i class="fa-regular fa-clock"></i> ${n.time}</div>
-                    <p class="hybrid-desc">${n.summary}</p>
-                    <div class="news-actions">
-                        <button onclick="event.stopPropagation(); toggleNewsText(this)"><i class="fa-regular fa-eye"></i> ادامه مطلب</button>
-                    </div>
-                    <div class="news-full-text">${n.fullText}</div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    container.innerHTML = newsData.map(n=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${n.image}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-regular fa-newspaper"></i> جدیدترین خبر</div><h2>${n.title}</h2><div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.7rem; color:#777;"><i class="fa-regular fa-calendar"></i> ${n.date} <i class="fa-regular fa-clock"></i> ${n.time}</div><p class="hybrid-desc">${n.summary}</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleNewsText(this)"><i class="fa-regular fa-eye"></i> ادامه مطلب</button></div><div class="news-full-text">${n.fullText}</div></div></div></div>`).join('');
 }
-
 function renderStories(containerId){
     const container = document.getElementById(containerId);
     if(!container) return;
-    container.innerHTML = storiesData.map(s=>`
-        <div class="hybrid-card">
-            <div class="hybrid-inner">
-                <div class="hybrid-media"><img src="${s.img}" onerror="this.src='https://via.placeholder.com/300x200'"></div>
-                <div class="hybrid-content">
-                    <div class="hybrid-badge"><i class="fa-solid fa-book-open"></i> داستان اختصاصی</div>
-                    <h2>${s.title}</h2>
-                    <p class="hybrid-desc">${s.desc.substring(0, 120)}...</p>
-                    <div class="news-actions">
-                        <button onclick="event.stopPropagation(); toggleStoryText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button>
-                    </div>
-                    <div class="news-full-text" style="white-space:pre-line; text-align:justify;">${s.full}</div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    container.innerHTML = storiesData.map(s=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${s.img}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-book-open"></i> داستان اختصاصی</div><h2>${s.title}</h2><p class="hybrid-desc">${s.desc.substring(0, 120)}...</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleStoryText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button></div><div class="news-full-text" style="white-space:pre-line; text-align:justify;">${s.full}</div></div></div></div>`).join('');
 }
-
 function renderMusic(){
     const container = document.getElementById('musicGrid');
     if(!container) return;
-    if(musicData.length===0){
-        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`;
-        return;
-    }
+    if(musicData.length===0){ container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`; return; }
     const sortedMusic = [...musicData].reverse();
-    container.innerHTML = sortedMusic.map(m=>`
-        <div class="music-card">
-            <img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'">
-            <div class="music-info">
-                <h3>${m.title}</h3>
-                <div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div>
-                ${m.composers ? `
-                <div class="composers-section">
-                    <div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div>
-                    <div class="composers-list">
-                        ${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}
-                    </div>
-                </div>` : ''}
-                <div class="music-desc-box">
-                    <div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div>
-                    <div class="music-desc-text">${m.desc}</div>
-                </div>
-                <div class="custom-player">
-                    <audio controls src="${m.file}"></audio>
-                    <button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'"><div class="music-info"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
 }
-
-function toggleVideoText(btn){
-    let full = btn.parentElement.nextElementSibling;
-    if(full.style.display === "none" || full.style.display === ""){
-        full.style.display = "block";
-        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن';
-    } else {
-        full.style.display = "none";
-        btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات';
-    }
-}
-
-function toggleNewsText(btn){
-    let full = btn.parentElement.nextElementSibling;
-    if(full.style.display === "none" || full.style.display === ""){
-        full.style.display = "block";
-        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن';
-    } else {
-        full.style.display = "none";
-        btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب';
-    }
-}
-
-function toggleStoryText(btn){
-    let full = btn.parentElement.nextElementSibling;
-    if(full.style.display === "none" || full.style.display === ""){
-        full.style.display = "block";
-        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان';
-    } else {
-        full.style.display = "none";
-        btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان';
-    }
-}
-
+function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
+function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
+function toggleStoryText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
 let currentVideoFilter = "همه";
 function setupFilters(){
-    document.querySelectorAll('#video .filter-btn').forEach(btn=>{
-        btn.addEventListener('click',()=>{
-            document.querySelectorAll('#video .filter-btn').forEach(b=>b.classList.remove('active'));
-            btn.classList.add('active');
-            currentVideoFilter = btn.getAttribute('data-filter');
-            renderVideos('videosGrid', currentVideoFilter);
-        });
-    });
+    document.querySelectorAll('#video .filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ document.querySelectorAll('#video .filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentVideoFilter = btn.getAttribute('data-filter'); renderVideos('videosGrid', currentVideoFilter); }); });
 }
-
 function showTab(id){
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    if(id === 'home'){
-        renderVideos('homeVideosGrid', 'همه');
-        renderNews('homeNewsGrid');
-        renderStories('homeStoriesGrid');
-    }
-    if(id === 'news'){
-        renderNews('newsGrid');
-    }
-    if(id === 'video'){
-        renderVideos('videosGrid', currentVideoFilter);
-    }
-    if(id === 'music'){
-        renderMusic();
-    }
-    if(id === 'stories'){
-        renderStories('storiesGrid');
-    }
+    if(id === 'home'){ renderVideos('homeVideosGrid', 'همه'); renderNews('homeNewsGrid'); renderStories('homeStoriesGrid'); }
+    if(id === 'news'){ renderNews('newsGrid'); }
+    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); }
+    if(id === 'music'){ renderMusic(); }
+    if(id === 'stories'){ renderStories('storiesGrid'); }
 }
-
-// اجرای اولیه
 renderVideos('homeVideosGrid', 'همه');
 renderNews('homeNewsGrid');
 renderStories('homeStoriesGrid');
@@ -1151,6 +950,5 @@ renderStories('storiesGrid');
 renderMusic();
 setupFilters();
 </script>
-
 </body>
     </html>
