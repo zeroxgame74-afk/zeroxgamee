@@ -436,21 +436,24 @@ nav a:hover{
 }
 .music-info h3{
     font-size:1.4rem;
-    margin-bottom:6px;
+    margin-bottom:12px;
     font-weight:900;
     color:var(--main);
 }
 .platform-badge{
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    gap:10px;
     background:#f0f0f0;
-    padding:6px 16px;
-    border-radius:40px;
-    font-size:12px;
+    padding:8px 20px;
+    border-radius:50px;
+    font-size:18px;
     color:var(--main);
     font-weight:800;
-    margin-bottom:15px;
+    margin-bottom:20px;
+}
+.platform-badge i{
+    font-size:22px;
 }
 .composers-section{
     background:#f9f9f9;
@@ -491,10 +494,27 @@ nav a:hover{
     color:var(--main);
     font-size:11px;
 }
-.music-desc{
-    font-size:13px;
-    color:#555;
+.music-desc-box{
+    background:#f5f5f5;
+    border-radius:20px;
+    padding:12px 15px;
     margin:12px 0;
+    text-align:center;
+    border-right:3px solid var(--main);
+}
+.music-desc-title{
+    font-size:12px;
+    font-weight:800;
+    color:var(--main);
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+}
+.music-desc-text{
+    font-size:12px;
+    color:#555;
     line-height:1.6;
 }
 .custom-player{
@@ -586,10 +606,16 @@ nav a:hover{
     color:var(--main);
     margin-bottom:15px;
 }
+.welcome-box h2 i{
+    color:var(--main);
+}
 .welcome-box p{
     font-size:1.2rem;
     color:#333;
     line-height:1.8;
+}
+.welcome-box p i{
+    color:var(--main);
 }
 .info-cards{
     display:grid;
@@ -608,7 +634,7 @@ nav a:hover{
     transform:translateY(-8px);
     box-shadow:0 25px 35px -12px rgba(0,0,0,0.3);
 }
-/* آیکون سه بعدی با انیمیشن شناور */
+/* آیکون سه بعدی با رنگ اصلی */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -624,6 +650,7 @@ nav a:hover{
     margin-bottom:20px;
     display:inline-block;
     animation:float 2s ease-in-out infinite;
+    color:var(--main);
     filter:drop-shadow(0 8px 15px rgba(182,28,28,0.3));
 }
 .icon-3d-support{
@@ -631,7 +658,8 @@ nav a:hover{
     margin-bottom:20px;
     display:inline-block;
     animation:floatSlow 2.5s ease-in-out infinite;
-    filter:drop-shadow(0 8px 20px rgba(0,0,0,0.2));
+    color:var(--main);
+    filter:drop-shadow(0 8px 20px rgba(182,28,28,0.3));
 }
 .info-card h3{
     font-size:1.4rem;
@@ -778,8 +806,8 @@ footer{
     <div class="about-container">
         <div class="welcome-box">
             <div class="welcome-icon"><i class="fa-solid fa-gamepad"></i></div>
-            <h2>به زروکس گیم خوش اومدید! 🎮</h2>
-            <p>اینجا بهشت گیمر هاست<br>اینجا یک خانه برای گیمرهای ایرانی هستش! ❤️</p>
+            <h2>به زروکس گیم خوش اومدید! <i class="fa-solid fa-gamepad"></i></h2>
+            <p>اینجا بهشت گیمر هاست<br>اینجا یک خانه برای گیمرهای ایرانی هستش! <i class="fa-solid fa-heart" style="color:var(--main);"></i></p>
         </div>
         <div class="info-cards">
             <div class="info-card">
@@ -791,8 +819,8 @@ footer{
             <div class="info-card">
                 <div class="icon-3d"><i class="fa-solid fa-user-astronaut"></i></div>
                 <h3>سازنده سایت</h3>
-                <p class="dev-name">@mohamad_hossein_ev18</p>
-                <p style="font-size:12px; margin-top:10px;">توی تلگرام پیام بدید</p>
+                <div class="dev-name">@mohamad_hossein_ev18</div>
+                <a href="https://t.me/mohamad_hossein_ev18" target="_blank" class="contact-link" style="margin-top:15px;"><i class="fab fa-telegram"></i> ارسال پیام در تلگرام</a>
             </div>
         </div>
     </div>
@@ -968,7 +996,10 @@ function renderMusic(){
                         ${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}
                     </div>
                 </div>` : ''}
-                <div class="music-desc">${m.desc}</div>
+                <div class="music-desc-box">
+                    <div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div>
+                    <div class="music-desc-text">${m.desc}</div>
+                </div>
                 <div class="custom-player">
                     <audio controls src="${m.file}"></audio>
                     <button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button>
