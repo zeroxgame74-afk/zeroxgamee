@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEROX | ترکیب اخبار و ویدیو</title>
+<title>ZEROX | اخبار و ویدیو با فیلتر</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -26,24 +26,22 @@ body{
     color:white;
 }
 
-/* هدر - منو نزدیک تر به لوگو شده و شیشه ای حذف شده */
+/* هدر - منو نزدیک به لوگو و بدون شیشه‌ای */
 .header{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:0px;   /* فاصله لوگو و منو رو کم کردم */
+    gap:0px;
     padding-top:10px;
 }
 
-/* لوگو */
 .logo img{
     width:840px;
     max-width:95%;
     display:block;
-    margin-bottom: -5px; /* لوگو رو کمی پایین کشیدم تا به منو بچسبه */
+    margin-bottom: -5px;
 }
 
-/* منو - بدون افکت شیشه‌ای، فقط border ساده */
 nav{
     width:92%;
     display:flex;
@@ -53,8 +51,7 @@ nav{
     padding:10px 10px 12px 10px;
     border:1px solid rgba(255,255,255,0.25);
     border-radius:20px;
-    background: transparent; /* حذف شیشه‌ای بودن */
-    backdrop-filter: none;
+    background: transparent;
     margin-top: 2px;
 }
 
@@ -84,7 +81,6 @@ nav a:hover{
     color:var(--main);
 }
 
-/* بخش‌ها */
 .section{
     display:none;
     padding:20px;
@@ -94,215 +90,313 @@ nav a:hover{
     display:block;
 }
 
-/* کارت معمولی اخبار قدیمی */
-.card{
-    background:rgba(255,255,255,0.2);
-    border:1px solid white;
-    border-radius:12px;
-    padding:15px;
-    margin-top:15px;
+/* ========== فیلترهای شیک ========== */
+.filter-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:30px;
+    justify-content:center;
 }
 
-/* دکمه عمومی */
-button{
-    background:white;
-    color:var(--main);
-    border:none;
-    padding:8px 14px;
-    border-radius:40px;
-    cursor:pointer;
-    font-weight:800;
-    margin-top:10px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: inherit;
-    transition: 0.2s;
-}
-
-button i {
-    font-size: 14px;
-}
-
-button:hover {
-    transform: scale(0.97);
-    background: #f0f0f0;
-}
-
-/* توضیحات معمولی */
-.more{
-    display:none;
-    margin-top:10px;
+.filter-btn{
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.3);
+    padding:10px 22px;
+    border-radius:50px;
     color:white;
-    line-height:1.7;
+    cursor:pointer;
+    transition:0.2s;
+    font-family:'Vazirmatn',sans-serif;
+    font-weight:800;
+    font-size:14px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    backdrop-filter:blur(4px);
 }
 
-/* ========== کارت جدید : هم اخبار هم ویدیو ========== */
-.hybrid-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(0,0,0,0.2));
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 24px;
-    margin-top: 25px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    backdrop-filter: blur(2px);
+.filter-btn i{
+    font-size:14px;
 }
 
-.hybrid-inner {
-    display: flex;
-    flex-direction: column;
+.filter-btn:hover{
+    background:var(--main);
+    border-color:var(--main);
+    transform:translateY(-2px);
 }
 
-@media (min-width: 700px) {
-    .hybrid-inner {
-        flex-direction: row;
+.filter-btn.active{
+    background:var(--main);
+    border-color:var(--main);
+    box-shadow:0 0 12px rgba(182,28,28,0.5);
+}
+
+/* ========== کارت حرفه‌ای (مثل کد جدیدت) ========== */
+.hybrid-card{
+    background:white;
+    border-radius:24px;
+    margin-top:25px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    transition:transform 0.2s, box-shadow 0.2s;
+}
+
+.hybrid-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);
+}
+
+.hybrid-inner{
+    display:flex;
+    flex-direction:column;
+}
+
+@media (min-width:700px){
+    .hybrid-inner{
+        flex-direction:row;
     }
 }
 
-.hybrid-media {
-    flex: 1.2;
-    background: #000;
+.hybrid-media{
+    flex:1.2;
+    background:#111;
 }
 
-.hybrid-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    min-height: 210px;
+.hybrid-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    min-height:220px;
 }
 
-.hybrid-content {
-    flex: 1.5;
-    padding: 20px;
+.hybrid-content{
+    flex:1.5;
+    padding:24px;
+    color:#1a1a1a;
 }
 
-.hybrid-badge {
-    display: inline-block;
-    background: rgba(0,0,0,0.6);
-    padding: 4px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    backdrop-filter: blur(4px);
+.hybrid-badge{
+    display:inline-block;
+    background:var(--main);
+    color:white;
+    padding:5px 16px;
+    border-radius:40px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:14px;
 }
 
-.hybrid-content h2 {
-    font-size: 1.7rem;
-    margin-bottom: 8px;
+.hybrid-badge i{
+    margin-left:6px;
 }
 
-.hybrid-desc {
-    opacity: 0.9;
-    margin-bottom: 15px;
-    line-height: 1.5;
+.hybrid-content h2{
+    font-size:1.8rem;
+    margin-bottom:10px;
+    color:#000;
+    font-weight:900;
 }
 
-.hybrid-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 10px;
+.hybrid-desc{
+    opacity:0.8;
+    margin-bottom:18px;
+    line-height:1.6;
+    color:#2c2c3a;
+    font-weight:500;
 }
 
-.hybrid-actions button {
-    background: white;
-    margin-top: 0;
+.hybrid-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:8px;
 }
 
-.hybrid-more {
-    display: none;
-    margin-top: 18px;
-    padding-top: 12px;
-    border-top: 1px dashed rgba(255,255,255,0.4);
+.hybrid-actions button{
+    background:var(--main);
+    color:white;
+    border:none;
+    padding:9px 20px;
+    border-radius:40px;
+    cursor:pointer;
+    font-weight:800;
+    font-family:inherit;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:0.2s;
+    font-size:14px;
 }
 
-.hybrid-more p {
-    margin-bottom: 12px;
+.hybrid-actions button i{
+    font-size:14px;
+    color:white;
 }
 
-.custom-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--main);
-    color: white;
-    padding: 8px 18px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.2s;
+.hybrid-actions button:hover{
+    background:#8e1515;
+    transform:scale(0.97);
 }
 
-.custom-link i {
-    font-size: 14px;
+.custom-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#222;
+    color:white;
+    padding:9px 20px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.2s;
 }
 
-.custom-link:hover {
-    background: #8e1515;
-    transform: scale(0.97);
+.custom-link i{
+    font-size:13px;
 }
 
-/* استایل ویدیو کارت قدیمی اما با آیکون کاستوم */
+.custom-link:hover{
+    background:#000;
+    transform:scale(0.97);
+}
+
+.hybrid-more{
+    display:none;
+    margin-top:22px;
+    padding-top:16px;
+    border-top:1px solid #e0e0e0;
+    color:#2d2d3a;
+    line-height:1.7;
+    background:#f9f9ff;
+    padding:16px;
+    border-radius:20px;
+}
+
+/* کارت ویدیو (برای فیلترها) */
 .video-card{
     background:white;
-    color:black;
-    border-radius:18px;
+    border-radius:24px;
     overflow:hidden;
-    margin-top:20px;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    transition:0.3s ease;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.thumb{
+.video-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);
+}
+
+.video-thumb{
     width:100%;
     height:200px;
     object-fit:cover;
+    display:block;
 }
 
-.video-content{
-    padding:15px;
+.video-info{
+    padding:20px;
+    text-align:center;
 }
 
-.title{
+.video-info h3{
+    font-size:1.4rem;
+    margin-bottom:10px;
     font-weight:900;
-    margin-bottom:10px;
+    color:var(--main);
 }
 
-.short{
+.video-info p{
+    font-size:0.9rem;
     color:#444;
-    margin-bottom:10px;
+    margin-bottom:15px;
+    line-height:1.5;
+    font-weight:500;
 }
 
-.more-video{
+.video-badge{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:var(--main);
+    color:white;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:900;
+}
+
+.video-card{
+    position:relative;
+}
+
+.more-btn{
+    background:transparent;
+    border:1px solid var(--main);
+    padding:5px 12px;
+    border-radius:20px;
+    color:var(--main);
+    font-size:12px;
+    cursor:pointer;
+    margin-top:8px;
+    font-family:'Vazirmatn',sans-serif;
+    font-weight:900;
+}
+
+.more-btn:hover{
+    background:var(--main);
+    color:white;
+}
+
+.full-text{
     display:none;
-    margin-top:12px;
-    color:#333;
-    line-height:1.7;
+    margin-top:10px;
+    padding:10px;
+    background:#f9f9f9;
+    border-radius:12px;
+    text-align:right;
+    font-size:13px;
 }
 
-/* لینک ویدیو با آیکون کاستوم داخل ویدیو کارت ها */
-.video-link-custom {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--main);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 12px;
-    transition: 0.2s;
+.btn-card{
+    background:var(--main);
+    border:none;
+    padding:8px 22px;
+    border-radius:40px;
+    color:white;
+    font-weight:800;
+    cursor:pointer;
+    transition:0.2s;
+    font-size:13px;
+    font-family:'Vazirmatn',sans-serif;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 }
 
-.video-link-custom i {
-    font-size: 13px;
+.btn-card i{
+    font-size:12px;
 }
 
-.video-link-custom:hover {
-    background: #931616;
-    transform: scale(0.97);
+.btn-card:hover{
+    background:#8a1010;
+    transform:scale(1.02);
+}
+
+.news-meta{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+    font-size:0.7rem;
+    color:#777;
+    justify-content:center;
+}
+
+.news-meta i{
+    color:var(--main);
 }
 
 /* فوتر */
@@ -315,6 +409,13 @@ footer{
     font-size:13px;
 }
 
+.videos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:30px;
+    margin-bottom:40px;
+}
+
 </style>
 
 </head>
@@ -322,11 +423,9 @@ footer{
 <body>
 
 <div class="header">
-
     <div class="logo">
         <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX">
     </div>
-
     <nav>
         <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
         <a onclick="showTab('news')"><i class="fa-solid fa-gamepad"></i> اخبار</a>
@@ -334,103 +433,50 @@ footer{
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('story')"><i class="fa-solid fa-book"></i> داستان‌ها</a>
     </nav>
-
 </div>
 
 <!-- خانه -->
 <div id="home" class="section active">
     <h2>به ZEROX خوش اومدی 🔥</h2>
-    <p style="margin-top:12px;">جدیدترین ترکیب اخبار و ویدیوها، مخصوص گیمرها</p>
+    <p style="margin-top:12px;">جدیدترین اخبار و ویدیوهای اختصاصی گیمینگ</p>
 </div>
 
-<!-- اخبار (قدیمی) -->
+<!-- اخبار (با کارت ترکیبی) -->
 <div id="news" class="section">
-    <div class="card">
-        <h2>GTA VI خبر جدید</h2>
-        <p>جدیدترین اطلاعات GTA 6 منتشر شد.</p>
-        <button onclick="toggleText(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
-        <div class="more">
-            GTA 6 دارای بزرگ‌ترین نقشه و AI پیشرفته‌تر است. عرضه احتمالی 2025.
-        </div>
-    </div>
-</div>
-
-<!-- ویدیوها (شامل کارت جدید هم اخبار هم ویدیو) -->
-<div id="video" class="section">
-
-    <!-- کارت جدید ترکیبی (اخبار + ویدیو) که دقیقا هم اخبار داره هم ویدیو -->
     <div class="hybrid-card">
         <div class="hybrid-inner">
             <div class="hybrid-media">
-                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf" alt="خبر و ویدیو">
+                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf" alt="خبر جدید">
             </div>
             <div class="hybrid-content">
-                <div class="hybrid-badge"><i class="fa-regular fa-newspaper"></i>  جدیدترین خبر + تریلر اختصاصی</div>
-                <h2>افشای نقشه GTA VI | ویدیو اختصاصی</h2>
-                <p class="hybrid-desc">راکستار نقشه‌ای بزرگتر از همیشه طراحی کرده. در این ویدیو جزئیات ماموریت‌ها و لوکیشن‌های جدید رو ببین.</p>
+                <div class="hybrid-badge"><i class="fa-regular fa-newspaper"></i> داغترین خبر</div>
+                <h2>GTA VI تاخیر خورد؟</h2>
+                <p class="hybrid-desc">طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه GTA 6 را به اوایل 2026 موکول کند.</p>
                 <div class="hybrid-actions">
-                    <button onclick="toggleHybridMore(this)"><i class="fa-regular fa-rectangle-list"></i> توضیحات بیشتر</button>
-                    <a href="https://youtube.com" target="_blank" class="custom-link"><i class="fa-solid fa-play"></i> مشاهده ویدیو</a>
+                    <button onclick="toggleHybridMore(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
+                    <a href="#" class="custom-link" onclick="alert('به زودی ...')"><i class="fa-solid fa-play"></i> مشاهده ویدیو</a>
                 </div>
                 <div class="hybrid-more">
-                    <p>🔹 بیش از ۱۰۰ ساعت گیم‌پلی خط داستانی<br>
-                    🔹 شخصیت‌های جدید و بازگشت شخصیت‌های محبوب<br>
-                    🔹 قابلیت سفر بین سیارات (شایعه جدید)<br>
-                    📺 این ویدیو شامل ۵ دقیقه گیم‌پلی خام از build داخلی است.</p>
+                    <p>🔹 دلیل تاخیر: بهینه‌سازی برای نسل جدید کنسول‌ها<br>
+                    🔹 تاریخ احتمالی: مارس 2026<br>
+                    🔹 اولین تریلر رسمی تا پایان سال منتشر می‌شود.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- ویدیوی 1 (با آیکون کاستوم برای توضیحات و لینک ویدیو) -->
-    <div class="video-card">
-
-        <img class="thumb" src="https://images.unsplash.com/photo-1604079628040-94301bb21b91" alt="GTA VI">
-
-        <div class="video-content">
-
-            <h2 class="title">تریلر GTA VI</h2>
-
-            <p class="short">اولین نگاه به GTA 6</p>
-
-            <button onclick="toggleVideo(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
-
-            <div class="more-video">
-                <p>صحنه‌های جدید از وایس سیتی و گیم‌پلی واقعی بازی. انیمیشن‌های باورنکردنی و نورپردازی داینامیک.</p>
-                <a class="video-link-custom" href="https://youtube.com" target="_blank">
-                    <i class="fa-solid fa-play"></i> مشاهده ویدیو
-                </a>
-            </div>
-
-        </div>
+<!-- ویدیوها (با فیلتر و کارت‌های حرفه‌ای) -->
+<div id="video" class="section">
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="همه"><i class="fa-solid fa-globe"></i> همه</button>
+        <button class="filter-btn" data-filter="ترسناک"><i class="fa-solid fa-ghost"></i> ترسناک</button>
+        <button class="filter-btn" data-filter="هیجانی"><i class="fa-solid fa-heartbeat"></i> هیجانی</button>
+        <button class="filter-btn" data-filter="علمی"><i class="fa-solid fa-flask"></i> علمی‌تخیلی</button>
+        <button class="filter-btn" data-filter="معرفی"><i class="fa-solid fa-gamepad"></i> معرفی‌بازی</button>
     </div>
 
-    <!-- ویدیوی 2 (با آیکون کاستوم) -->
-    <div class="video-card">
-
-        <img class="thumb" src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff" alt="gameplay 2">
-
-        <div class="video-content">
-
-            <h2 class="title">تریلر رسمی GTA VI #2</h2>
-
-            <p class="short">نمای جدید از دنیای بازی</p>
-
-            <button onclick="toggleVideo(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
-
-            <div class="more-video">
-
-                <p>این ویدیو شامل صحنه‌های جدید از شهر و ماشین‌ها و نبردهای نفس‌گیر است. همچنین شخصیت زن اصلی معرفی شد.</p>
-
-                <a class="video-link-custom" href="https://youtube.com" target="_blank">
-                    <i class="fa-solid fa-play"></i> مشاهده ویدیو
-                </a>
-
-            </div>
-
-        </div>
-    </div>
-
+    <div id="videosContainer" class="videos-grid"></div>
 </div>
 
 <!-- شاپ -->
@@ -439,15 +485,17 @@ footer{
     <p>محصولات اختصاصی ZEROX به زودی عرضه میشه</p>
 </div>
 
-<!-- داستان -->
+<!-- داستان‌ها -->
 <div id="story" class="section">
     <h2>داستان‌ها</h2>
-    <div class="card">
-        <h3>داستان ZeroX</h3>
-        <p>دنیای ZEROX از دل کویر数据 بیرون اومد...</p>
-        <button onclick="toggleText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button>
-        <div class="more">
-            توی آینده نزدیک، گروه ZeroX تبدیل به بزرگترین اجتماع گیمرهای حرفه‌ای شد. ماجراهای جدید در راه است...
+    <div class="hybrid-card">
+        <div class="hybrid-content">
+            <h2>داستان ZEROX</h2>
+            <p>دنیای ZEROX از دل کویر داده بیرون اومد...</p>
+            <button onclick="toggleStoryMore(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button>
+            <div class="hybrid-more" style="display:none;">
+                توی آینده نزدیک، گروه ZeroX تبدیل به بزرگترین اجتماع گیمرهای حرفه‌ای شد. ماجراهای جدید در راه است...
+            </div>
         </div>
     </div>
 </div>
@@ -457,53 +505,88 @@ footer{
 </footer>
 
 <script>
+// دیتاهای ویدیوها با دسته‌بندی
+const videosData = [
+    { title: "بازی شیطان صفت", desc: "داستان ترسناک و واقعی", thumb: "https://images.unsplash.com/photo-1604079628040-94301bb21b91", link: "https://youtube.com", category: "ترسناک", fullText: "در این ویدیو به بررسی بازی Outlast می‌پردازیم." },
+    { title: "شکارچی روح", desc: "تجربه‌ای هیجانی و پراسترس", thumb: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link: "https://youtube.com", category: "هیجانی", fullText: "بازی جدید با گرافیک فوق‌العاده و داستانی نفسگیر." },
+    { title: "سفر به مریخ", desc: "علمی تخیلی و حماسی", thumb: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", link: "https://youtube.com", category: "علمی", fullText: "نگاهی به بازی Starfield و دنیای وسیع آن." },
+    { title: "معرفی GTA VI", desc: "همه چیز درباره GTA جدید", thumb: "https://images.unsplash.com/photo-1604079628040-94301bb21b91", link: "https://youtube.com", category: "معرفی", fullText: "جزئیات کامل از نقشه، شخصیت‌ها و گیم‌پلی." },
+    { title: "بازی Alan Wake 2", desc: "ترس و روانشناسی تاریک", thumb: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link: "https://youtube.com", category: "ترسناک", fullText: "بررسی داستان پیچیده و فضای وهم‌آلود." }
+];
 
-function showTab(id){
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
+// نمایش ویدیوها بر اساس فیلتر
+let currentFilter = "همه";
+
+function renderVideos() {
+    const container = document.getElementById("videosContainer");
+    const filtered = currentFilter === "همه" ? videosData : videosData.filter(v => v.category === currentFilter);
+    
+    if(filtered.length === 0) {
+        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:#B61C1C;"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی در این دسته یافت نشد</h3></div>`;
+        return;
+    }
+    
+    container.innerHTML = filtered.map((video, idx) => `
+        <div class="video-card">
+            <img class="video-thumb" src="${video.thumb}">
+            <div class="video-badge">▶ تماشا</div>
+            <div class="video-info">
+                <h3>${video.title}</h3>
+                <p>${video.desc}</p>
+                <button class="btn-card" onclick="event.stopPropagation(); window.open('${video.link}','_blank')"><i class="fa-solid fa-play"></i> مشاهده ویدیو</button>
+                ${video.fullText ? `<div><button class="more-btn" onclick="event.stopPropagation(); toggleVideoText(this)">📖 توضیحات بیشتر</button><div class="full-text">${video.fullText}</div></div>` : ''}
+            </div>
+        </div>
+    `).join('');
 }
 
-// تابع برای کارت معمولی قدیمی (اخبار و داستان)
-function toggleText(btn){
-    let box = btn.nextElementSibling;
-    if(box && box.classList && box.classList.contains('more')) {
-        box.style.display = box.style.display === "block" ? "none" : "block";
+function toggleVideoText(btn) {
+    const fullTextDiv = btn.nextElementSibling;
+    if(fullTextDiv.style.display === "none" || fullTextDiv.style.display === "") {
+        fullTextDiv.style.display = "block";
+        btn.innerHTML = "🔒 بستن";
     } else {
-        // fallback
-        let parent = btn.parentNode;
-        let moreDiv = parent.querySelector('.more');
+        fullTextDiv.style.display = "none";
+        btn.innerHTML = "📖 توضیحات بیشتر";
+    }
+}
+
+// راه‌اندازی فیلترها
+function setupFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.getAttribute('data-filter');
+            renderVideos();
+        });
+    });
+}
+
+// توابع دیگر
+function showTab(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(id === 'video') renderVideos();
+}
+
+function toggleHybridMore(btn) {
+    let container = btn.closest('.hybrid-content');
+    if(container) {
+        let moreDiv = container.querySelector('.hybrid-more');
         if(moreDiv) moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
     }
 }
 
-// تابع برای ویدیو کارت های ساده
-function toggleVideo(btn){
-    let box = btn.nextElementSibling;
-    if(box && box.classList && box.classList.contains('more-video')) {
-        box.style.display = box.style.display === "block" ? "none" : "block";
-    } else {
-        let parent = btn.closest('.video-content');
-        if(parent){
-            let moreDiv = parent.querySelector('.more-video');
-            if(moreDiv) moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
-        }
-    }
+function toggleStoryMore(btn) {
+    let moreDiv = btn.nextElementSibling;
+    if(moreDiv) moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
 }
 
-// تابع جدید برای کارت ترکیبی (hybrid)
-function toggleHybridMore(btn){
-    let container = btn.closest('.hybrid-content');
-    if(!container) return;
-    let moreDiv = container.querySelector('.hybrid-more');
-    if(moreDiv) {
-        moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
-    }
-}
-
-// برای کارت داستان هم استفاده از toggleText درست کار می‌کنه
-// همچنین برای news هم قبلاً درست شده
-
+// اجرای اولیه
+setupFilters();
+renderVideos();
 </script>
 
 </body>
-    </html>
+            </html>
