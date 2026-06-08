@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEROX</title>
+<title>ZEROX | ترکیب اخبار و ویدیو</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -26,12 +26,12 @@ body{
     color:white;
 }
 
-/* هدر */
+/* هدر - منو نزدیک تر به لوگو شده و شیشه ای حذف شده */
 .header{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:6px;
+    gap:0px;   /* فاصله لوگو و منو رو کم کردم */
     padding-top:10px;
 }
 
@@ -39,19 +39,23 @@ body{
 .logo img{
     width:840px;
     max-width:95%;
+    display:block;
+    margin-bottom: -5px; /* لوگو رو کمی پایین کشیدم تا به منو بچسبه */
 }
 
-/* منو */
+/* منو - بدون افکت شیشه‌ای، فقط border ساده */
 nav{
     width:92%;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
     gap:12px;
-
-    padding:10px;
-    border:1px solid rgba(255,255,255,0.4);
-    border-radius:15px;
+    padding:10px 10px 12px 10px;
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:20px;
+    background: transparent; /* حذف شیشه‌ای بودن */
+    backdrop-filter: none;
+    margin-top: 2px;
 }
 
 nav a{
@@ -64,6 +68,7 @@ nav a{
     align-items:center;
     gap:8px;
     cursor:pointer;
+    transition: all 0.2s;
 }
 
 nav a i{
@@ -89,7 +94,7 @@ nav a:hover{
     display:block;
 }
 
-/* کارت خبر */
+/* کارت معمولی اخبار قدیمی */
 .card{
     background:rgba(255,255,255,0.2);
     border:1px solid white;
@@ -98,19 +103,33 @@ nav a:hover{
     margin-top:15px;
 }
 
-/* دکمه */
+/* دکمه عمومی */
 button{
     background:white;
     color:var(--main);
     border:none;
-    padding:8px 12px;
-    border-radius:8px;
+    padding:8px 14px;
+    border-radius:40px;
     cursor:pointer;
     font-weight:800;
     margin-top:10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+    transition: 0.2s;
 }
 
-/* توضیحات */
+button i {
+    font-size: 14px;
+}
+
+button:hover {
+    transform: scale(0.97);
+    background: #f0f0f0;
+}
+
+/* توضیحات معمولی */
 .more{
     display:none;
     margin-top:10px;
@@ -118,13 +137,121 @@ button{
     line-height:1.7;
 }
 
-/* 🎬 ویدیو کارت */
+/* ========== کارت جدید : هم اخبار هم ویدیو ========== */
+.hybrid-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(0,0,0,0.2));
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 24px;
+    margin-top: 25px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(2px);
+}
+
+.hybrid-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 700px) {
+    .hybrid-inner {
+        flex-direction: row;
+    }
+}
+
+.hybrid-media {
+    flex: 1.2;
+    background: #000;
+}
+
+.hybrid-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 210px;
+}
+
+.hybrid-content {
+    flex: 1.5;
+    padding: 20px;
+}
+
+.hybrid-badge {
+    display: inline-block;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    backdrop-filter: blur(4px);
+}
+
+.hybrid-content h2 {
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+}
+
+.hybrid-desc {
+    opacity: 0.9;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.hybrid-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.hybrid-actions button {
+    background: white;
+    margin-top: 0;
+}
+
+.hybrid-more {
+    display: none;
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255,255,255,0.4);
+}
+
+.hybrid-more p {
+    margin-bottom: 12px;
+}
+
+.custom-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--main);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.custom-link i {
+    font-size: 14px;
+}
+
+.custom-link:hover {
+    background: #8e1515;
+    transform: scale(0.97);
+}
+
+/* استایل ویدیو کارت قدیمی اما با آیکون کاستوم */
 .video-card{
     background:white;
     color:black;
-    border-radius:15px;
+    border-radius:18px;
     overflow:hidden;
     margin-top:20px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
 
 .thumb{
@@ -149,17 +276,33 @@ button{
 
 .more-video{
     display:none;
-    margin-top:10px;
+    margin-top:12px;
     color:#333;
     line-height:1.7;
 }
 
-.video-link{
-    display:inline-block;
-    margin-top:10px;
-    color:var(--main);
-    font-weight:900;
-    text-decoration:none;
+/* لینک ویدیو با آیکون کاستوم داخل ویدیو کارت ها */
+.video-link-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--main);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 12px;
+    transition: 0.2s;
+}
+
+.video-link-custom i {
+    font-size: 13px;
+}
+
+.video-link-custom:hover {
+    background: #931616;
+    transform: scale(0.97);
 }
 
 /* فوتر */
@@ -181,7 +324,7 @@ footer{
 <div class="header">
 
     <div class="logo">
-        <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png">
+        <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX">
     </div>
 
     <nav>
@@ -197,31 +340,52 @@ footer{
 <!-- خانه -->
 <div id="home" class="section active">
     <h2>به ZEROX خوش اومدی 🔥</h2>
+    <p style="margin-top:12px;">جدیدترین ترکیب اخبار و ویدیوها، مخصوص گیمرها</p>
 </div>
 
-<!-- اخبار -->
+<!-- اخبار (قدیمی) -->
 <div id="news" class="section">
-
     <div class="card">
         <h2>GTA VI خبر جدید</h2>
         <p>جدیدترین اطلاعات GTA 6 منتشر شد.</p>
-
-        <button onclick="toggleText(this)">توضیحات بیشتر</button>
-
+        <button onclick="toggleText(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
         <div class="more">
-            GTA 6 دارای بزرگ‌ترین نقشه و AI پیشرفته‌تر است.
+            GTA 6 دارای بزرگ‌ترین نقشه و AI پیشرفته‌تر است. عرضه احتمالی 2025.
+        </div>
+    </div>
+</div>
+
+<!-- ویدیوها (شامل کارت جدید هم اخبار هم ویدیو) -->
+<div id="video" class="section">
+
+    <!-- کارت جدید ترکیبی (اخبار + ویدیو) که دقیقا هم اخبار داره هم ویدیو -->
+    <div class="hybrid-card">
+        <div class="hybrid-inner">
+            <div class="hybrid-media">
+                <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf" alt="خبر و ویدیو">
+            </div>
+            <div class="hybrid-content">
+                <div class="hybrid-badge"><i class="fa-regular fa-newspaper"></i>  جدیدترین خبر + تریلر اختصاصی</div>
+                <h2>افشای نقشه GTA VI | ویدیو اختصاصی</h2>
+                <p class="hybrid-desc">راکستار نقشه‌ای بزرگتر از همیشه طراحی کرده. در این ویدیو جزئیات ماموریت‌ها و لوکیشن‌های جدید رو ببین.</p>
+                <div class="hybrid-actions">
+                    <button onclick="toggleHybridMore(this)"><i class="fa-regular fa-rectangle-list"></i> توضیحات بیشتر</button>
+                    <a href="https://youtube.com" target="_blank" class="custom-link"><i class="fa-solid fa-play"></i> مشاهده ویدیو</a>
+                </div>
+                <div class="hybrid-more">
+                    <p>🔹 بیش از ۱۰۰ ساعت گیم‌پلی خط داستانی<br>
+                    🔹 شخصیت‌های جدید و بازگشت شخصیت‌های محبوب<br>
+                    🔹 قابلیت سفر بین سیارات (شایعه جدید)<br>
+                    📺 این ویدیو شامل ۵ دقیقه گیم‌پلی خام از build داخلی است.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-</div>
-
-<!-- ویدیو -->
-<div id="video" class="section">
-
-    <!-- ویدیوی 1 -->
+    <!-- ویدیوی 1 (با آیکون کاستوم برای توضیحات و لینک ویدیو) -->
     <div class="video-card">
 
-        <img class="thumb" src="https://images.unsplash.com/photo-1604079628040-94301bb21b91">
+        <img class="thumb" src="https://images.unsplash.com/photo-1604079628040-94301bb21b91" alt="GTA VI">
 
         <div class="video-content">
 
@@ -229,25 +393,22 @@ footer{
 
             <p class="short">اولین نگاه به GTA 6</p>
 
-            <button onclick="toggleVideo(this)">توضیحات بیشتر</button>
+            <button onclick="toggleVideo(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
 
             <div class="more-video">
-
-                <p>صحنه‌های جدید از وایس سیتی و گیم‌پلی واقعی بازی.</p>
-
-                <a class="video-link" href="https://youtube.com" target="_blank">
-                    ▶ مشاهده ویدیو
+                <p>صحنه‌های جدید از وایس سیتی و گیم‌پلی واقعی بازی. انیمیشن‌های باورنکردنی و نورپردازی داینامیک.</p>
+                <a class="video-link-custom" href="https://youtube.com" target="_blank">
+                    <i class="fa-solid fa-play"></i> مشاهده ویدیو
                 </a>
-
             </div>
 
         </div>
     </div>
 
-    <!-- ویدیوی 2 (همونی که گفتی الکی اضافه کنم 😄) -->
+    <!-- ویدیوی 2 (با آیکون کاستوم) -->
     <div class="video-card">
 
-        <img class="thumb" src="https://images.unsplash.com/photo-1604079628040-94301bb21b91">
+        <img class="thumb" src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff" alt="gameplay 2">
 
         <div class="video-content">
 
@@ -255,14 +416,14 @@ footer{
 
             <p class="short">نمای جدید از دنیای بازی</p>
 
-            <button onclick="toggleVideo(this)">توضیحات بیشتر</button>
+            <button onclick="toggleVideo(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
 
             <div class="more-video">
 
-                <p>این ویدیو شامل صحنه‌های جدید از شهر و ماشین‌ها است.</p>
+                <p>این ویدیو شامل صحنه‌های جدید از شهر و ماشین‌ها و نبردهای نفس‌گیر است. همچنین شخصیت زن اصلی معرفی شد.</p>
 
-                <a class="video-link" href="https://youtube.com" target="_blank">
-                    ▶ مشاهده ویدیو
+                <a class="video-link-custom" href="https://youtube.com" target="_blank">
+                    <i class="fa-solid fa-play"></i> مشاهده ویدیو
                 </a>
 
             </div>
@@ -275,15 +436,24 @@ footer{
 <!-- شاپ -->
 <div id="shop" class="section">
     <h2>زروکس شاپ به زودی</h2>
+    <p>محصولات اختصاصی ZEROX به زودی عرضه میشه</p>
 </div>
 
 <!-- داستان -->
 <div id="story" class="section">
     <h2>داستان‌ها</h2>
+    <div class="card">
+        <h3>داستان ZeroX</h3>
+        <p>دنیای ZEROX از دل کویر数据 بیرون اومد...</p>
+        <button onclick="toggleText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button>
+        <div class="more">
+            توی آینده نزدیک، گروه ZeroX تبدیل به بزرگترین اجتماع گیمرهای حرفه‌ای شد. ماجراهای جدید در راه است...
+        </div>
+    </div>
 </div>
 
 <footer>
-© 2026 ZEROX
+© 2026 ZEROX | اخبار و ویدیوهای داغ گیمینگ
 </footer>
 
 <script>
@@ -293,17 +463,47 @@ function showTab(id){
     document.getElementById(id).classList.add('active');
 }
 
+// تابع برای کارت معمولی قدیمی (اخبار و داستان)
 function toggleText(btn){
     let box = btn.nextElementSibling;
-    box.style.display = box.style.display === "block" ? "none" : "block";
+    if(box && box.classList && box.classList.contains('more')) {
+        box.style.display = box.style.display === "block" ? "none" : "block";
+    } else {
+        // fallback
+        let parent = btn.parentNode;
+        let moreDiv = parent.querySelector('.more');
+        if(moreDiv) moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
+    }
 }
 
+// تابع برای ویدیو کارت های ساده
 function toggleVideo(btn){
     let box = btn.nextElementSibling;
-    box.style.display = box.style.display === "block" ? "none" : "block";
+    if(box && box.classList && box.classList.contains('more-video')) {
+        box.style.display = box.style.display === "block" ? "none" : "block";
+    } else {
+        let parent = btn.closest('.video-content');
+        if(parent){
+            let moreDiv = parent.querySelector('.more-video');
+            if(moreDiv) moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
+        }
+    }
 }
+
+// تابع جدید برای کارت ترکیبی (hybrid)
+function toggleHybridMore(btn){
+    let container = btn.closest('.hybrid-content');
+    if(!container) return;
+    let moreDiv = container.querySelector('.hybrid-more');
+    if(moreDiv) {
+        moreDiv.style.display = moreDiv.style.display === "block" ? "none" : "block";
+    }
+}
+
+// برای کارت داستان هم استفاده از toggleText درست کار می‌کنه
+// همچنین برای news هم قبلاً درست شده
 
 </script>
 
 </body>
-</html>
+    </html>
