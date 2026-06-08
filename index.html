@@ -125,7 +125,7 @@ nav a:hover{
     box-shadow:0 0 12px rgba(182,28,28,0.5);
 }
 
-/* کارت حرفه‌ای (مثل کد خودت) */
+/* کارت حرفه‌ای */
 .hybrid-card{
     background:white;
     border-radius:24px;
@@ -237,7 +237,19 @@ nav a:hover{
     border-radius:20px;
 }
 
-/* کارت ویدیو (مثل کد خودت) */
+/* ========== کارت ویدیو - دو تا کنار هم ========== */
+.videos-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:25px;
+    margin-bottom:40px;
+}
+@media (max-width:700px){
+    .videos-grid{
+        grid-template-columns:1fr;
+    }
+}
+
 .video-card{
     background:white;
     border-radius:24px;
@@ -246,6 +258,8 @@ nav a:hover{
     cursor:pointer;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
     position:relative;
+    display:flex;
+    flex-direction:column;
 }
 .video-card:hover{
     transform:translateY(-8px);
@@ -274,6 +288,9 @@ nav a:hover{
 .video-info{
     padding:20px;
     text-align:center;
+    flex:1;
+    display:flex;
+    flex-direction:column;
 }
 .video-info h3{
     font-size:1.4rem;
@@ -292,6 +309,8 @@ nav a:hover{
     color:var(--main);
     font-weight:800;
     margin-bottom:10px;
+    width:fit-content;
+    align-self:center;
 }
 .video-info p{
     font-size:0.9rem;
@@ -313,7 +332,7 @@ nav a:hover{
 .more-btn{
     background:transparent;
     border:1px solid var(--main);
-    padding:5px 12px;
+    padding:6px 14px;
     border-radius:20px;
     color:var(--main);
     font-size:12px;
@@ -326,14 +345,18 @@ nav a:hover{
     background:var(--main);
     color:white;
 }
+/* توضیحات بیشتر - خواناتر */
 .full-text{
     display:none;
-    margin-top:10px;
-    padding:10px;
-    background:#f9f9f9;
-    border-radius:12px;
+    margin-top:12px;
+    padding:14px;
+    background:#f5f5f5;
+    border-radius:16px;
     text-align:right;
-    font-size:13px;
+    font-size:14px;
+    color:#1a1a1a;
+    line-height:1.8;
+    border-right:3px solid var(--main);
 }
 .btn-card{
     background:var(--main);
@@ -349,27 +372,24 @@ nav a:hover{
     display:inline-flex;
     align-items:center;
     gap:8px;
+    justify-content:center;
+    margin-top:5px;
 }
 .btn-card:hover{
     background:#8a1010;
     transform:scale(1.02);
 }
-/* گریدها */
-.videos-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-    gap:30px;
-    margin-bottom:40px;
-}
+
+/* گرید اخبار و داستان‌ها */
 .news-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
     gap:30px;
     margin-bottom:40px;
 }
 .cards-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
     gap:30px;
     margin-bottom:40px;
 }
@@ -413,7 +433,7 @@ footer{
     </nav>
 </div>
 
-<!-- صفحه خانه با آخرین ویدیوها، اخبار، داستان‌ها -->
+<!-- صفحه خانه -->
 <div id="home" class="section active">
     <div class="section-title"><i class="fa-solid fa-fire"></i> آخرین ویدیوها</div>
     <div id="homeVideosGrid" class="videos-grid"></div>
@@ -431,7 +451,7 @@ footer{
     <div id="newsGrid" class="news-grid"></div>
 </div>
 
-<!-- ویدیوها با فیلتر و تگ -->
+<!-- ویدیوها -->
 <div id="video" class="section">
     <div class="section-title"><i class="fa-solid fa-video"></i> ویدیوها</div>
     <div class="filter-buttons">
@@ -463,27 +483,26 @@ footer{
 <footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
 
 <script>
-// =============== دیتا با تگ، تاریخ، زمان ===============
+// دیتاها
 const videosData = [
-    { id:1, title:"بازی شیطان صفت", desc:"داستان ترسناک و واقعی", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۶", time:"۲۰:۳۰", fullText:"در این ویدیو به بررسی بازی Outlast و فضای تاریک آن می‌پردازیم." },
-    { id:2, title:"شکارچی روح", desc:"تجربه‌ای هیجانی و پراسترس", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"هیجانی", date:"۱۴۰۵/۰۳/۱۵", time:"۱۸:۱۵", fullText:"بازی جدید با گرافیک فوق‌العاده و داستانی نفسگیر." },
-    { id:3, title:"سفر به مریخ", desc:"علمی تخیلی و حماسی", thumb:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", link:"https://youtube.com", category:"علمی", date:"۱۴۰۵/۰۳/۱۴", time:"۲۲:۰۰", fullText:"نگاهی به بازی Starfield و دنیای وسیع آن." },
-    { id:4, title:"معرفی GTA VI", desc:"همه چیز درباره GTA جدید", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"معرفی", date:"۱۴۰۵/۰۳/۱۳", time:"۱۶:۴۵", fullText:"جزئیات کامل از نقشه، شخصیت‌ها و گیم‌پلی." },
-    { id:5, title:"بازی Alan Wake 2", desc:"ترس و روانشناسی تاریک", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۲", time:"۲۱:۲۰", fullText:"بررسی داستان پیچیده و فضای وهم‌آلود." }
+    { id:1, title:"بازی شیطان صفت", desc:"داستان ترسناک و واقعی", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۶", time:"۲۰:۳۰", fullText:"در این ویدیو به بررسی بازی Outlast و فضای تاریک آن می‌پردازیم. داستان درباره یک روزنامه‌نگار است که وارد تیمارستانی مخوف می‌شود." },
+    { id:2, title:"شکارچی روح", desc:"تجربه‌ای هیجانی و پراسترس", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"هیجانی", date:"۱۴۰۵/۰۳/۱۵", time:"۱۸:۱۵", fullText:"بازی جدید با گرافیک فوق‌العاده و داستانی نفسگیر. شما در نقش یک شکارچی روح باید موجودات فراطبیعی را شکار کنید." },
+    { id:3, title:"سفر به مریخ", desc:"علمی تخیلی و حماسی", thumb:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", link:"https://youtube.com", category:"علمی", date:"۱۴۰۵/۰۳/۱۴", time:"۲۲:۰۰", fullText:"نگاهی به بازی Starfield و دنیای وسیع آن. بتسدا بزرگترین بازی خود را ساخته و شما میتوانید به هزاران سیاره سفر کنید." },
+    { id:4, title:"معرفی GTA VI", desc:"همه چیز درباره GTA جدید", thumb:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", link:"https://youtube.com", category:"معرفی", date:"۱۴۰۵/۰۳/۱۳", time:"۱۶:۴۵", fullText:"جزئیات کامل از نقشه، شخصیت‌ها و گیم‌پلی. نقشه GTA 6 بزرگترین نقشه تاریخ راکستار خواهد بود." },
+    { id:5, title:"بازی Alan Wake 2", desc:"ترس و روانشناسی تاریک", thumb:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", link:"https://youtube.com", category:"ترسناک", date:"۱۴۰۵/۰۳/۱۲", time:"۲۱:۲۰", fullText:"بررسی داستان پیچیده و فضای وهم‌آلود. الن ویک ۲ یکی از ترسناک‌ترین بازی‌های سال است." }
 ];
 
 const newsData = [
-    { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها...", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند." },
-    { id:2, title:"بازی جدید سایلنت هیل", summary:"بازگشت به ریشه‌های ترس", image:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", date:"۱۴۰۵/۰۳/۱۵", time:"۱۴:۲۰", fullText:"کونامی از نسخه جدید سایلنت هیل رونمایی کرد." },
-    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ با قابلیت‌های جدید منتشر شد." }
+    { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند.", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار برای بهینه‌سازی بیشتر، تاریخ انتشار GTA 6 را به اوایل ۲۰۲۶ تغییر داده است." },
+    { id:2, title:"بازی جدید سایلنت هیل", summary:"بازگشت به ریشه‌های ترس", image:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", date:"۱۴۰۵/۰۳/۱۵", time:"۱۴:۲۰", fullText:"کونامی از نسخه جدید سایلنت هیل با همکاری استودیو بلوپوینت رونمایی کرد." },
+    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی و اضافه شدن محتوای جدید", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک ۲۰۷۷ با رفع باگ‌های فراوان و اضافه شدن سیستم پلیس جدید منتشر شد." }
 ];
 
 const storiesData = [
-    { title:"رستاخیز سرزمین‌های فراموش‌شده", desc:"تحلیل کامل داستان", img:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", full:"در این داستان به ماجرای قهرمانی می‌پردازیم که..." },
-    { title:"حماسه آخرین بازمانده", desc:"روایت نجات و بقا", img:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", full:"داستان پس از آخرالزمان..." }
+    { title:"رستاخیز سرزمین‌های فراموش‌شده", desc:"تحلیل کامل داستان", img:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", full:"در این داستان به ماجرای قهرمانی می‌پردازیم که پس از سالها تبعید بازمی‌گردد تا سرزمینش را نجات دهد..." },
+    { title:"حماسه آخرین بازمانده", desc:"روایت نجات و بقا", img:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", full:"داستان پس از آخرالزمانی که انسانیت در آستانه نابودی است و یک بازمانده باید راهی برای نجات پیدا کند..." }
 ];
 
-// آیکون‌های دسته‌بندی
 function getCatIcon(cat){
     if(cat==="ترسناک") return '<i class="fa-solid fa-ghost"></i>';
     if(cat==="هیجانی") return '<i class="fa-solid fa-bolt"></i>';
@@ -492,17 +511,16 @@ function getCatIcon(cat){
     return '<i class="fa-solid fa-tag"></i>';
 }
 
-// رندر ویدیوها
 function renderVideos(containerId, filter="همه"){
     const container = document.getElementById(containerId);
     if(!container) return;
     let filtered = filter==="همه" ? videosData : videosData.filter(v=>v.category===filter);
     if(filtered.length===0){
-        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی در این دسته یافت نشد</h3></div>`;
+        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main); grid-column:span 2;"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی در این دسته یافت نشد</h3></div>`;
         return;
     }
     container.innerHTML = filtered.map(v=>`
-        <div class="video-card" onclick="window.open('${v.link}','_blank')">
+        <div class="video-card">
             <img class="video-thumb" src="${v.thumb}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
             <div class="video-badge"><i class="fa-solid fa-play"></i> تماشا</div>
             <div class="video-info">
@@ -510,14 +528,14 @@ function renderVideos(containerId, filter="همه"){
                 <div class="video-cat-tag">${getCatIcon(v.category)} ${v.category}</div>
                 <div class="news-meta"><i class="fa-regular fa-calendar"></i> ${v.date} <i class="fa-regular fa-clock"></i> ${v.time}</div>
                 <p>${v.desc}</p>
-                <button class="btn-card" onclick="event.stopPropagation()"><i class="fa-solid fa-play"></i> مشاهده ویدیو</button>
-                ${v.fullText ? `<div><button class="more-btn" onclick="event.stopPropagation(); toggleText(this)">📖 توضیحات بیشتر</button><div class="full-text">${v.fullText}</div></div>` : ''}
+                <button class="btn-card" onclick="event.stopPropagation(); window.open('${v.link}','_blank')"><i class="fa-solid fa-play"></i> مشاهده ویدیو</button>
+                <div><button class="more-btn" onclick="event.stopPropagation(); toggleText(this)"><i class="fa-regular fa-eye"></i> توضیحات بیشتر</button>
+                <div class="full-text">${v.fullText}</div></div>
             </div>
         </div>
     `).join('');
 }
 
-// رندر اخبار
 function renderNews(containerId){
     const container = document.getElementById(containerId);
     if(!container) return;
@@ -537,7 +555,6 @@ function renderNews(containerId){
     `).join('');
 }
 
-// رندر داستان‌ها
 function renderStories(containerId){
     const container = document.getElementById(containerId);
     if(!container) return;
@@ -556,15 +573,14 @@ function renderStories(containerId){
     `).join('');
 }
 
-// توابع کمکی
 function toggleText(btn){
     let full = btn.nextElementSibling;
     if(full.style.display === "none" || full.style.display === ""){
         full.style.display = "block";
-        btn.innerHTML = "🔒 بستن";
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن';
     } else {
         full.style.display = "none";
-        btn.innerHTML = "📖 توضیحات بیشتر";
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات بیشتر';
     }
 }
 
@@ -572,10 +588,10 @@ function toggleStoryText(btn){
     let more = btn.nextElementSibling;
     if(more.style.display === "none" || more.style.display === ""){
         more.style.display = "block";
-        btn.innerHTML = "🔒 بستن";
+        btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن';
     } else {
         more.style.display = "none";
-        btn.innerHTML = "📖 ادامه داستان";
+        btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان';
     }
 }
 
@@ -586,7 +602,6 @@ function showNewsFull(id){
     }
 }
 
-// فیلتر ویدیوها
 let currentVideoFilter = "همه";
 function setupFilters(){
     document.querySelectorAll('#video .filter-btn').forEach(btn=>{
@@ -599,7 +614,6 @@ function setupFilters(){
     });
 }
 
-// تغییر تب
 function showTab(id){
     document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
