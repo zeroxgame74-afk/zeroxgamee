@@ -330,6 +330,29 @@ nav a:hover{
     gap:12px;
     margin-top:5px;
 }
+/* انیمیشن نور برای دکمه‌های ویدیو */
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+.btn-card, .more-btn{
+    position:relative;
+    overflow:hidden;
+}
+.btn-card::after, .more-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shine 3s infinite;
+}
+.btn-card:hover::after, .more-btn:hover::after {
+    animation: none;
+}
 .btn-card{
     background:var(--main);
     border:none;
@@ -381,7 +404,7 @@ nav a:hover{
     border-right:3px solid var(--main);
 }
 
-/* ========== کارت موسیقی با انیمیشن و آیکون پلتفرم ========== */
+/* ========== کارت موسیقی ========== */
 .music-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
@@ -431,6 +454,38 @@ nav a:hover{
     font-weight:800;
     margin-bottom:15px;
 }
+.composers-box{
+    background:#f9f9f9;
+    border-radius:20px;
+    padding:12px 15px;
+    margin:12px 0;
+    text-align:right;
+    border-right:3px solid var(--main);
+}
+.composers-box .composer-title{
+    font-size:12px;
+    font-weight:800;
+    color:var(--main);
+    margin-bottom:8px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.composer-names{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+}
+.composer-name{
+    background:white;
+    border-radius:30px;
+    padding:4px 12px;
+    font-size:11px;
+    color:#333;
+    font-weight:600;
+    border:1px solid #eee;
+}
 .music-desc{
     font-size:13px;
     color:#555;
@@ -462,12 +517,6 @@ nav a:hover{
     height:40px;
     border-radius:40px;
     outline:none;
-}
-/* انیمیشن نور روی دکمه دانلود */
-@keyframes shine {
-    0% { left: -100%; }
-    20% { left: 100%; }
-    100% { left: 100%; }
 }
 .download-music-btn{
     background:var(--main);
@@ -571,7 +620,7 @@ footer{
     <div id="homeStoriesGrid" class="cards-grid"></div>
 </div>
 
-<!-- اخبار -->
+<!-- اخبار (فقط ولورین) -->
 <div id="news" class="section">
     <div class="section-title"><i class="fa-regular fa-newspaper"></i> همه اخبار</div>
     <div id="newsGrid" class="news-grid"></div>
@@ -617,18 +666,15 @@ footer{
 <script>
 // ======================== دیتاها ========================
 
-// ویدیوها (ویدیو جدید Outlast اول شده)
+// ویدیوها
 const videosData = [
     { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن با آزمایش‌های مخفی، بیماران دیوانه و موجود ترسناکی به نام Walrider. اگر به بازی‌های ترسناک و داستان‌های تاریک علاقه داری، این ویدیو رو از دست نده!" },
     { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" }
 ];
 
-// اخبار
+// اخبار (فقط ولورین)
 const newsData = [
-    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." },
-    { id:1, title:"GTA VI تاخیر خورد؟", summary:"طبق جدیدترین گزارش‌ها، راکستار ممکن است عرضه را به ۲۰۲۶ موکول کند.", image:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", date:"۱۴۰۵/۰۳/۱۶", time:"۱۰:۳۰", fullText:"راکستار برای بهینه‌سازی بیشتر، تاریخ انتشار GTA 6 را به اوایل ۲۰۲۶ تغییر داده است." },
-    { id:2, title:"بازی جدید سایلنت هیل", summary:"بازگشت به ریشه‌های ترس", image:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", date:"۱۴۰۵/۰۳/۱۵", time:"۱۴:۲۰", fullText:"کونامی از نسخه جدید سایلنت هیل با همکاری استودیو بلوپوینت رونمایی کرد." },
-    { id:3, title:"آپدیت بزرگ سایبرپانک", summary:"بهبودهای اساسی", image:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", date:"۱۴۰۵/۰۳/۱۴", time:"۰۹:۱۵", fullText:"آپدیت ۲.۲ سایبرپانک با رفع باگ‌های فراوان منتشر شد." }
+    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." }
 ];
 
 // داستان‌ها
@@ -636,10 +682,9 @@ const storiesData = [
     { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://cdn.imgurl.ir/uploads/n009147_god_of_war___Zerox_.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه...` }
 ];
 
-// موسیقی (جدیدترین اول: Halo Infinite)
+// موسیقی (فقط Halo Infinite)
 const musicData = [
-    { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", desc:"Gareth Coker · Curtis Schweitzer · Joel Corelitz — این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" },
-    { id:1, title:"تم حماسی God of War", game:"God of War Ragnarök", platform:"PS", cover:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", desc:"موسیقی حماسی کرتوس در نبرد با خدایان" }
+    { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
 
 function getPlatformIcon(platform){
@@ -746,7 +791,7 @@ function renderMusic(){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`;
         return;
     }
-    // برعکس کردن ترتیب برای نمایش جدیدترین اول (id بزرگتر = جدیدتر)
+    // برعکس کردن ترتیب برای نمایش جدیدترین اول
     const sortedMusic = [...musicData].reverse();
     container.innerHTML = sortedMusic.map(m=>`
         <div class="music-card">
@@ -754,6 +799,13 @@ function renderMusic(){
             <div class="music-info">
                 <h3>${m.title}</h3>
                 <div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div>
+                ${m.composers ? `
+                <div class="composers-box">
+                    <div class="composer-title"><i class="fa-solid fa-music"></i> آهنگسازان</div>
+                    <div class="composer-names">
+                        ${m.composers.map(c => `<span class="composer-name">${c}</span>`).join('')}
+                    </div>
+                </div>` : ''}
                 <div class="music-desc">${m.desc}</div>
                 <div class="custom-player">
                     <audio controls src="${m.file}"></audio>
