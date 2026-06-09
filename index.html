@@ -2,8 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEROX.GAME.IR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>ZEROX.GAME.IR | مرجع تخصصی بازی</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -43,7 +43,7 @@ nav{
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    gap:10px;
+    gap:8px;
     padding:10px 10px 12px 10px;
     border:1px solid rgba(255,255,255,0.3);
     border-radius:20px;
@@ -73,6 +73,16 @@ nav a i{
 nav a:hover{
     background:white;
     color:var(--main);
+}
+@media (max-width: 650px){
+    nav a{
+        padding:6px 10px;
+        font-size:12px;
+    }
+    nav a i{
+        font-size:10px;
+        padding:4px;
+    }
 }
 .section{
     display:none;
