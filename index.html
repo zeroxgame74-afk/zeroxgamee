@@ -84,27 +84,23 @@ nav a i{
     align-items: center;
     justify-content: center;
 }
-.custom-bookmark-icon{
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    color: #fff;
+.custom-popular-icon{
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    color: #C0C0C0;
     padding: 5px;
-    border-radius: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--main);
     font-size: 12px;
     width: 22px;
     height: 22px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 5px rgba(255,215,0,0.5);
 }
-nav a:hover .custom-cd-icon{
+nav a:hover .custom-cd-icon, nav a:hover .custom-popular-icon{
     background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
     color: white;
     box-shadow: 0 0 0 2px white;
-}
-nav a:hover .custom-bookmark-icon{
-    background: linear-gradient(135deg, #FFA500, #FF8C00);
-    transform: scale(1.05);
 }
 nav a:hover{
     background:white;
@@ -115,7 +111,7 @@ nav a:hover{
         padding:6px 10px;
         font-size:12px;
     }
-    nav a i, .custom-cd-icon, .custom-bookmark-icon{
+    nav a i, .custom-cd-icon, .custom-popular-icon{
         font-size:10px;
         padding:4px;
         width: 18px;
@@ -891,7 +887,7 @@ footer{
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
         <a onclick="showTab('old')"><span class="custom-cd-icon"><i class="fa-solid fa-compact-disc"></i></span> زروکس اُلد</a>
-        <a onclick="showTab('popular')"><span class="custom-bookmark-icon"><i class="fa-solid fa-bookmark"></i></span> زروکس پاپیولار</a>
+        <a onclick="showTab('popular')"><span class="custom-popular-icon"><i class="fa-solid fa-bookmark"></i></span> زروکس پاپیولار</a>
         <a onclick="showTab('about')"><i class="fa-solid fa-info-circle"></i> درباره ما</a>
         <a onclick="showTab('channels')"><i class="fa-solid fa-database"></i> کانال‌هامون!</a>
     </nav>
@@ -940,7 +936,7 @@ footer{
     <div id="oldGrid" class="old-grid"></div>
 </div>
 <div id="popular" class="section">
-    <div class="section-title"><span class="custom-bookmark-icon" style="background: linear-gradient(135deg, #FFD700, #FFA500); width: 32px; height: 32px; font-size: 16px;"><i class="fa-solid fa-bookmark"></i></span> محبوب‌ترین بازی‌های ماه | زروکس پاپیولار</div>
+    <div class="section-title"><span class="custom-popular-icon" style="width: 32px; height: 32px; font-size: 16px;"><i class="fa-solid fa-bookmark"></i></span> محبوب‌ترین بازی‌های تاریخ | زروکس پاپیولار</div>
     <div id="popularGrid" class="popular-grid"></div>
 </div>
 <div id="about" class="section">
@@ -1035,9 +1031,16 @@ const oldData = [
     { id:1, title:"GOD OF WAR | ZEROX", name:"God of War", year:"۲۲ مارس ۲۰۰۵", developer:"Santa Monica Studio", publisher:"Sony Computer Entertainment", director:"David Jaffe", producer:"Shannon Studstill", composers:["Gerard Marino","Mike Reagan","Ron Fish","Winifred Phillips","Cris Velasco"], platform:"PlayStation 2", genre:"اکشن ماجراجویی، هک اند اسلش", engine:"Kinetica Engine", cover:"https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg", music:"https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3", desc:"کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.", fullText:"داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است." }
 ];
 const popularData = [
-    { id:1, title:"God of War Ragnarök", desc:"حماسه پایانی کریتوس و آترئوس در سرزمین‌های نورس. یکی از بهترین بازی‌های سال ۲۰۲۲", image:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", rating:"⭐ 4.9", players:"۲.۵ میلیون بازیکن فعال" },
-    { id:2, title:"The Last of Us Part 3", desc:"جدیدترین ساخته ناتی داگ | داستانی جدید در دنیای آخرالزمانی", image:"https://uploadkon.ir/uploads/b62c08_26the-last-of-us-Zerox-.jpg", rating:"⭐ 4.8", players:"۱.۸ میلیون بازیکن فعال" },
-    { id:3, title:"Marvel's Wolverine", desc:"خشونت‌ترین بازی مارول | تجربه‌ای تاریک از لوگان", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", rating:"⭐ 4.7", players:"۱.۲ میلیون بازیکن فعال" }
+    { id:1, title:"The Legend of Zelda: Ocarina of Time", desc:"بازی‌ای که استاندارد بازی‌های سه‌بعدی رو تعریف کرد. داستان لینک برای نجات هایرول از گانون", image:"https://uploadkon.ir/uploads/7a1509_26zelda-ocarina-of-time.jpg", rating:"⭐ 4.9", players:"۱۵ میلیون نسخه" },
+    { id:2, title:"God of War (2018)", desc:"حماسه کریتوس و آترئوس در سرزمین‌های نورس. برنده بهترین بازی سال ۲۰۱۸", image:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", rating:"⭐ 4.8", players:"۲۳ میلیون نسخه" },
+    { id:3, title:"Red Dead Redemption 2", desc:"داستان آرتور مورگان و گروه ون در لینده. یکی از واقع‌گراترین جهان‌های باز تاریخ", image:"https://uploadkon.ir/uploads/9c2209_26red-dead-redemption-2.jpg", rating:"⭐ 4.9", players:"۵۵ میلیون نسخه" },
+    { id:4, title:"The Witcher 3: Wild Hunt", desc:"داستان گرالت از ریویا. یکی از عمیق‌ترین داستان‌های تاریخ بازی", image:"https://uploadkon.ir/uploads/3d2109_26witcher-3.jpg", rating:"⭐ 4.8", players:"۵۰ میلیون نسخه" },
+    { id:5, title:"Grand Theft Auto V", desc:"سه شخصیت، یک دنیای بزرگ. محبوب‌ترین بازی از نظر فروش تاریخ", image:"https://uploadkon.ir/uploads/2e1109_26gta-5.jpg", rating:"⭐ 4.7", players:"۱۹۰ میلیون نسخه" },
+    { id:6, title:"Minecraft", desc:"جهانی بی‌نهایت برای ساخت و بقا. پرفروش‌ترین بازی تاریخ", image:"https://uploadkon.ir/uploads/1f3209_26minecraft.jpg", rating:"⭐ 4.9", players:"۳۰۰ میلیون نسخه" },
+    { id:7, title:"The Last of Us", desc:"داستان جوئل و الی در دنیای آخرالزمانی. یکی از احساسی‌ترین بازی‌ها", image:"https://uploadkon.ir/uploads/b62c08_26the-last-of-us-Zerox-.jpg", rating:"⭐ 4.9", players:"۳۷ میلیون نسخه" },
+    { id:8, title:"Elden Ring", desc:"جهانی باز و پر از راز. بهترین بازی سال ۲۰۲۲", image:"https://uploadkon.ir/uploads/4e4309_26elden-ring.jpg", rating:"⭐ 4.8", players:"۲۵ میلیون نسخه" },
+    { id:9, title:"Super Mario Bros.", desc:"پدر بازی‌های پلتفرمر. نماد صنعت بازی", image:"https://uploadkon.ir/uploads/5d5409_26mario.jpg", rating:"⭐ 4.9", players:"۵۸ میلیون نسخه" },
+    { id:10, title:"Call of Duty: Modern Warfare 2", desc:"بهترین بازی آنلاین نسل خود. انقلابی در سبک شوتر", image:"https://uploadkon.ir/uploads/6e6509_26mw2.jpg", rating:"⭐ 4.6", players:"۲۵ میلیون نسخه" }
 ];
 
 function getPlatformIcon(platform){
@@ -1103,7 +1106,7 @@ function renderPopular(){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-bookmark" style="font-size:48px;"></i><h3>به زودی...</h3></div>`;
         return;
     }
-    container.innerHTML = popularData.map(p=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${p.image}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-fire"></i> محبوب ماه 🔥</div><h2>${p.title}</h2><div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.8rem; color:#777;"><span><i class="fa-solid fa-star" style="color:#FFD700;"></i> ${p.rating}</span><span><i class="fa-solid fa-users"></i> ${p.players}</span></div><p class="hybrid-desc">${p.desc}</p><div class="news-actions"><button class="btn-card" onclick="alert('به زودی اطلاعات بیشتر اضافه میشه!')"><i class="fa-solid fa-info-circle"></i> جزئیات بیشتر</button></div></div></div></div>`).join('');
+    container.innerHTML = popularData.map(p=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${p.image}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-fire"></i> محبوب جهانی 🔥</div><h2>${p.title}</h2><div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.8rem; color:#777;"><span><i class="fa-solid fa-star" style="background: white; color: var(--main); padding: 3px; border-radius: 50%; font-size: 10px; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center;"></i> ${p.rating}</span><span><i class="fa-solid fa-chart-simple"></i> ${p.players}</span></div><p class="hybrid-desc">${p.desc}</p><div class="news-actions"><button class="btn-card" onclick="alert('🎮 اطلاعات کامل بازی ${p.title}\n📅 سال انتشار: به زودی\n🎮 ژانر: به زودی\n⭐ امتیاز: ${p.rating}\n📀 فروش: ${p.players}\n\nبه زودی اطلاعات کامل تری اضافه میشه! 🚀')"><i class="fa-regular fa-eye" style="background: white; color: var(--main); padding: 3px; border-radius: 50%; font-size: 10px; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center;"></i> جزئیات بیشتر</button></div></div></div></div>`).join('');
 }
 
 function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
