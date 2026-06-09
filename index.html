@@ -890,8 +890,8 @@ footer{
         <a onclick="showTab('music')"><i class="fa-solid fa-music"></i> موسیقی</a>
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
-        <a onclick="showTab('old')"><span class="custom-cd-icon"><i class="fa-solid fa-compact-disc"></i></span> زیروکس‌اُلد</a>
-        <a onclick="showTab('popular')"><span class="custom-bookmark-icon"><i class="fa-solid fa-bookmark"></i></span> زیروکس پاپیولار</a>
+        <a onclick="showTab('old')"><span class="custom-cd-icon"><i class="fa-solid fa-compact-disc"></i></span> زروکس اُلد</a>
+        <a onclick="showTab('popular')"><span class="custom-bookmark-icon"><i class="fa-solid fa-bookmark"></i></span> زروکس پاپیولار</a>
         <a onclick="showTab('about')"><i class="fa-solid fa-info-circle"></i> درباره ما</a>
         <a onclick="showTab('channels')"><i class="fa-solid fa-database"></i> کانال‌هامون!</a>
     </nav>
@@ -936,11 +936,11 @@ footer{
     <div id="storiesGrid" class="cards-grid"></div>
 </div>
 <div id="old" class="section">
-    <div class="section-title"><i class="fa-solid fa-compact-disc" style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); color: #C0C0C0; padding: 8px; border-radius: 50%; box-shadow: 0 0 0 2px white; font-size: 20px;"></i> بازی‌های نوستالژیک | زیروکس‌اُلد</div>
+    <div class="section-title"><i class="fa-solid fa-compact-disc" style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); color: #C0C0C0; padding: 8px; border-radius: 50%; box-shadow: 0 0 0 2px white; font-size: 20px;"></i> بازی‌های نوستالژیک | زروکس اُلد</div>
     <div id="oldGrid" class="old-grid"></div>
 </div>
 <div id="popular" class="section">
-    <div class="section-title"><span class="custom-bookmark-icon" style="background: linear-gradient(135deg, #FFD700, #FFA500); width: 32px; height: 32px; font-size: 16px;"><i class="fa-solid fa-bookmark"></i></span> محبوب‌ترین بازی‌های ماه | زیروکس پاپیولار</div>
+    <div class="section-title"><span class="custom-bookmark-icon" style="background: linear-gradient(135deg, #FFD700, #FFA500); width: 32px; height: 32px; font-size: 16px;"><i class="fa-solid fa-bookmark"></i></span> محبوب‌ترین بازی‌های ماه | زروکس پاپیولار</div>
     <div id="popularGrid" class="popular-grid"></div>
 </div>
 <div id="about" class="section">
@@ -1093,7 +1093,7 @@ function renderOld(){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-joystick" style="font-size:48px;"></i><h3>به زودی...</h3></div>`;
         return;
     }
-    container.innerHTML = oldData.map(game=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زیروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="music-player-box"><div class="story-title"><i class="fa-solid fa-music"></i> آهنگ معروف بازی</div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div></div>`).join('');
+    container.innerHTML = oldData.map(game=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="music-player-box"><div class="story-title"><i class="fa-solid fa-music"></i> آهنگ معروف بازی</div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div></div>`).join('');
 }
 
 function renderPopular(){
@@ -1138,4 +1138,4 @@ renderMusic();
 setupFilters();
 </script>
 </body>
-        </html>
+    </html>
