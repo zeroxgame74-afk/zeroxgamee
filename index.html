@@ -198,7 +198,7 @@ nav a:hover{
     background:#8e1515;
     transform:scale(0.97);
 }
-.news-full-text{
+.news-full-text, .full-text, .story-full-text, .old-full-text{
     display:none;
     margin-top:18px;
     padding:16px;
@@ -208,6 +208,17 @@ nav a:hover{
     line-height:1.8;
     font-size:14px;
     border-right:3px solid var(--main);
+    animation:fadeSlide 0.3s ease-out;
+}
+@keyframes fadeSlide{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 .videos-grid{
     display:grid;
@@ -372,18 +383,6 @@ nav a:hover{
 .more-btn:hover{
     background:var(--main);
     color:white;
-}
-.full-text{
-    display:none;
-    margin-top:15px;
-    padding:14px;
-    background:#f5f5f5;
-    border-radius:16px;
-    text-align:right;
-    font-size:13px;
-    color:#1a1a1a;
-    line-height:1.8;
-    border-right:3px solid var(--main);
 }
 .music-grid{
     display:grid;
@@ -746,7 +745,7 @@ nav a:hover{
     gap:30px;
     margin-bottom:40px;
 }
-.cards-grid{
+.cards-grid, .old-grid{
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
     gap:30px;
@@ -788,6 +787,7 @@ footer{
         <a onclick="showTab('music')"><i class="fa-solid fa-music"></i> موسیقی</a>
         <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
         <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
+        <a onclick="showTab('old')"><i class="fa-solid fa-joystick"></i> زیروکس‌اُلد</a>
         <a onclick="showTab('about')"><i class="fa-solid fa-info-circle"></i> درباره ما</a>
         <a onclick="showTab('channels')"><i class="fa-solid fa-database"></i> کانال‌هامون!</a>
     </nav>
@@ -830,6 +830,10 @@ footer{
 <div id="stories" class="section">
     <div class="section-title"><i class="fa-solid fa-book-open"></i> داستان‌های بازی</div>
     <div id="storiesGrid" class="cards-grid"></div>
+</div>
+<div id="old" class="section">
+    <div class="section-title"><i class="fa-solid fa-joystick"></i> بازی‌های نوستالژیک | زیروکس‌اُلد</div>
+    <div id="oldGrid" class="old-grid"></div>
 </div>
 <div id="about" class="section">
     <div class="about-container">
@@ -916,6 +920,11 @@ const musicData = [
     { id:3, title:"GOD OF WAR | ZEROX", game:"God of War Ragnarök", platform:"PS", cover:"https://uploadkon.ir/uploads/f8ba08_26Negar-1780837093023.jpg", file:"https://uploadkon.ir/uploads/7ea308_26ef9f06-26Zerox-god-of-war.mp3", composers:["Bear McCreary"], desc:"کار روی موسیقی از حدود ۲۰۱۹ شروع شد و هم‌زمان با توسعه بازی جلو رفت، تا اینکه بازی در ۲۰۲۲ منتشر شد. و الان از سایت زروکس گوش میکنید!" },
     { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
+const oldData = [
+    { title:"God of War (۲۰۰۵)", genre:"اکشن-ماجراجویی", year:"۲۰۰۵", platform:"PS2", cover:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", desc:"اولین قسمت از حماسه‌ی کریتوس روی PS2. داستان یک جنگجوی اسپارتایی که برای نجات خودش و انتقام از آرس، خدای جنگ، وارد جنگی حماسی می‌شود.", fullText:"God of War یکی از بهترین بازی‌های تاریخ PS2 است. داستان کریتوس که پس از خیانت آرس، خانواده‌اش رو از دست میده و حالا به دنبال انتقام هست..." },
+    { title:"Resident Evil 4 (۲۰۰۵)", genre:"ترسناک-بقا", year:"۲۰۰۵", platform:"GameCube/PS2", cover:"https://images.unsplash.com/photo-1604079628040-94301bb21b91", desc:"انقلابی در سبک ترسناک و بقا. لئون کندی باید دختر رئیس‌جمهور رو از دست یک فرقه‌ی مرموز نجات بده.", fullText:"Resident Evil 4 استاندارد جدیدی برای بازی‌های ترسناک تعریف کرد. سیستم مبارزات، دشمنان و داستانش تا سال‌ها بعد هم الهام‌بخش بود..." },
+    { title:"GTA: San Andreas (۲۰۰۴)", genre:"اکشن-دنیای باز", year:"۲۰۰۴", platform:"PS2", cover:"https://images.unsplash.com/photo-1614680376573-df3480f0c6ff", desc:"یکی از بزرگ‌ترین و محبوب‌ترین قسمت‌های GTA. کارل جانسون به لوس سانتوس برمی‌گردد تا خانواده‌اش رو نجات بده.", fullText:"GTA San Andreas با نقشه‌ی عظیم، داستان عمیق و گیم‌پلی بی‌نظیرش هنوز هم یکی از بهترین بازی‌های تاریخ محسوب میشه..." }
+];
 function getPlatformIcon(platform){
     if(platform==="Xbox") return '<i class="fab fa-xbox"></i>';
     if(platform==="PS") return '<i class="fab fa-playstation"></i>';
@@ -955,9 +964,19 @@ function renderMusic(){
     const sortedMusic = [...musicData].sort((a,b)=>b.id - a.id);
     container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400?text=No+Cover'"><div class="music-info"><div class="title-platform-box"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div></div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
 }
+function renderOld(){
+    const container = document.getElementById('oldGrid');
+    if(!container) return;
+    if(oldData.length===0){
+        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-joystick" style="font-size:48px;"></i><h3>به زودی...</h3></div>`;
+        return;
+    }
+    container.innerHTML = oldData.map(o=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${o.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-trophy"></i> نوستالژی محض</div><h2>${o.title}</h2><div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.7rem; color:#777;"><i class="fa-regular fa-calendar"></i> ${o.year} <i class="fa-solid fa-tag"></i> ${o.genre} <i class="fa-solid fa-gamepad"></i> ${o.platform}</div><p class="hybrid-desc">${o.desc}</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleOldText(this)"><i class="fa-regular fa-eye"></i> بیشتر بدانیم</button></div><div class="old-full-text">${o.fullText}</div></div></div></div>`).join('');
+}
 function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
 function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
 function toggleStoryText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
+function toggleOldText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> بیشتر بدانیم'; } }
 let currentVideoFilter = "همه";
 function setupFilters(){
     document.querySelectorAll('#video .filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ document.querySelectorAll('#video .filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentVideoFilter = btn.getAttribute('data-filter'); renderVideos('videosGrid', currentVideoFilter); }); });
@@ -970,6 +989,7 @@ function showTab(id){
     if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); }
     if(id === 'music'){ renderMusic(); }
     if(id === 'stories'){ renderStories('storiesGrid'); }
+    if(id === 'old'){ renderOld(); }
 }
 renderVideos('homeVideosGrid', 'همه');
 renderNews('homeNewsGrid');
