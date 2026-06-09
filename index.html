@@ -2,9 +2,9 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>ZEROX.GAME.IR | مرجع تخصصی بازی</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEROX.GAME.IR</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root{
@@ -19,10 +19,6 @@ body{
     font-family:'Vazirmatn', sans-serif;
     background:var(--main);
     color:white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 .header{
     display:flex;
@@ -30,7 +26,6 @@ body{
     align-items:center;
     gap:0px;
     padding-top:8px;
-    width:100%;
 }
 .logo{
     text-align:center;
@@ -38,23 +33,23 @@ body{
 }
 .logo img{
     width:100%;
-    max-width:1200px;
+    max-width:1000px;
     display:block;
     margin:0 auto;
     margin-bottom:-5px;
 }
 nav{
-    width:94%;
+    width:95%;
     max-width:1200px;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
     gap:8px;
-    padding:10px 10px 12px 10px;
+    padding:10px;
     border:1px solid rgba(255,255,255,0.3);
     border-radius:20px;
     background:transparent;
-    margin-top:0px;
+    margin:0 auto;
 }
 nav a{
     color:white;
@@ -113,7 +108,6 @@ nav a:hover{
 .section{
     display:none;
     padding:20px;
-    width:100%;
     max-width:1400px;
     margin:0 auto;
 }
@@ -195,7 +189,7 @@ nav a:hover{
     padding:5px 16px;
     border-radius:40px;
     font-size:12px;
-    font-weight:800;
+    font-weight:700;
     margin-bottom:14px;
 }
 .hybrid-badge i{margin-left:6px;}
@@ -206,9 +200,9 @@ nav a:hover{
     font-weight:900;
 }
 .hybrid-desc{
-    opacity:0.85;
+    opacity:0.8;
     margin-bottom:18px;
-    line-height:1.7;
+    line-height:1.6;
     color:#2c2c3a;
     font-weight:500;
 }
@@ -261,7 +255,7 @@ nav a:hover{
 }
 .videos-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
     gap:25px;
     margin-bottom:40px;
 }
@@ -781,7 +775,7 @@ nav a:hover{
 }
 .cards-grid, .old-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(380px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
     gap:30px;
     margin-bottom:40px;
 }
@@ -806,7 +800,6 @@ footer{
     margin-top:40px;
     border-top:1px solid rgba(255,255,255,0.4);
     font-size:13px;
-    width:100%;
 }
 .game-info-box{
     background: #f8f8f8;
@@ -970,57 +963,14 @@ const newsData = [
     { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." }
 ];
 const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
-
-اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
-
-یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
-
-آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
-
-در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
-
-هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
-
-کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
-
-بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
-
-و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
-
-اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
-
-در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
-
-آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
-
-بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
-
-و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
+    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", full:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه. اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره. یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده." }
 ];
 const musicData = [
     { id:3, title:"GOD OF WAR | ZEROX", game:"God of War Ragnarök", platform:"PS", cover:"https://uploadkon.ir/uploads/f8ba08_26Negar-1780837093023.jpg", file:"https://uploadkon.ir/uploads/7ea308_26ef9f06-26Zerox-god-of-war.mp3", composers:["Bear McCreary"], desc:"کار روی موسیقی از حدود ۲۰۱۹ شروع شد و هم‌زمان با توسعه بازی جلو رفت، تا اینکه بازی در ۲۰۲۲ منتشر شد. و الان از سایت زروکس گوش میکنید!" },
     { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
 const oldData = [
-    {
-        id: 1,
-        title: "GOD OF WAR | ZEROX",
-        name: "God of War",
-        year: "۲۲ مارس ۲۰۰۵",
-        developer: "Santa Monica Studio",
-        publisher: "Sony Computer Entertainment",
-        director: "David Jaffe",
-        producer: "Shannon Studstill",
-        composers: ["Gerard Marino", "Mike Reagan", "Ron Fish", "Winifred Phillips", "Cris Velasco"],
-        platform: "PlayStation 2",
-        genre: "اکشن ماجراجویی، هک اند اسلش",
-        engine: "Kinetica Engine",
-        cover: "https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg",
-        music: "https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3",
-        desc: "کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.",
-        fullText: "داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است."
-    }
+    { id:1, title:"GOD OF WAR | ZEROX", name:"God of War", year:"۲۲ مارس ۲۰۰۵", developer:"Santa Monica Studio", publisher:"Sony Computer Entertainment", director:"David Jaffe", producer:"Shannon Studstill", composers:["Gerard Marino","Mike Reagan","Ron Fish","Winifred Phillips","Cris Velasco"], platform:"PlayStation 2", genre:"اکشن ماجراجویی، هک اند اسلش", engine:"Kinetica Engine", cover:"https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg", music:"https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3", desc:"کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.", fullText:"داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند." }
 ];
 
 function getPlatformIcon(platform){
@@ -1072,51 +1022,11 @@ function renderMusic(){
 function renderOld(){
     const container = document.getElementById('oldGrid');
     if(!container) return;
-    if(oldData.length === 0){
+    if(oldData.length===0){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-joystick" style="font-size:48px;"></i><h3>به زودی...</h3></div>`;
         return;
     }
-    container.innerHTML = oldData.map(game => `
-        <div class="hybrid-card">
-            <div class="hybrid-inner">
-                <div class="hybrid-media">
-                    <img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'">
-                </div>
-                <div class="hybrid-content">
-                    <div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زیروکس اُلد | نوستالژی محض</div>
-                    <h2>${game.title}</h2>
-                    
-                    <div class="game-info-box">
-                        <div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div>
-                        <div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div>
-                        <div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div>
-                        <div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div>
-                        <div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div>
-                        <div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div>
-                        <div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div>
-                        <div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div>
-                        <div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div>
-                        <div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div>
-                    </div>
-                    
-                    <div class="story-box">
-                        <div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div>
-                        <p class="hybrid-desc">${game.desc}</p>
-                        <button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button>
-                        <div class="old-full-text">${game.fullText}</div>
-                    </div>
-                    
-                    <div class="music-player-box">
-                        <div class="story-title"><i class="fa-solid fa-music"></i> آهنگ معروف بازی</div>
-                        <div class="custom-player">
-                            <audio controls src="${game.music}"></audio>
-                            <button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    container.innerHTML = oldData.map(game=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زیروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="music-player-box"><div class="story-title"><i class="fa-solid fa-music"></i> آهنگ معروف بازی</div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div></div>`).join('');
 }
 
 function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
@@ -1147,8 +1057,7 @@ renderNews('newsGrid');
 renderVideos('videosGrid', 'همه');
 renderStories('storiesGrid');
 renderMusic();
-renderOld();
 setupFilters();
 </script>
 </body>
-    </html>
+            </html>
