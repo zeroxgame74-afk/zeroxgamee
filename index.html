@@ -2,9 +2,9 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEROX.GAME.IR | زیروکس اُلد - بازی‌های نوستالژیک</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>ZEROX.GAME.IR | مرجع تخصصی بازی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root{
@@ -19,6 +19,10 @@ body{
     font-family:'Vazirmatn', sans-serif;
     background:var(--main);
     color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .header{
     display:flex;
@@ -26,20 +30,22 @@ body{
     align-items:center;
     gap:0px;
     padding-top:8px;
+    width:100%;
 }
 .logo{
     text-align:center;
     width:100%;
 }
 .logo img{
-    width:1500px;
-    max-width:95%;
+    width:100%;
+    max-width:1200px;
     display:block;
     margin:0 auto;
     margin-bottom:-5px;
 }
 nav{
     width:94%;
+    max-width:1200px;
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
@@ -107,6 +113,9 @@ nav a:hover{
 .section{
     display:none;
     padding:20px;
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
 }
 .section.active{
     display:block;
@@ -186,20 +195,20 @@ nav a:hover{
     padding:5px 16px;
     border-radius:40px;
     font-size:12px;
-    font-weight:700;
+    font-weight:800;
     margin-bottom:14px;
 }
 .hybrid-badge i{margin-left:6px;}
 .hybrid-content h2{
-    font-size:1.8rem;
+    font-size:1.6rem;
     margin-bottom:10px;
     color:#000;
     font-weight:900;
 }
 .hybrid-desc{
-    opacity:0.8;
+    opacity:0.85;
     margin-bottom:18px;
-    line-height:1.6;
+    line-height:1.7;
     color:#2c2c3a;
     font-weight:500;
 }
@@ -252,14 +261,9 @@ nav a:hover{
 }
 .videos-grid{
     display:grid;
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
     gap:25px;
     margin-bottom:40px;
-}
-@media (max-width:700px){
-    .videos-grid{
-        grid-template-columns:1fr;
-    }
 }
 .video-card{
     background:white;
@@ -304,7 +308,7 @@ nav a:hover{
     flex-direction:column;
 }
 .video-info h3{
-    font-size:1.3rem;
+    font-size:1.2rem;
     margin-bottom:10px;
     font-weight:900;
     color:var(--main);
@@ -802,9 +806,8 @@ footer{
     margin-top:40px;
     border-top:1px solid rgba(255,255,255,0.4);
     font-size:13px;
+    width:100%;
 }
-
-/* استایل مخصوص زیروکس اُلد */
 .game-info-box{
     background: #f8f8f8;
     border-radius: 20px;
@@ -851,125 +854,6 @@ footer{
     border-radius: 20px;
     padding: 15px;
     margin: 15px 0;
-}
-.video-player-box{
-    background: #000;
-    border-radius: 20px;
-    padding: 10px;
-    margin: 15px 0;
-    border: 3px solid #555;
-    box-shadow: 0 0 0 2px #888, 0 0 0 5px #333;
-    position: relative;
-}
-.video-player-box::before{
-    content: "📺";
-    position: absolute;
-    top: -25px;
-    right: 10px;
-    background: #333;
-    color: #0f0;
-    padding: 2px 10px;
-    border-radius: 10px;
-    font-size: 12px;
-    font-family: monospace;
-}
-.video-frame{
-    width: 100%;
-    height: 200px;
-    background: #111;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.video-frame iframe{
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    border: none;
-}
-.video-placeholder{
-    text-align: center;
-    color: #0f0;
-    font-family: monospace;
-}
-.install-btn{
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-    color: #0f0;
-    border: 1px solid #0f0;
-    padding: 12px 20px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-family: monospace;
-    font-weight: 800;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.2s;
-    width: 100%;
-    justify-content: center;
-}
-.install-btn:hover{
-    background: #0f0;
-    color: #000;
-    box-shadow: 0 0 15px #0f0;
-}
-.install-popup{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 1000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-family: monospace;
-}
-.install-popup.active{
-    display: flex;
-}
-.install-box{
-    background: #000;
-    border: 2px solid #0f0;
-    border-radius: 20px;
-    padding: 30px;
-    width: 90%;
-    max-width: 500px;
-    color: #0f0;
-    text-align: center;
-}
-.install-progress{
-    width: 100%;
-    height: 20px;
-    background: #333;
-    border-radius: 10px;
-    margin: 20px 0;
-    overflow: hidden;
-}
-.install-bar{
-    width: 0%;
-    height: 100%;
-    background: #0f0;
-    transition: width 0.1s;
-}
-/* افکت Glitch */
-.retro-glitch-card{
-    position: relative;
-    transition: 0.1s;
-}
-.retro-glitch-card:hover{
-    animation: glitch 0.3s infinite;
-}
-@keyframes glitch{
-    0%{ transform: translate(0); }
-    20%{ transform: translate(-2px, 1px); }
-    40%{ transform: translate(2px, -1px); }
-    60%{ transform: translate(-1px, 2px); }
-    80%{ transform: translate(1px, -2px); }
-    100%{ transform: translate(0); }
 }
 </style>
 </head>
@@ -1033,20 +917,6 @@ footer{
     <div class="section-title"><i class="fa-solid fa-compact-disc" style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); color: #C0C0C0; padding: 8px; border-radius: 50%; box-shadow: 0 0 0 2px white; font-size: 20px;"></i> بازی‌های نوستالژیک | زیروکس‌اُلد</div>
     <div id="oldGrid" class="old-grid"></div>
 </div>
-
-<!-- پاپ‌آپ نصب بازی -->
-<div id="installPopup" class="install-popup">
-    <div class="install-box">
-        <i class="fa-solid fa-compact-disc" style="font-size: 48px;"></i>
-        <h3 id="installGameName">در حال نصب...</h3>
-        <div class="install-progress">
-            <div class="install-bar" id="installBar"></div>
-        </div>
-        <p id="installStatus">آماده‌سازی برای نصب...</p>
-        <button onclick="closeInstallPopup()" style="margin-top:20px; background:#0f0; color:#000; border:none; padding:8px 20px; border-radius:20px; cursor:pointer;">بستن</button>
-    </div>
-</div>
-
 <div id="about" class="section">
     <div class="about-container">
         <div class="welcome-box">
@@ -1092,22 +962,46 @@ footer{
 <footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
 <script>
 const videosData = [
-    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده..." },
-    { id:1, title:"داستان کامل بازی نه من انسان نیستم", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما..." }
+    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن با آزمایش‌های مخفی، بیماران دیوانه و موجود ترسناکی به نام Walrider. اگر به بازی‌های ترسناک و داستان‌های تاریک علاقه داری، این ویدیو رو از دست نده!" },
+    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" }
 ];
 const newsData = [
-    { id:5, title:"سامر گیم داره چیکار میکنه؟", summary:"سامر گیم فست ترکوند!...", image:"https://uploadkon.ir/uploads/b62c08_26the-last-of-us-Zerox-.jpg", date:"۱۴۰۵/۰۳/۱۹", time:"۰۲:۱۷", fullText:"سامر گیم فست ترکوند!..." },
-    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت!...", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت!..." }
+    { id:5, title:"سامر گیم داره چیکار میکنه؟", summary:"سامر گیم فست ترکوند! بالاخره بعد از کلی پچ‌پچ، ناتی داگ ماسک رو برداشت...", image:"https://uploadkon.ir/uploads/b62c08_26the-last-of-us-Zerox-.jpg", date:"۱۴۰۵/۰۳/۱۹", time:"۰۲:۱۷", fullText:"سامر گیم فست ترکوند! بالاخره بعد از کلی پچ‌پچ، ناتی داگ ماسک رو برداشت و The Last of Us Part 3 رو نشون داد. داستانش کاملاً غافلگیرکننده‌ست و خبری از الی و جوئل نیست. بعدش سونی رسماً تایید کرد که خدای جنگ داره میره مصر باستان، اونم با یه گیم‌پلی سریع‌تر که محورش روی آترئوس جوونه. تو جبهه‌ی ترسناک‌ها هم کپکام یه رزیدنت اویل جدید معرفی کرد که ظاهراً قراره یه تجربه‌ی کو-آپ بقا-محور باشه و حسابی بترسیم. خلاصه اینکه ۲۰۲۷ قراره سال شلوغی بشه. گروه_خبری زروکس!" },
+    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." }
 ];
 const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی...", img:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", full:"داستان کامل بازی God of War Ragnarök..." }
+    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
+
+اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
+
+یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
+
+آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
+
+در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
+
+هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
+
+کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
+
+بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
+
+و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
+
+اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
+
+در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
+
+آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
+
+بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
+
+و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
 ];
 const musicData = [
-    { id:3, title:"GOD OF WAR | ZEROX", game:"God of War Ragnarök", platform:"PS", cover:"https://uploadkon.ir/uploads/f8ba08_26Negar-1780837093023.jpg", file:"https://uploadkon.ir/uploads/7ea308_26ef9f06-26Zerox-god-of-war.mp3", composers:["Bear McCreary"], desc:"کار روی موسیقی از حدود ۲۰۱۹ شروع شد..." },
-    { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ برای بازی هیلو اینفینیت..." }
+    { id:3, title:"GOD OF WAR | ZEROX", game:"God of War Ragnarök", platform:"PS", cover:"https://uploadkon.ir/uploads/f8ba08_26Negar-1780837093023.jpg", file:"https://uploadkon.ir/uploads/7ea308_26ef9f06-26Zerox-god-of-war.mp3", composers:["Bear McCreary"], desc:"کار روی موسیقی از حدود ۲۰۱۹ شروع شد و هم‌زمان با توسعه بازی جلو رفت، تا اینکه بازی در ۲۰۲۲ منتشر شد. و الان از سایت زروکس گوش میکنید!" },
+    { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
-
-// دیتای جدید زیروکس اُلد - اولین کارت God of War
 const oldData = [
     {
         id: 1,
@@ -1124,7 +1018,6 @@ const oldData = [
         engine: "Kinetica Engine",
         cover: "https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg",
         music: "https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3",
-        video: "https://www.aparat.com/video/h7y8t9",
         desc: "کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.",
         fullText: "داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است."
     }
@@ -1176,54 +1069,6 @@ function renderMusic(){
     container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400'"><div class="music-info"><div class="title-platform-box"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div></div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
 }
 
-// تابع نصب شبیه‌سازی شده
-function startInstall(gameName){
-    const popup = document.getElementById('installPopup');
-    const gameTitle = document.getElementById('installGameName');
-    const statusText = document.getElementById('installStatus');
-    const bar = document.getElementById('installBar');
-    
-    gameTitle.innerText = gameName;
-    popup.classList.add('active');
-    bar.style.width = '0%';
-    
-    let progress = 0;
-    const steps = [
-        "آماده‌سازی فایل‌ها...",
-        "کپی کردن فایل‌ها روی هارد دیسک...",
-        "تنظیمات رجیستری...",
-        "نصب DirectX...",
-        "نهایی کردن نصب..."
-    ];
-    let stepIndex = 0;
-    
-    const interval = setInterval(() => {
-        progress += Math.floor(Math.random() * 10) + 5;
-        if(progress >= 100){
-            progress = 100;
-            bar.style.width = '100%';
-            statusText.innerText = "نصب کامل شد! بازی آماده اجراست!";
-            clearInterval(interval);
-        } else {
-            bar.style.width = progress + '%';
-            if(progress > stepIndex * 20 && stepIndex < steps.length){
-                statusText.innerText = steps[stepIndex];
-                stepIndex++;
-            }
-        }
-    }, 200);
-    
-    window.currentInstallInterval = interval;
-}
-
-function closeInstallPopup(){
-    const popup = document.getElementById('installPopup');
-    popup.classList.remove('active');
-    if(window.currentInstallInterval){
-        clearInterval(window.currentInstallInterval);
-    }
-}
-
 function renderOld(){
     const container = document.getElementById('oldGrid');
     if(!container) return;
@@ -1232,7 +1077,7 @@ function renderOld(){
         return;
     }
     container.innerHTML = oldData.map(game => `
-        <div class="hybrid-card retro-glitch-card">
+        <div class="hybrid-card">
             <div class="hybrid-inner">
                 <div class="hybrid-media">
                     <img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'">
@@ -1255,30 +1100,19 @@ function renderOld(){
                     </div>
                     
                     <div class="story-box">
-                        <div class="story-title"><i class="fa-solid fa-book-open"></i> 📖 داستان بازی</div>
+                        <div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div>
                         <p class="hybrid-desc">${game.desc}</p>
                         <button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button>
                         <div class="old-full-text">${game.fullText}</div>
                     </div>
                     
                     <div class="music-player-box">
-                        <div class="story-title"><i class="fa-solid fa-music"></i> 🎵 آهنگ معروف بازی</div>
+                        <div class="story-title"><i class="fa-solid fa-music"></i> آهنگ معروف بازی</div>
                         <div class="custom-player">
                             <audio controls src="${game.music}"></audio>
                             <button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button>
                         </div>
                     </div>
-                    
-                    <div class="video-player-box">
-                        <div class="story-title"><i class="fa-solid fa-tv"></i> 📺 تریلر بازی (تلویزیون قدیمی)</div>
-                        <div class="video-frame">
-                            <iframe src="https://www.aparat.com/video/h7y8t9?play" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    
-                    <button class="install-btn" onclick="startInstall('${game.name}')">
-                        <i class="fa-solid fa-compact-disc"></i> 💿 نصب بازی
-                    </button>
                 </div>
             </div>
         </div>
