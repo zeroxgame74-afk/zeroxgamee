@@ -169,7 +169,7 @@ nav a:hover{
 .hybrid-media{
     flex:1.2;
     background:#111;
-    position: relative;
+    position:relative;
 }
 .hybrid-media img{
     width:100%;
@@ -178,7 +178,7 @@ nav a:hover{
     display:block;
     min-height:220px;
 }
-/* استایل‌های گالری عکس */
+/* گالری عکس */
 .gallery-container {
     position: relative;
     width: 100%;
@@ -1078,7 +1078,7 @@ const musicData = [
     { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
 
-// ==================== داده‌های زروکس اُلد (با گالری برای GTA SA) ====================
+// ==================== داده‌های زروکس اُلد (GTA SA با گالری) ====================
 const oldData = [
     { 
         id:3, 
@@ -1245,4 +1245,4 @@ function changeSlide(gameId, direction) {
 function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
 function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
 function toggleStoryText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
-function toggleOldText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display =
+function toggleOldText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full
