@@ -169,7 +169,6 @@ nav a:hover{
 .hybrid-media{
     flex:1.2;
     background:#111;
-    position:relative;
 }
 .hybrid-media img{
     width:100%;
@@ -177,78 +176,6 @@ nav a:hover{
     object-fit:cover;
     display:block;
     min-height:220px;
-}
-/* گالری عکس */
-.gallery-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 280px;
-    background: #000;
-}
-.gallery-slide {
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-.gallery-slide.active {
-    display: block;
-}
-.gallery-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    min-height: 280px;
-}
-.gallery-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
-    color: white;
-    border: none;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
-    z-index: 10;
-}
-.gallery-btn:hover {
-    background: var(--main);
-}
-.gallery-prev {
-    left: 10px;
-}
-.gallery-next {
-    right: 10px;
-}
-.gallery-dots {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
-}
-.gallery-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: 0.2s;
-}
-.gallery-dot.active {
-    background: var(--main);
-    width: 24px;
-    border-radius: 10px;
 }
 .hybrid-content{
     flex:1.5;
@@ -1078,67 +1005,11 @@ const musicData = [
     { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
 ];
 
-// ==================== داده‌های زروکس اُلد (GTA SA با گالری) ====================
+// ==================== داده‌های زروکس اُلد (با اضافه شدن GTA San Adventures در بالا) ====================
 const oldData = [
-    { 
-        id:3, 
-        title:"Grand Theft Auto: San Andreas | ZEROX", 
-        name:"Grand Theft Auto: San Andreas", 
-        year:"۲۰۰۴", 
-        developer:"Rockstar North", 
-        publisher:"Rockstar Games", 
-        director:"Leslie Benzies (کارگردان اصلی / لید دیزاینر) - Dan Houser (نقش مهم در نویسندگی و هدایت داستان)", 
-        producer:"Leslie Benzies - Imran Sarwar", 
-        composers:["Michael Hunter (موسیقی اصلی بازی) - موسیقی‌های لایسنس شده از هنرمندان مختلف"], 
-        platform:"PlayStation 2, Xbox, PC (ویندوز), بعداً: موبایل", 
-        genre:"اکشن-ماجراجویی، جهان‌باز (Open World)، رانندگی، تیراندازی سوم‌شخص", 
-        engine:"RenderWare", 
-        cover:"https://uploadkon.ir/uploads/724812_26gta-sa-Zerox-.jpg", 
-        gallery: [
-            "https://uploadkon.ir/uploads/724812_26gta-sa-Zerox-.jpg",
-            "https://uploadkon.ir/uploads/3eb712_26InShot-20260613-014303120.jpg",
-            "https://uploadkon.ir/uploads/777112_26InShot-20260613-014628932.jpg"
-        ],
-        music:"https://uploadkon.ir/uploads/444012_26GTA-SA-ZEROX-.mp3", 
-        desc:"داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد.", 
-        fullText:"داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد. در این مسیر طولانی و حماسی، شخصیت‌های ماندگاری مثل Big Smoke، Ryder، Sweet و Officer Tenpenny روبروی CJ قرار می‌گیرند و توطئه‌های بزرگی شکل می‌گیرد." 
-    },
-    { 
-        id:2, 
-        title:"PRINCE OF PERSIA | ZEROX", 
-        name:"Prince of Persia", 
-        year:"۱۹۸۹", 
-        developer:"Jordan Mechner", 
-        publisher:"Brøderbund", 
-        director:"Jordan Mechner", 
-        producer:"Brøderbund Software", 
-        composers:["صدا و موسیقی محدود و ساده (نسخه اولیه بازی موسیقی حرفه‌ای گسترده نداشت و بیشتر افکت‌های صوتی کلاسیک بود)"], 
-        platform:"Apple II / DOS / Commodore 64 / Amiga (و بعدها پورت‌های مختلف)", 
-        genre:"اکشن، پلتفرمر، ماجراجویی", 
-        engine:"موتور اختصاصی اولیه ساخته شده توسط Jordan Mechner", 
-        cover:"https://cdn.imgurl.ir/uploads/f82900_____Zerox_.jpg", 
-        music:"https://uploadkon.ir/uploads/da8b10_26Prince-of-Persia-Zerox.mp3", 
-        desc:"شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد. شاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.", 
-        fullText:"شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد.\nشاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.\nگیم‌پلی بازی بر پایه دقت در حرکت، زمان‌بندی و حل کردن مسیرهای سخت طراحی شده و برای زمان خودش یکی از واقعی‌ترین انیمیشن‌های حرکتی شخصیت‌ها را داشت.\nاین بازی یکی از پایه‌گذاران سبک پلتفرمر سینمایی محسوب می‌شود و تأثیر بزرگی روی بازی‌های بعدی گذاشت." 
-    },
-    { 
-        id:1, 
-        title:"GOD OF WAR | ZEROX", 
-        name:"God of War", 
-        year:"۲۲ مارس ۲۰۰۵", 
-        developer:"Santa Monica Studio", 
-        publisher:"Sony Computer Entertainment", 
-        director:"David Jaffe", 
-        producer:"Shannon Studstill", 
-        composers:["Gerard Marino","Mike Reagan","Ron Fish","Winifred Phillips","Cris Velasco"], 
-        platform:"PlayStation 2", 
-        genre:"اکشن ماجراجویی، هک اند اسلش", 
-        engine:"Kinetica Engine", 
-        cover:"https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg", 
-        music:"https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3", 
-        desc:"کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.", 
-        fullText:"داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است." 
-    }
+    { id:3, title:"GRAND THEFT AUTO: SAN ADVENTURES | ZEROX", name:"Grand Theft Auto: San Andreas", year:"۲۰۰۴", developer:"Rockstar North", publisher:"Rockstar Games", director:"Leslie Benzies (کارگردان اصلی / لید دیزاینر) - Dan Houser (نقش مهم در نویسندگی و هدایت داستان)", producer:"Leslie Benzies - Imran Sarwar", composers:["Michael Hunter (موسیقی اصلی بازی) - موسیقی‌های لایسنس شده از هنرمندان مختلف"], platform:"PlayStation 2, Xbox, PC (ویندوز), بعداً: موبایل", genre:"اکشن-ماجراجویی، جهان‌باز (Open World)، رانندگی، تیراندازی سوم‌شخص", engine:"RenderWare", cover:"https://uploadkon.ir/uploads/724812_26gta-sa-Zerox-.jpg", music:"https://uploadkon.ir/uploads/444012_26GTA-SA-ZEROX-.mp3", desc:"داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد.", fullText:"داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد. در این مسیر طولانی و حماسی، شخصیت‌های ماندگاری مثل Big Smoke، Ryder، Sweet و Officer Tenpenny روبروی CJ قرار می‌گیرند و توطئه‌های بزرگی شکل می‌گیرد." },
+    { id:2, title:"PRINCE OF PERSIA | ZEROX", name:"Prince of Persia", year:"۱۹۸۹", developer:"Jordan Mechner", publisher:"Brøderbund", director:"Jordan Mechner", producer:"Brøderbund Software", composers:["صدا و موسیقی محدود و ساده (نسخه اولیه بازی موسیقی حرفه‌ای گسترده نداشت و بیشتر افکت‌های صوتی کلاسیک بود)"], platform:"Apple II / DOS / Commodore 64 / Amiga (و بعدها پورت‌های مختلف)", genre:"اکشن، پلتفرمر، ماجراجویی", engine:"موتور اختصاصی اولیه ساخته شده توسط Jordan Mechner", cover:"https://cdn.imgurl.ir/uploads/f82900_____Zerox_.jpg", music:"https://uploadkon.ir/uploads/da8b10_26Prince-of-Persia-Zerox.mp3", desc:"شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد. شاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.", fullText:"شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد.\nشاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.\nگیم‌پلی بازی بر پایه دقت در حرکت، زمان‌بندی و حل کردن مسیرهای سخت طراحی شده و برای زمان خودش یکی از واقعی‌ترین انیمیشن‌های حرکتی شخصیت‌ها را داشت.\nاین بازی یکی از پایه‌گذاران سبک پلتفرمر سینمایی محسوب می‌شود و تأثیر بزرگی روی بازی‌های بعدی گذاشت." },
+    { id:1, title:"GOD OF WAR | ZEROX", name:"God of War", year:"۲۲ مارس ۲۰۰۵", developer:"Santa Monica Studio", publisher:"Sony Computer Entertainment", director:"David Jaffe", producer:"Shannon Studstill", composers:["Gerard Marino","Mike Reagan","Ron Fish","Winifred Phillips","Cris Velasco"], platform:"PlayStation 2", genre:"اکشن ماجراجویی، هک اند اسلش", engine:"Kinetica Engine", cover:"https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg", music:"https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3", desc:"کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.", fullText:"داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است." }
 ];
 
 function getPlatformIcon(platform){
@@ -1195,54 +1066,39 @@ function renderOld(){
         container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-joystick" style="font-size:48px;"></i><h3>به زودی...</h3></div>`;
         return;
     }
-    container.innerHTML = oldData.map(game => {
-        if(game.gallery && game.gallery.length > 0) {
-            let gallerySlides = '';
-            let galleryDots = '';
-            game.gallery.forEach((img, index) => {
-                gallerySlides += `<div class="gallery-slide" data-index="${index}"><img src="${img}" onerror="this.src='https://via.placeholder.com/300x200'"></div>`;
-                galleryDots += `<span class="gallery-dot" data-dot-index="${index}"></span>`;
-            });
-            return `<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><div class="gallery-container" id="gallery-${game.id}">${gallerySlides}<button class="gallery-btn gallery-prev" onclick="changeSlide(${game.id}, -1)"><i class="fa-solid fa-chevron-right"></i></button><button class="gallery-btn gallery-next" onclick="changeSlide(${game.id}, 1)"><i class="fa-solid fa-chevron-left"></i></button><div class="gallery-dots">${galleryDots}</div></div></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div><script>initGallery(${game.id}, ${game.gallery.length});<\/script>`;
-        } else {
-            return `<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div>`;
-        }
-    }).join('');
-}
-
-function initGallery(gameId, slideCount) {
-    window[`currentIndex_${gameId}`] = 0;
-    window[`slideCount_${gameId}`] = slideCount;
-    showSlide(gameId, 0);
-}
-
-function showSlide(gameId, index) {
-    const container = document.getElementById(`gallery-${gameId}`);
-    if(!container) return;
-    const slides = container.querySelectorAll('.gallery-slide');
-    const dots = container.querySelectorAll('.gallery-dot');
-    if(slides.length === 0) return;
-    if(index < 0) index = 0;
-    if(index >= slides.length) index = slides.length - 1;
-    window[`currentIndex_${gameId}`] = index;
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-}
-
-function changeSlide(gameId, direction) {
-    let current = window[`currentIndex_${gameId}`] || 0;
-    let total = window[`slideCount_${gameId}`] || 0;
-    let newIndex = current + direction;
-    if(newIndex < 0) newIndex = total - 1;
-    if(newIndex >= total) newIndex = 0;
-    showSlide(gameId, newIndex);
+    container.innerHTML = oldData.map(game=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div>`).join('');
 }
 
 function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
 function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
 function toggleStoryText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
-function toggleOldText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full
+function toggleOldText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
+
+let currentVideoFilter = "همه";
+function setupFilters(){
+    document.querySelectorAll('#video .filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ document.querySelectorAll('#video .filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentVideoFilter = btn.getAttribute('data-filter'); renderVideos('videosGrid', currentVideoFilter); }); });
+}
+
+function showTab(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(id === 'home'){ renderVideos('homeVideosGrid', 'همه'); renderNews('homeNewsGrid'); renderStories('homeStoriesGrid'); }
+    if(id === 'news'){ renderNews('newsGrid'); }
+    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); }
+    if(id === 'music'){ renderMusic(); }
+    if(id === 'stories'){ renderStories('storiesGrid'); }
+    if(id === 'old'){ renderOld(); }
+}
+
+renderVideos('homeVideosGrid', 'همه');
+renderNews('homeNewsGrid');
+renderStories('homeStoriesGrid');
+renderNews('newsGrid');
+renderVideos('videosGrid', 'همه');
+renderStories('storiesGrid');
+renderMusic();
+renderOld();
+setupFilters();
+</script>
+</body>
+    </html>
