@@ -1,1105 +1,2947 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="sS6EVdHtXg_rUUtXBdgzjj_XTiLnpVDBhHhpgO33C8M" />
-<title>ZEROX.GAME.IR</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root{
-    --main:#B61C1C;
-}
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-body{
-    font-family:'Vazirmatn', sans-serif;
-    background:var(--main);
-    color:white;
-}
-.header{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:0px;
-    padding-top:8px;
-}
-.logo{
-    text-align:center;
-    width:100%;
-}
-.logo img{
-    width:100%;
-    max-width:1000px;
-    display:block;
-    margin:0 auto;
-    margin-bottom:-5px;
-}
-nav{
-    width:95%;
-    max-width:1200px;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:8px;
-    padding:10px;
-    border:1px solid rgba(255,255,255,0.3);
-    border-radius:20px;
-    background:transparent;
-    margin:0 auto;
-}
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:8px 14px;
-    border-radius:10px;
-    font-weight:800;
-    display:flex;
-    align-items:center;
-    gap:8px;
-    cursor:pointer;
-    transition:0.2s;
-    font-size:14px;
-}
-nav a i{
-    color:var(--main);
-    background:white;
-    padding:5px;
-    border-radius:50%;
-    font-size:12px;
-}
-.custom-cd-icon{
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-    color: #C0C0C0;
-    padding: 5px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px var(--main);
-    font-size: 12px;
-    width: 22px;
-    height: 22px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-nav a:hover .custom-cd-icon{
-    background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
-    color: white;
-    box-shadow: 0 0 0 2px white;
-}
-nav a:hover{
-    background:white;
-    color:var(--main);
-}
-@media (max-width: 650px){
-    nav a{
-        padding:6px 10px;
-        font-size:12px;
-    }
-    nav a i, .custom-cd-icon{
-        font-size:10px;
-        padding:4px;
-        width: 18px;
-        height: 18px;
-    }
-}
-.section{
-    display:none;
-    padding:20px;
-    max-width:1400px;
-    margin:0 auto;
-}
-.section.active{
-    display:block;
-}
-.filter-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-bottom:30px;
-    justify-content:center;
-}
-.filter-btn{
-    background:rgba(255,255,255,0.15);
-    border:1px solid rgba(255,255,255,0.3);
-    padding:10px 22px;
-    border-radius:50px;
-    color:white;
-    cursor:pointer;
-    transition:0.2s;
-    font-family:'Vazirmatn',sans-serif;
-    font-weight:800;
-    font-size:14px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-}
-.filter-btn i{font-size:14px;}
-.filter-btn:hover{
-    background:var(--main);
-    border-color:var(--main);
-    transform:translateY(-2px);
-}
-.filter-btn.active{
-    background:var(--main);
-    border-color:var(--main);
-    box-shadow:0 0 12px rgba(182,28,28,0.5);
-}
-.hybrid-card{
-    background:white;
-    border-radius:24px;
-    margin-top:25px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.2);
-    transition:transform 0.2s, box-shadow 0.2s;
-}
-.hybrid-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);
-}
-.hybrid-inner{
-    display:flex;
-    flex-direction:column;
-}
-@media (min-width:700px){
-    .hybrid-inner{flex-direction:row;}
-}
-.hybrid-media{
-    flex:1.2;
-    background:#111;
-}
-.hybrid-media img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    min-height:220px;
-}
-.hybrid-content{
-    flex:1.5;
-    padding:24px;
-    color:#1a1a1a;
-}
-.hybrid-badge{
-    display:inline-block;
-    background:var(--main);
-    color:white;
-    padding:5px 16px;
-    border-radius:40px;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:14px;
-}
-.hybrid-badge i{margin-left:6px;}
-.hybrid-content h2{
-    font-size:1.6rem;
-    margin-bottom:10px;
-    color:#000;
-    font-weight:900;
-}
-.hybrid-desc{
-    opacity:0.8;
-    margin-bottom:18px;
-    line-height:1.6;
-    color:#2c2c3a;
-    font-weight:500;
-}
-.news-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:8px;
-}
-.news-actions button{
-    background:var(--main);
-    color:white;
-    border:none;
-    padding:9px 20px;
-    border-radius:40px;
-    cursor:pointer;
-    font-weight:800;
-    font-family:inherit;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:0.2s;
-}
-.news-actions button i{font-size:14px;}
-.news-actions button:hover{
-    background:#8e1515;
-    transform:scale(0.97);
-}
-.news-full-text, .full-text, .story-full-text, .old-full-text{
-    display:none;
-    margin-top:18px;
-    padding:16px;
-    background:#f5f5f5;
-    border-radius:16px;
-    color:#1a1a1a;
-    line-height:1.8;
-    font-size:14px;
-    border-right:3px solid var(--main);
-    animation:fadeSlide 0.3s ease-out;
-}
-@keyframes fadeSlide{
-    from{
-        opacity:0;
-        transform:translateY(-10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-.videos-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-    gap:25px;
-    margin-bottom:40px;
-}
-.video-card{
-    background:white;
-    border-radius:24px;
-    overflow:hidden;
-    transition:0.3s ease;
-    cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    position:relative;
-    display:flex;
-    flex-direction:column;
-}
-.video-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 30px -8px rgba(0,0,0,0.3);
-}
-.video-thumb{
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    display:block;
-}
-.video-badge{
-    position:absolute;
-    top:15px;
-    right:15px;
-    background:var(--main);
-    color:white;
-    padding:5px 12px;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:900;
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-.video-info{
-    padding:20px;
-    text-align:center;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-}
-.video-info h3{
-    font-size:1.2rem;
-    margin-bottom:10px;
-    font-weight:900;
-    color:var(--main);
-}
-.video-meta-row{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-bottom:12px;
-}
-.video-cat-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    background:#f0f0f0;
-    padding:4px 12px;
-    border-radius:30px;
-    font-size:11px;
-    color:var(--main);
-    font-weight:800;
-}
-.date-time{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-size:11px;
-    color:#666;
-    font-weight:500;
-}
-.date-time i{
-    color:var(--main);
-    font-size:11px;
-}
-.video-info p{
-    font-size:0.85rem;
-    color:#444;
-    margin-bottom:15px;
-    line-height:1.5;
-    font-weight:500;
-}
-.button-group{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin-top:5px;
-}
-@keyframes shine {
-    0% { left: -100%; }
-    20% { left: 100%; }
-    100% { left: 100%; }
-}
-.btn-card, .more-btn{
-    position:relative;
-    overflow:hidden;
-}
-.btn-card::after, .more-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    animation: shine 3s infinite;
-}
-.btn-card:hover::after, .more-btn:hover::after {
-    animation: none;
-}
-.btn-card{
-    background:var(--main);
-    border:none;
-    padding:8px 18px;
-    border-radius:40px;
-    color:white;
-    font-weight:800;
-    cursor:pointer;
-    transition:0.2s;
-    font-size:13px;
-    font-family:'Vazirmatn',sans-serif;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-}
-.btn-card:hover{
-    background:#8a1010;
-    transform:scale(1.02);
-}
-.more-btn{
-    background:transparent;
-    border:1px solid var(--main);
-    padding:8px 18px;
-    border-radius:40px;
-    color:var(--main);
-    font-size:13px;
-    cursor:pointer;
-    font-family:'Vazirmatn',sans-serif;
-    font-weight:800;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:0.2s;
-}
-.more-btn:hover{
-    background:var(--main);
-    color:white;
-}
-.music-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-    gap:30px;
-    margin-bottom:40px;
-}
-.music-card{
-    background:white;
-    border-radius:28px;
-    overflow:hidden;
-    transition:0.3s ease;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
-.music-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 35px -12px rgba(0,0,0,0.3);
-}
-.music-img{
-    width:100%;
-    height:auto;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    transition:0.3s;
-}
-.music-card:hover .music-img{
-    transform:scale(1.02);
-}
-.music-info{
-    padding:22px;
-    text-align:center;
-}
-.title-platform-box{
-    background:#f9f9f9;
-    border-radius:20px;
-    padding:12px 15px;
-    margin-bottom:12px;
-    text-align:center;
-}
-.title-platform-box h3{
-    font-size:1.3rem;
-    margin-bottom:10px;
-    font-weight:900;
-    color:var(--main);
-}
-.platform-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:white;
-    padding:8px 20px;
-    border-radius:50px;
-    font-size:16px;
-    color:var(--main);
-    font-weight:800;
-    box-shadow:0 1px 3px rgba(0,0,0,0.05);
-}
-.platform-badge i{
-    font-size:20px;
-}
-.composers-section{
-    background:#f9f9f9;
-    border-radius:20px;
-    padding:12px 15px;
-    margin:12px 0;
-    text-align:center;
-}
-.composer-title{
-    font-size:12px;
-    font-weight:800;
-    color:var(--main);
-    margin-bottom:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-}
-.composers-list{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-.composer-item{
-    background:white;
-    border-radius:30px;
-    padding:6px 12px;
-    font-size:12px;
-    color:#333;
-    font-weight:600;
-    border:1px solid #eee;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-}
-.composer-item i{
-    color:var(--main);
-    font-size:11px;
-}
-.music-desc-box{
-    background:#f9f9f9;
-    border-radius:20px;
-    padding:12px 15px;
-    margin:12px 0;
-    text-align:center;
-    border-right:3px solid var(--main);
-}
-.music-desc-title{
-    font-size:12px;
-    font-weight:800;
-    color:var(--main);
-    margin-bottom:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-}
-.music-desc-text{
-    font-size:12px;
-    color:#555;
-    line-height:1.6;
-}
-.custom-player{
-    background:#f8f8f8;
-    border-radius:60px;
-    padding:10px 18px;
-    margin-top:12px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-    justify-content:center;
-    border:1px solid #eee;
-    transition:0.2s;
-}
-.custom-player:hover{
-    border-color:var(--main);
-    background:#fff;
-}
-.custom-player audio{
-    flex:1;
-    min-width:160px;
-    height:40px;
-    border-radius:40px;
-    outline:none;
-}
-.download-music-btn{
-    background:var(--main);
-    color:white;
-    border:none;
-    padding:8px 18px;
-    border-radius:40px;
-    cursor:pointer;
-    font-family:'Vazirmatn',sans-serif;
-    font-weight:800;
-    font-size:12px;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:0.2s;
-    text-decoration:none;
-    position:relative;
-    overflow:hidden;
-}
-.download-music-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-    animation: shine 3s infinite;
-}
-.download-music-btn:hover{
-    background:#8a1010;
-    transform:scale(1.03);
-}
-.download-music-btn:hover::after {
-    animation: none;
-}
-.about-container{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-    max-width:800px;
-    margin:0 auto;
-}
-.welcome-box{
-    background:white;
-    border-radius:32px;
-    padding:40px 30px;
-    text-align:center;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-    transition:0.3s;
-}
-.welcome-box:hover{
-    transform:translateY(-5px);
-}
-.welcome-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-.welcome-icon i{
-    font-size: 60px;
-    color: var(--main);
-    filter: drop-shadow(0 0 15px var(--main));
-    animation: float 2s ease-in-out infinite;
-}
-.welcome-box h2{
-    font-size:2rem;
-    color:var(--main);
-    margin-bottom:15px;
-}
-.welcome-box p{
-    font-size:1.2rem;
-    color:#333;
-    line-height:1.8;
-}
-.info-cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-.info-card{
-    background:white;
-    border-radius:28px;
-    padding:30px 20px;
-    text-align:center;
-    transition:0.3s;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-.info-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 35px -12px rgba(0,0,0,0.3);
-}
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-@keyframes floatSlow {
-    0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(3deg); }
-    100% { transform: translateY(0px) rotate(0deg); }
-}
-.icon-3d{
-    font-size:70px;
-    margin-bottom:20px;
-    display:inline-block;
-    animation:float 2s ease-in-out infinite;
-    color:var(--main);
-    filter:drop-shadow(0 8px 15px rgba(182,28,28,0.3));
-}
-.icon-3d-support{
-    font-size:70px;
-    margin-bottom:20px;
-    display:inline-block;
-    animation:floatSlow 2.5s ease-in-out infinite;
-    color:var(--main);
-    filter:drop-shadow(0 8px 20px rgba(182,28,28,0.3));
-}
-.info-card h3{
-    font-size:1.4rem;
-    color:var(--main);
-    margin-bottom:15px;
-}
-.info-card p{
-    color:#555;
-    font-size:1rem;
-    line-height:1.6;
-}
-.contact-link{
-    display:inline-block;
-    margin-top:15px;
-    background:var(--main);
-    color:white;
-    padding:8px 20px;
-    border-radius:40px;
-    text-decoration:none;
-    font-weight:800;
-    transition:0.2s;
-}
-.contact-link:hover{
-    background:#8a1010;
-    transform:scale(1.03);
-}
-.dev-name{
-    font-size:1.1rem;
-    font-weight:800;
-    color:var(--main);
-    margin-top:10px;
-}
-.channels-container{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-    max-width:800px;
-    margin:0 auto;
-}
-.channel-card{
-    background:white;
-    border-radius:32px;
-    padding:35px 25px;
-    text-align:center;
-    transition:0.3s;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-}
-.channel-card:hover{
-    transform:translateY(-6px);
-}
-.channel-icon{
-    font-size:70px;
-    margin-bottom:20px;
-    display:inline-block;
-    animation:float 2s ease-in-out infinite;
-    color:var(--main);
-    filter:drop-shadow(0 8px 15px rgba(182,28,28,0.3));
-}
-.channel-card h3{
-    font-size:1.6rem;
-    color:var(--main);
-    margin-bottom:15px;
-}
-.channel-card p{
-    font-size:1rem;
-    color:#555;
-    margin-bottom:20px;
-    line-height:1.6;
-}
-.channel-link{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:var(--main);
-    color:white;
-    padding:12px 28px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:800;
-    font-size:1rem;
-    transition:0.2s;
-}
-.channel-link i{
-    font-size:1.2rem;
-}
-.channel-link:hover{
-    background:#8a1010;
-    transform:scale(1.03);
-}
-.coming-soon{
-    background:#f5f5f5;
-    border-radius:20px;
-    padding:15px;
-    margin-top:15px;
-    color:#888;
-    font-weight:600;
-}
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
-    gap:30px;
-    margin-bottom:40px;
-}
-.cards-grid, .old-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
-    gap:30px;
-    margin-bottom:40px;
-}
-.section-title{
-    font-size:1.8rem;
-    font-weight:900;
-    margin:30px 0 20px 0;
-    border-right:4px solid white;
-    padding-right:15px;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    color:white;
-}
-.section-title i{
-    font-size:28px;
-}
-footer{
-    text-align:center;
-    padding:15px;
-    color:white;
-    margin-top:40px;
-    border-top:1px solid rgba(255,255,255,0.4);
-    font-size:13px;
-}
-.game-info-box{
-    background: #f8f8f8;
-    border-radius: 20px;
-    padding: 15px;
-    margin: 15px 0;
-    border-right: 3px solid var(--main);
-}
-.info-row{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 13px;
-    color: #333;
-    flex-wrap: wrap;
-    border-bottom: 1px dashed #eee;
-}
-.info-row i{
-    width: 24px;
-    color: var(--main);
-    font-size: 14px;
-}
-.info-row strong{
-    color: var(--main);
-    font-weight: 800;
-}
-.story-box{
-    background: #f0f0f0;
-    border-radius: 20px;
-    padding: 15px;
-    margin: 15px 0;
-}
-.story-title{
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--main);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>Zerox Studio | VOD Platform</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Ardekan:wght@400;700&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Estedad', 'Segoe UI', Tahoma, sans-serif;
+            background: #f5f0ea;
+            color: #1a1a1a;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ede8e2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #B61C1C;
+            border-radius: 10px;
+        }
+
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #f0ebe5;
+        }
+        body.dark-mode ::-webkit-scrollbar-track {
+            background: #2a2a2a;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* ===== HEADER ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 80px;
+            margin: 16px 0 20px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255,255,255,0.5);
+            position: sticky;
+            top: 16px;
+            z-index: 999;
+            gap: 16px;
+            min-height: 78px;
+        }
+        body.dark-mode .navbar {
+            background: rgba(30,30,30,0.9);
+            border-color: rgba(255,255,255,0.05);
+        }
+
+        .navbar .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+        .logo:hover {
+            background: rgba(182,28,28,0.04);
+        }
+
+        .logo .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #B61C1C, #8a1515);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 800;
+            font-family: 'Ardekan', sans-serif;
+            box-shadow: 0 4px 16px rgba(182,28,28,0.3);
+        }
+
+        .logo .logo-text {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        body.dark-mode .logo .logo-text {
+            color: #f0ebe5;
+        }
+        .logo .logo-text span {
+            color: #B61C1C;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            font-family: 'Estedad', sans-serif;
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 10px 22px;
+            border-radius: 40px;
+            white-space: nowrap;
+        }
+        body.dark-mode .nav-links a {
+            color: #aaa;
+        }
+        .nav-links a i {
+            font-size: 0.95rem;
+            margin-left: 8px;
+            opacity: 0.6;
+        }
+        .nav-links a:hover {
+            color: #B61C1C;
+            background: rgba(182,28,28,0.06);
+        }
+        .nav-links a.active {
+            color: white;
+            background: #B61C1C;
+            box-shadow: 0 4px 20px rgba(182,28,28,0.25);
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-actions .action-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: #4a4a4a;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        body.dark-mode .nav-actions .action-btn {
+            color: #aaa;
+        }
+        .nav-actions .action-btn:hover {
+            background: rgba(182,28,28,0.08);
+            color: #B61C1C;
+            transform: translateY(-2px);
+        }
+        .nav-actions .action-btn .badge {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            background: #B61C1C;
+            color: white;
+            font-size: 0.55rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.9);
+        }
+
+        .profile-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #B61C1C, #8a1515);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-family: 'Estedad', sans-serif;
+            box-shadow: 0 2px 16px rgba(182,28,28,0.2);
+        }
+        .profile-avatar:hover {
+            transform: scale(1.06);
+            border-color: #B61C1C;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 30px;
+            background: transparent;
+            border: none;
+        }
+        .hamburger:hover {
+            background: rgba(182,28,28,0.06);
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        body.dark-mode .hamburger span {
+            background: #f0ebe5;
+        }
+
+        /* ===== MOBILE DRAWER ===== */
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            opacity: 0;
+        }
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -340px;
+            width: 320px;
+            height: 100%;
+            background: white;
+            z-index: 1001;
+            padding: 30px 24px;
+            transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
+            box-shadow: -8px 0 60px rgba(0,0,0,0.08);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        body.dark-mode .mobile-drawer {
+            background: #252525;
+        }
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        .mobile-drawer .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0ebe5;
+        }
+        body.dark-mode .mobile-drawer .drawer-header {
+            border-color: #333;
+        }
+        .mobile-drawer .drawer-header .drawer-logo {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        body.dark-mode .mobile-drawer .drawer-header .drawer-logo {
+            color: #f0ebe5;
+        }
+        .mobile-drawer .drawer-header .drawer-logo span {
+            color: #B61C1C;
+        }
+        .mobile-drawer .drawer-close {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .mobile-drawer .drawer-close:hover {
+            color: #B61C1C;
+            transform: rotate(90deg);
+        }
+
+        .mobile-drawer .drawer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+        .mobile-drawer .drawer-links a {
+            font-family: 'Estedad', sans-serif;
+            text-decoration: none;
+            color: #2d2a24;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 14px 18px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        body.dark-mode .mobile-drawer .drawer-links a {
+            color: #f0ebe5;
+        }
+        .mobile-drawer .drawer-links a i {
+            width: 24px;
+            color: #888;
+            font-size: 1.1rem;
+        }
+        .mobile-drawer .drawer-links a:hover {
+            background: rgba(182,28,28,0.06);
+            color: #B61C1C;
+        }
+        .mobile-drawer .drawer-links a.active {
+            background: #B61C1C;
+            color: white;
+        }
+        .mobile-drawer .drawer-links a .drawer-badge {
+            background: #B61C1C;
+            color: white;
+            padding: 0 10px;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            margin-right: auto;
+        }
+        .mobile-drawer .drawer-footer {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #f0ebe5;
+        }
+        body.dark-mode .mobile-drawer .drawer-footer {
+            border-color: #333;
+        }
+        .mobile-drawer .drawer-footer p {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.75rem;
+            color: #999;
+            text-align: center;
+        }
+
+        /* ===== PAGES ===== */
+        .page {
+            display: none;
+            animation: fadeInUp 0.35s ease both;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.7rem;
+            margin: 20px 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .page-header i {
+            color: #B61C1C;
+        }
+        .page-sub {
+            font-family: 'Estedad', sans-serif;
+            color: #888;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           GAME CARDS (زروکس گیمز)
+           ============================================ */
+        .game-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .game-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        body.dark-mode .game-card {
+            background: #252525;
+        }
+        .game-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(182,28,28,0.1);
+        }
+
+        .game-card .game-card-img {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+        .game-card .game-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            pointer-events: none;
+        }
+        .game-card:hover .game-card-img img {
+            transform: scale(1.03);
+        }
+
+        .game-card .game-card-img .game-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            color: #ffa500;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            font-family: 'Estedad', sans-serif;
+            border: 1px solid rgba(255,165,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .game-card .game-card-img .game-status .sand-icon {
+            display: inline-block;
+            animation: sandShake 2.5s ease-in-out infinite;
+            font-size: 0.65rem;
+        }
+
+        @keyframes sandShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(6deg); }
+            75% { transform: rotate(-6deg); }
+        }
+
+        .game-card .game-card-body {
+            padding: 14px 16px 16px;
+        }
+        .game-card .game-card-body h3 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 2px;
+        }
+        body.dark-mode .game-card .game-card-body h3 {
+            color: #f0ebe5;
+        }
+        .game-card .game-card-body .game-genre {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 6px;
+        }
+        .game-card .game-card-body .game-desc {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        body.dark-mode .game-card .game-card-body .game-desc {
+            color: #999;
+        }
+        .game-card .game-card-body .game-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f0ebe5;
+        }
+        body.dark-mode .game-card .game-card-body .game-footer {
+            border-color: #333;
+        }
+        .game-card .game-card-body .game-footer .game-platform {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.65rem;
+            color: #888;
+        }
+        .game-card .game-card-body .game-footer .game-platform i {
+            margin-left: 4px;
+        }
+        .game-card .game-card-body .game-footer .btn-view {
+            background: #B61C1C;
+            color: white;
+            border: none;
+            padding: 5px 16px;
+            border-radius: 30px;
+            font-family: 'Estedad', sans-serif;
+            font-weight: 600;
+            font-size: 0.7rem;
+            cursor: pointer;
+        }
+        .game-card .game-card-body .game-footer .btn-view:hover {
+            background: #8a1515;
+        }
+
+        /* ============================================
+           GAME DETAIL (زروکس گیمز)
+           ============================================ */
+        .game-detail-hero {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.1);
+        }
+        .game-detail-hero img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            pointer-events: none;
+        }
+        .game-detail-hero .game-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 24px 24px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+        .game-detail-hero .game-overlay .game-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ff8c00;
+            color: white;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            font-family: 'Estedad', sans-serif;
+            margin-bottom: 8px;
+        }
+        .game-detail-hero .game-overlay .game-badge .sand-icon {
+            display: inline-block;
+            animation: sandShake 2.5s ease-in-out infinite;
+            font-size: 0.65rem;
+        }
+        .game-detail-hero .game-overlay h1 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 2px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        .game-detail-hero .game-overlay .game-tagline {
+            font-family: 'Estedad', sans-serif;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.9rem;
+        }
+
+        .game-detail-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+            background: white;
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        body.dark-mode .game-detail-info {
+            background: #252525;
+        }
+        .game-detail-info .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .game-detail-info .info-item i {
+            color: #B61C1C;
+            font-size: 1.1rem;
+            width: 30px;
+            text-align: center;
+        }
+        .game-detail-info .info-item .info-label {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.6rem;
+            color: #888;
+        }
+        .game-detail-info .info-item .info-value {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        body.dark-mode .game-detail-info .info-item .info-value {
+            color: #f0ebe5;
+        }
+
+        .game-detail-gallery {
+            margin-bottom: 24px;
+        }
+        .game-detail-gallery .gallery-title {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .game-detail-gallery .gallery-title i {
+            color: #B61C1C;
+        }
+        .game-detail-gallery .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+        .game-detail-gallery .gallery-grid .gallery-item {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .game-detail-gallery .gallery-grid .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(182,28,28,0.12);
+        }
+        .game-detail-gallery .gallery-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .game-detail-description {
+            background: white;
+            border-radius: 18px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        body.dark-mode .game-detail-description {
+            background: #252525;
+        }
+        .game-detail-description h3 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .game-detail-description h3 i {
+            color: #B61C1C;
+        }
+        .game-detail-description p {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.9;
+        }
+        body.dark-mode .game-detail-description p {
+            color: #aaa;
+        }
+        .game-detail-description .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .game-detail-description .genre-tags span {
+            background: rgba(182,28,28,0.08);
+            color: #B61C1C;
+            padding: 3px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'Estedad', sans-serif;
+        }
+        body.dark-mode .game-detail-description .genre-tags span {
+            background: rgba(182,28,28,0.2);
+        }
+
+        /* ============================================
+           OLD GAMES CARDS
+           ============================================ */
+        .old-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .old-game-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+            position: relative;
+        }
+        body.dark-mode .old-game-card {
+            background: #252525;
+        }
+
+        .old-game-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 20px 60px rgba(182,28,28,0.15);
+        }
+
+        .old-game-card .card-img {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+
+        .old-game-card .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            pointer-events: none;
+        }
+
+        .old-game-card:hover .card-img img {
+            transform: scale(1.06);
+        }
+
+        .old-game-card .card-img .card-year {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(182,28,28,0.9);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            font-family: 'Estedad', sans-serif;
+            backdrop-filter: blur(4px);
+        }
+
+        .old-game-card .card-img .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 16px 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+        }
+
+        .old-game-card .card-img .card-overlay .card-title {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.1rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            margin-bottom: 2px;
+        }
+
+        .old-game-card .card-img .card-overlay .card-dev {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .old-game-card .card-body {
+            padding: 14px 18px 18px;
+        }
+
+        .old-game-card .card-body .card-genre {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.75rem;
+            color: #888;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+
+        .old-game-card .card-body .card-genre span {
+            background: rgba(182,28,28,0.06);
+            color: #B61C1C;
+            padding: 2px 12px;
+            border-radius: 30px;
+        }
+        body.dark-mode .old-game-card .card-body .card-genre span {
+            background: rgba(182,28,28,0.15);
+        }
+
+        .old-game-card .card-body .card-desc {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        body.dark-mode .old-game-card .card-body .card-desc {
+            color: #999;
+        }
+
+        .old-game-card .card-body .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f0ebe5;
+        }
+        body.dark-mode .old-game-card .card-body .card-footer {
+            border-color: #333;
+        }
+
+        .old-game-card .card-body .card-footer .card-platform {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        .old-game-card .card-body .card-footer .btn-detail {
+            background: #B61C1C;
+            color: white;
+            border: none;
+            padding: 6px 20px;
+            border-radius: 30px;
+            font-family: 'Estedad', sans-serif;
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .old-game-card .card-body .card-footer .btn-detail:hover {
+            background: #8a1515;
+            transform: scale(1.04);
+        }
+
+        /* ============================================
+           OLD GAME DETAIL
+           ============================================ */
+        .old-detail-hero {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+        }
+
+        .old-detail-hero img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .old-detail-hero .detail-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 30px 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+        }
+
+        .old-detail-hero .detail-overlay .detail-badge {
+            display: inline-block;
+            background: #B61C1C;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            font-family: 'Estedad', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .old-detail-hero .detail-overlay h1 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 2.4rem;
+            color: white;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            margin-bottom: 2px;
+        }
+
+        .old-detail-hero .detail-overlay .detail-sub {
+            font-family: 'Estedad', sans-serif;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        .old-detail-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+            background: white;
+            border-radius: 18px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        body.dark-mode .old-detail-info {
+            background: #252525;
+        }
+
+        .old-detail-info .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .old-detail-info .info-item i {
+            color: #B61C1C;
+            font-size: 1.1rem;
+            width: 28px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        .old-detail-info .info-item .info-label {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.6rem;
+            color: #888;
+        }
+
+        .old-detail-info .info-item .info-value {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        body.dark-mode .old-detail-info .info-item .info-value {
+            color: #f0ebe5;
+        }
+
+        .old-detail-gallery {
+            margin-bottom: 24px;
+        }
+
+        .old-detail-gallery .gallery-title {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .old-detail-gallery .gallery-title i {
+            color: #B61C1C;
+        }
+
+        .old-detail-gallery .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+
+        .old-detail-gallery .gallery-grid .gallery-item {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .old-detail-gallery .gallery-grid .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(182,28,28,0.12);
+        }
+
+        .old-detail-gallery .gallery-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .old-detail-music {
+            margin-bottom: 24px;
+            background: white;
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        body.dark-mode .old-detail-music {
+            background: #252525;
+        }
+
+        .old-detail-music .music-title {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .old-detail-music .music-title i {
+            color: #B61C1C;
+        }
+
+        .old-detail-music audio {
+            width: 100%;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        .old-detail-music audio::-webkit-media-controls-panel {
+            background: rgba(182,28,28,0.05);
+        }
+
+        .old-detail-description {
+            background: white;
+            border-radius: 18px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        body.dark-mode .old-detail-description {
+            background: #252525;
+        }
+
+        .old-detail-description h3 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .old-detail-description h3 i {
+            color: #B61C1C;
+        }
+
+        .old-detail-description p {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 2;
+            white-space: pre-line;
+        }
+        body.dark-mode .old-detail-description p {
+            color: #aaa;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            color: #B61C1C;
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 0;
+            margin-bottom: 12px;
+        }
+
+        .btn-back:hover {
+            color: #8a1515;
+            transform: translateX(-4px);
+        }
+
+        /* ===== HERO SLIDER ===== */
+        .hero-slider {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 16px 0 24px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+            height: 400px;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            transform: scale(1.04);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 65%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 600px;
+        }
+        .hero-content .badge {
+            display: inline-block;
+            background: #B61C1C;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Estedad', sans-serif;
+        }
+        .hero-content h2 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .hero-content p {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 14px;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .hero-content .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #B61C1C;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: 'Estedad', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(182,28,28,0.3);
+        }
+        .hero-content .btn-play:hover {
+            background: #8a1515;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(182,28,28,0.4);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 10px;
+        }
+        .slider-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .slider-dots span.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        /* ===== MOVIE GRID ===== */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 24px 0 14px;
+        }
+        .section-header h2 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.5rem;
+        }
+        .section-header a {
+            font-family: 'Estedad', sans-serif;
+            color: #B61C1C;
+            text-decoration: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .movie-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .movie-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            max-width: 400px;
+            width: 100%;
+        }
+        body.dark-mode .movie-card {
+            background: #252525;
+        }
+        .movie-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(182,28,28,0.1);
+        }
+
+        .movie-poster {
+            position: relative;
+            padding-top: 56.25%;
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a;
+            pointer-events: none;
+        }
+        .movie-poster .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(182,28,28,0.9);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            font-family: 'Estedad', sans-serif;
+            z-index: 2;
+        }
+        .movie-poster .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            color: white;
+            font-size: 2.8rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+        .movie-card:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .movie-poster::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .movie-card:hover .movie-poster::after {
+            opacity: 1;
+        }
+
+        .movie-info {
+            padding: 12px 14px;
+        }
+        .movie-info h4 {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        body.dark-mode .movie-info h4 {
+            color: #f0ebe5;
+        }
+        .movie-info .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #888;
+            font-family: 'Estedad', sans-serif;
+        }
+        .movie-info .meta .rating {
+            color: #f5b342;
+            font-weight: 600;
+        }
+
+        /* ===== SEARCH ===== */
+        .search-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            min-height: 60vh;
+        }
+        .search-page .logo-big {
+            width: 500px;
+            max-width: 90%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-page .logo-big img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .search-page .subtitle {
+            font-family: 'Estedad', sans-serif;
+            color: #888;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+        .search-page .search-box-big {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 50px;
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            width: 100%;
+            max-width: 600px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .search-page .search-box-big {
+            background: #252525;
+            border-color: #333;
+        }
+        body.dark-mode .search-page .search-box-big input {
+            color: #f0ebe5;
+            background: transparent;
+        }
+        .search-page .search-box-big:focus-within {
+            border-color: #B61C1C;
+            box-shadow: 0 4px 32px rgba(182,28,28,0.1);
+        }
+        .search-page .search-box-big input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 14px 20px;
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.95rem;
+            background: transparent;
+        }
+        .search-page .search-box-big button {
+            font-family: 'Estedad', sans-serif;
+            background: #B61C1C;
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        .search-page .search-box-big button:hover {
+            background: #8a1515;
+        }
+
+        .search-results {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 24px;
+        }
+        .search-results .result-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            border-radius: 14px;
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .search-results .result-item {
+            background: #252525;
+        }
+        .search-results .result-item:hover {
+            transform: translateX(-4px);
+            box-shadow: 0 8px 24px rgba(182,28,28,0.1);
+        }
+        .search-results .result-item img {
+            width: 60px;
+            height: 45px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            pointer-events: none;
+        }
+        .search-results .result-item .info {
+            flex: 1;
+        }
+        .search-results .result-item .info h4 {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        body.dark-mode .search-results .result-item .info h4 {
+            color: #f0ebe5;
+        }
+        .search-results .result-item .info .meta {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.7rem;
+            color: #888;
+            display: flex;
+            gap: 12px;
+        }
+        .search-results .result-item .info .meta .rating {
+            color: #f5b342;
+        }
+        .search-results .no-result {
+            text-align: center;
+            font-family: 'Estedad', sans-serif;
+            color: #888;
+            padding: 40px 0;
+            font-size: 0.95rem;
+        }
+        .search-results .no-result i {
+            font-size: 2.2rem;
+            color: #ddd;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* ===== NOTIFICATIONS ===== */
+        .notifications-page {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .notifications-page .notif-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .notifications-page .notif-hero .notif-icon-big {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .notifications-page .notif-hero .notif-icon-big img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
+        }
+        .notifications-page .notif-hero h2 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1a1a1a;
+        }
+        body.dark-mode .notifications-page .notif-hero h2 {
+            color: #f0ebe5;
+        }
+        .notifications-page .notif-hero h2 i {
+            color: #B61C1C;
+        }
+        .notifications-page .notif-hero .studio-badge {
+            background: linear-gradient(135deg, #B61C1C, #8a1515);
+            color: white;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            font-family: 'Estedad', sans-serif;
+            margin-top: 4px;
+        }
+
+        .notif-item {
+            background: white;
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-right: 4px solid #B61C1C;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .notif-item {
+            background: #252525;
+        }
+        .notif-item:hover {
+            box-shadow: 0 6px 24px rgba(182,28,28,0.08);
+            transform: translateX(-4px);
+        }
+        .notif-item .notif-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(182,28,28,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #B61C1C;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .notif-item .notif-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #B61C1C;
+            position: absolute;
+            top: 14px;
+            left: 14px;
+        }
+        .notif-item .notif-content {
+            flex: 1;
+        }
+        .notif-item .notif-content h4 {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+        body.dark-mode .notif-item .notif-content h4 {
+            color: #f0ebe5;
+        }
+        .notif-item .notif-content h4 .studio-tag {
+            color: #B61C1C;
+            font-size: 0.6rem;
+            background: rgba(182,28,28,0.1);
+            padding: 0 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+        .notif-item .notif-content p {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.8rem;
+            color: #888;
+            line-height: 1.6;
+        }
+        body.dark-mode .notif-item .notif-content p {
+            color: #aaa;
+        }
+        .notif-item .notif-content .highlight {
+            color: #B61C1C;
+            font-weight: 700;
+        }
+
+        /* ===== PROFILE ===== */
+        .profile-page {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .profile-page .profile-header {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+            margin-bottom: 16px;
+        }
+        body.dark-mode .profile-page .profile-header {
+            background: #252525;
+        }
+        .profile-page .profile-avatar-big {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #B61C1C, #8a1515);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 4px 20px rgba(182,28,28,0.3);
+        }
+        .profile-page .profile-header .guest-badge {
+            display: inline-block;
+            background: #f0ebe5;
+            color: #888;
+            padding: 3px 14px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Estedad', sans-serif;
+        }
+        body.dark-mode .profile-page .profile-header .guest-badge {
+            background: #333;
+            color: #888;
+        }
+        .profile-page .profile-header h2 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+        body.dark-mode .profile-page .profile-header h2 {
+            color: #f0ebe5;
+        }
+        .profile-page .profile-header p {
+            font-family: 'Estedad', sans-serif;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        .profile-page .profile-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .profile-page .profile-actions .btn {
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: none;
+            font-family: 'Estedad', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .profile-page .profile-actions .btn-primary {
+            background: #B61C1C;
+            color: white;
+            box-shadow: 0 4px 16px rgba(182,28,28,0.3);
+        }
+        .profile-page .profile-actions .btn-primary:hover {
+            background: #8a1515;
+            transform: translateY(-2px);
+        }
+        .profile-page .profile-actions .btn-outline {
+            background: transparent;
+            color: #B61C1C;
+            border: 2px solid #B61C1C;
+        }
+        .profile-page .profile-actions .btn-outline:hover {
+            background: #B61C1C;
+            color: white;
+        }
+
+        .profile-page .profile-menu {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            margin-top: 14px;
+        }
+        body.dark-mode .profile-page .profile-menu {
+            background: #252525;
+        }
+        .profile-page .profile-menu .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0ebe5;
+            cursor: pointer;
+            font-family: 'Estedad', sans-serif;
+            color: #2d2a24;
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .profile-page .profile-menu .menu-item {
+            color: #f0ebe5;
+            border-color: #333;
+        }
+        .profile-page .profile-menu .menu-item:hover {
+            background: #f8f4f0;
+        }
+        body.dark-mode .profile-page .profile-menu .menu-item:hover {
+            background: #333;
+        }
+        .profile-page .profile-menu .menu-item:last-child {
+            border-bottom: none;
+        }
+        .profile-page .profile-menu .menu-item i {
+            width: 24px;
+            color: #B61C1C;
+            font-size: 1rem;
+        }
+        .profile-page .profile-menu .menu-item .arrow {
+            margin-right: auto;
+            color: #ccc;
+            font-size: 0.75rem;
+        }
+
+        /* ===== SETTINGS ===== */
+        .settings-box {
+            background: white;
+            border-radius: 18px;
+            padding: 8px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        body.dark-mode .settings-box {
+            background: #252525;
+        }
+        .settings-box .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            border-bottom: 1px solid #f0ebe5;
+        }
+        body.dark-mode .settings-box .setting-item {
+            border-color: #333;
+        }
+        .settings-box .setting-item:last-child {
+            border-bottom: none;
+        }
+        .settings-box .setting-item .setting-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+        }
+        body.dark-mode .settings-box .setting-item .setting-label {
+            color: #f0ebe5;
+        }
+        .settings-box .setting-item .setting-label i {
+            color: #B61C1C;
+            width: 20px;
+            font-size: 1rem;
+        }
+        .settings-box .setting-item .toggle-switch {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .settings-box .setting-item .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .settings-box .setting-item .toggle-switch .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #ccc;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+        .settings-box .setting-item .toggle-switch .slider::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .settings-box .setting-item .toggle-switch input:checked + .slider {
+            background: #B61C1C;
+        }
+        .settings-box .setting-item .toggle-switch input:checked + .slider::before {
+            transform: translateX(20px);
+        }
+
+        /* ===== VIDEO ===== */
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-top: 56.25%;
+            background: #000;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 50px rgba(0,0,0,0.3);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-info-section {
+            margin-top: 16px;
+        }
+        .video-info-section h2 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+        .video-info-section .video-meta {
+            display: flex;
+            gap: 14px;
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .video-info-section .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .description-wrapper {
+            position: relative;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 14px 0;
+        }
+        body.dark-mode .description-wrapper {
+            border-color: #333;
+        }
+        .description-text {
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.8;
+            max-height: 70px;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            white-space: pre-line;
+        }
+        body.dark-mode .description-text {
+            color: #aaa;
+        }
+        .description-text.expanded {
+            max-height: 500px;
+        }
+        .description-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            color: #B61C1C;
+            font-family: 'Estedad', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: all 0.3s ease;
+        }
+        .description-toggle:hover {
+            color: #8a1515;
+        }
+        .description-toggle i {
+            transition: transform 0.3s ease;
+        }
+        .description-toggle.rotated i {
+            transform: rotate(180deg);
+        }
+
+        .comments-section {
+            margin-top: 24px;
+        }
+        .comments-section h3 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+        }
+        .comment-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .comment-box input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-family: 'Estedad', sans-serif;
+            outline: none;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        body.dark-mode .comment-box input {
+            background: #252525;
+            border-color: #333;
+            color: #f0ebe5;
+        }
+        .comment-box input:focus {
+            border-color: #B61C1C;
+            box-shadow: 0 0 0 3px rgba(182,28,28,0.08);
+        }
+        .comment-box button {
+            font-family: 'Estedad', sans-serif;
+            background: #B61C1C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .comment-box button:hover {
+            background: #8a1515;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            margin-top: 50px;
+            padding: 30px 0 16px;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+        body.dark-mode footer {
+            border-color: #333;
+        }
+        footer h2 {
+            font-family: 'Ardekan', 'Estedad', sans-serif;
+            color: #B61C1C;
+        }
+        footer p {
+            font-family: 'Estedad', sans-serif;
+            color: #888;
+        }
+        body.dark-mode footer p {
+            color: #666;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 14px 0;
+        }
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(182,28,28,0.08);
+            color: #B61C1C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-social a:hover {
+            background: #B61C1C;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ===== IMAGE MODAL ===== */
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #imageModal.active {
+            display: flex;
+        }
+        #imageModal img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 14px;
+            box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+            object-fit: contain;
+            pointer-events: none;
+        }
+        #imageModal .modal-close {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 6px 14px;
+            border-radius: 50%;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        #imageModal .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+            transform: rotate(90deg);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none; }
+            .navbar { border-radius: 50px; padding: 10px 20px; min-height: 66px; margin: 12px 0 16px 0; }
+            .mobile-overlay { display: none; }
+            .mobile-overlay.active { display: block; }
+            .game-cards-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+            .old-games-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { border-radius: 40px; padding: 8px 16px; min-height: 58px; margin: 10px 0 14px 0; }
+            .logo .logo-icon { width: 34px; height: 34px; font-size: 1.1rem; border-radius: 8px; }
+            .logo .logo-text { font-size: 1.4rem; }
+            .nav-actions .action-btn { width: 40px; height: 40px; font-size: 1rem; }
+            .nav-actions .action-btn .badge { width: 17px; height: 17px; font-size: 0.5rem; }
+            .profile-avatar { width: 38px; height: 38px; font-size: 0.9rem; }
+            .hamburger span { width: 22px; height: 2.5px; }
+            .hamburger { gap: 4px; padding: 6px; }
+            .mobile-drawer { width: 300px; padding: 24px 20px; }
+            .hero-slider { height: 260px; }
+            .hero-slide { padding: 20px; }
+            .hero-content h2 { font-size: 1.4rem; }
+            .hero-content p { font-size: 0.75rem; }
+            .game-cards-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+            .old-games-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+            .game-detail-hero .game-overlay h1 { font-size: 1.6rem; }
+            .game-detail-hero .game-overlay { padding: 20px 16px 16px; }
+            .game-detail-gallery .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+            .game-detail-info { grid-template-columns: 1fr 1fr; padding: 12px 14px; gap: 10px; }
+            .old-detail-hero .detail-overlay h1 { font-size: 1.6rem; }
+            .old-detail-hero .detail-overlay { padding: 20px 16px 16px; }
+            .old-detail-gallery .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+            .old-detail-info { grid-template-columns: 1fr 1fr; padding: 12px 14px; gap: 10px; }
+            .search-page .logo-big { width: 380px; }
+            .search-page .search-box-big { flex-wrap: wrap; background: transparent; box-shadow: none; border: none; gap: 8px; }
+            .search-page .search-box-big input { background: white; border-radius: 30px; padding: 12px 16px; border: 1px solid #eee; width: 100%; }
+            body.dark-mode .search-page .search-box-big input { background: #252525; border-color: #333; }
+            .search-page .search-box-big button { width: 100%; justify-content: center; }
+            .notifications-page .notif-hero .notif-icon-big { width: 280px; height: 280px; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar { border-radius: 30px; padding: 6px 14px; min-height: 52px; margin: 8px 0 12px 0; }
+            .logo .logo-icon { width: 30px; height: 30px; font-size: 0.95rem; border-radius: 6px; }
+            .logo .logo-text { font-size: 1.2rem; }
+            .nav-actions .action-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+            .nav-actions .action-btn .badge { width: 16px; height: 16px; font-size: 0.45rem; top: -1px; left: -1px; border-width: 1.5px; }
+            .profile-avatar { width: 32px; height: 32px; font-size: 0.8rem; }
+            .hamburger span { width: 18px; height: 2px; }
+            .hamburger { gap: 3px; padding: 5px; }
+            .mobile-drawer { width: 280px; padding: 20px 16px; }
+            .hero-slider { height: 200px; }
+            .hero-slide { padding: 14px; }
+            .hero-content h2 { font-size: 1.1rem; }
+            .hero-content p { font-size: 0.65rem; margin-bottom: 8px; }
+            .hero-content .btn-play { padding: 6px 16px; font-size: 0.7rem; }
+            .game-cards-grid { grid-template-columns: 1fr; gap: 14px; }
+            .old-games-grid { grid-template-columns: 1fr; gap: 14px; }
+            .game-detail-hero .game-overlay h1 { font-size: 1.2rem; }
+            .game-detail-hero .game-overlay .game-tagline { font-size: 0.75rem; }
+            .game-detail-hero .game-overlay { padding: 12px 12px 12px; }
+            .game-detail-info { grid-template-columns: 1fr; padding: 10px 12px; gap: 8px; }
+            .game-detail-gallery .gallery-grid { grid-template-columns: 1fr; }
+            .game-detail-description { padding: 14px; }
+            .game-detail-description p { font-size: 0.85rem; }
+            .old-detail-hero .detail-overlay h1 { font-size: 1.2rem; }
+            .old-detail-hero .detail-overlay .detail-sub { font-size: 0.8rem; }
+            .old-detail-hero .detail-overlay { padding: 14px 12px 12px; }
+            .old-detail-info { grid-template-columns: 1fr; padding: 10px 12px; gap: 8px; }
+            .old-detail-gallery .gallery-grid { grid-template-columns: 1fr; }
+            .old-detail-description { padding: 14px; }
+            .old-detail-description p { font-size: 0.85rem; }
+            .search-page .logo-big { width: 240px; }
+            .notifications-page .notif-hero .notif-icon-big { width: 200px; height: 200px; }
+            .notifications-page .notif-hero h2 { font-size: 1.2rem; }
+            .notif-item { padding: 10px 12px; flex-wrap: wrap; }
+            .notif-item .notif-dot { top: 10px; left: 10px; }
+            .profile-page .profile-actions .btn { width: 100%; text-align: center; }
+            .settings-box .setting-item { flex-wrap: wrap; gap: 6px; }
+            #imageModal img { max-width: 100%; max-height: 90%; }
+            #imageModal .modal-close { top: 10px; left: 10px; font-size: 1.2rem; padding: 4px 10px; }
+        }
+    </style>
 </head>
 <body>
-<div class="header">
-    <div class="logo">
-        <img src="https://uploadkon.ir/uploads/3ee908_26Zerox.png" alt="ZEROX">
-    </div>
-    <nav>
-        <a onclick="showTab('home')"><i class="fa-solid fa-house"></i> خانه</a>
-        <a onclick="showTab('news')"><i class="fa-solid fa-newspaper"></i> اخبار</a>
-        <a onclick="showTab('video')"><i class="fa-solid fa-video"></i> ویدیوها</a>
-        <a onclick="showTab('music')"><i class="fa-solid fa-music"></i> موسیقی</a>
-        <a onclick="showTab('shop')"><i class="fa-solid fa-shop"></i> شاپ</a>
-        <a onclick="showTab('stories')"><i class="fa-solid fa-book-open"></i> داستان‌ها</a>
-        <a onclick="showTab('old')"><span class="custom-cd-icon"><i class="fa-solid fa-compact-disc"></i></span> زروکس اُلد</a>
-        <a onclick="showTab('about')"><i class="fa-solid fa-info-circle"></i> درباره ما</a>
-        <a onclick="showTab('channels')"><i class="fa-solid fa-database"></i> کانال‌هامون!</a>
-    </nav>
-</div>
-<div id="home" class="section active">
-    <div class="section-title"><i class="fa-solid fa-fire"></i> آخرین ویدیوها</div>
-    <div id="homeVideosGrid" class="videos-grid"></div>
-    <div class="section-title"><i class="fa-regular fa-newspaper"></i> آخرین اخبار</div>
-    <div id="homeNewsGrid" class="news-grid"></div>
-    <div class="section-title"><i class="fa-solid fa-book-open"></i> آخرین داستان‌ها</div>
-    <div id="homeStoriesGrid" class="cards-grid"></div>
-</div>
-<div id="news" class="section">
-    <div class="section-title"><i class="fa-regular fa-newspaper"></i> همه اخبار</div>
-    <div id="newsGrid" class="news-grid"></div>
-</div>
-<div id="video" class="section">
-    <div class="section-title"><i class="fa-solid fa-video"></i> ویدیوها</div>
-    <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="همه"><i class="fa-solid fa-globe"></i> همه</button>
-        <button class="filter-btn" data-filter="ترسناک"><i class="fa-solid fa-ghost"></i> ترسناک</button>
-        <button class="filter-btn" data-filter="هیجانی"><i class="fa-solid fa-bolt"></i> هیجانی</button>
-        <button class="filter-btn" data-filter="علمی"><i class="fa-solid fa-flask"></i> علمی‌تخیلی</button>
-        <button class="filter-btn" data-filter="معرفی"><i class="fa-solid fa-gamepad"></i> معرفی بازی</button>
-    </div>
-    <div id="videosGrid" class="videos-grid"></div>
-</div>
-<div id="music" class="section">
-    <div class="section-title"><i class="fa-solid fa-music"></i> موسیقی بازی‌ها</div>
-    <div id="musicGrid" class="music-grid"></div>
-</div>
-<div id="shop" class="section">
-    <div class="hybrid-card">
-        <div class="hybrid-content">
-            <h2>🛍️ زروکس شاپ</h2>
-            <p>به زودی با بهترین محصولات گیمینگ</p>
-        </div>
-    </div>
-</div>
-<div id="stories" class="section">
-    <div class="section-title"><i class="fa-solid fa-book-open"></i> داستان‌های بازی</div>
-    <div id="storiesGrid" class="cards-grid"></div>
-</div>
-<div id="old" class="section">
-    <div class="section-title"><i class="fa-solid fa-compact-disc" style="background: linear-gradient(135deg, #2a2a2a, #1a1a1a); color: #C0C0C0; padding: 8px; border-radius: 50%; box-shadow: 0 0 0 2px white; font-size: 20px;"></i> بازی‌های نوستالژیک | زروکس اُلد</div>
-    <div id="oldGrid" class="old-grid"></div>
-</div>
-<div id="about" class="section">
-    <div class="about-container">
-        <div class="welcome-box">
-            <div class="welcome-icon">
-                <i class="fa-solid fa-gamepad"></i>
+
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <header class="navbar">
+            <div class="nav-section">
+                <button class="hamburger" onclick="toggleMobileMenu()" aria-label="منو">
+                    <span></span><span></span><span></span>
+                </button>
+                <a class="logo" onclick="showPage('home')">
+                    <div class="logo-icon">Z</div>
+                    <span class="logo-text">Zerox<span>.</span></span>
+                </a>
             </div>
-            <h2>به زروکس گیم خوش اومدید! 🎮</h2>
-            <p>اینجا بهشت گیمر هاست<br>اینجا یک خانه برای گیمرهای ایرانی هستش! ❤️</p>
-        </div>
-        <div class="info-cards">
-            <div class="info-card">
-                <div class="icon-3d-support"><i class="fa-solid fa-headset"></i></div>
-                <h3>پشتیبانی</h3>
-                <p>برای ارتباط با ادمین در روبیکا پیام بدین</p>
-                <a href="https://rubika.ir/@support_Zerox" target="_blank" class="contact-link">@support_Zerox</a>
+
+            <div class="nav-links">
+                <a class="active" onclick="showPage('home')"><i class="fas fa-home"></i> خانه</a>
+                <a onclick="showPage('movies')"><i class="fas fa-film"></i> ویدیوها</a>
+                <a onclick="showPage('games')"><i class="fas fa-gamepad"></i> زروکس گیمز</a>
+                <a onclick="showPage('oldgames')"><i class="fas fa-history"></i> زروکس‌اُلد</a>
             </div>
-            <div class="info-card">
-                <div class="icon-3d"><i class="fa-solid fa-user-astronaut"></i></div>
-                <h3>سازنده سایت</h3>
-                <div class="dev-name">@mohamad_hossein_ev18</div>
-                <a href="https://t.me/mohamad_hossein_ev18" target="_blank" class="contact-link" style="margin-top:15px;"><i class="fab fa-telegram"></i> ارسال پیام در تلگرام</a>
+
+            <div class="nav-actions">
+                <button class="action-btn" onclick="showPage('search')"><i class="fas fa-search"></i></button>
+                <button class="action-btn" onclick="showPage('notifications')">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <div class="profile-avatar" onclick="showPage('profile')">ز</div>
+            </div>
+        </header>
+
+        <!-- ===== MOBILE DRAWER ===== -->
+        <div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+        <div class="mobile-drawer" id="mobileDrawer">
+            <div class="drawer-header">
+                <span class="drawer-logo">Zerox<span>.</span></span>
+                <button class="drawer-close" onclick="closeMobileMenu()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="drawer-links">
+                <a class="active" onclick="showPage('home'); closeMobileMenu();"><i class="fas fa-home"></i> خانه</a>
+                <a onclick="showPage('movies'); closeMobileMenu();"><i class="fas fa-film"></i> ویدیوها</a>
+                <a onclick="showPage('games'); closeMobileMenu();"><i class="fas fa-gamepad"></i> زروکس گیمز</a>
+                <a onclick="showPage('oldgames'); closeMobileMenu();"><i class="fas fa-history"></i> زروکس‌اُلد</a>
+                <a onclick="showPage('search'); closeMobileMenu();"><i class="fas fa-search"></i> جستجو</a>
+                <a onclick="showPage('notifications'); closeMobileMenu();">
+                    <i class="fas fa-bell"></i> اعلان‌ها
+                    <span class="drawer-badge">3</span>
+                </a>
+                <a onclick="showPage('profile'); closeMobileMenu();"><i class="fas fa-user-circle"></i> پروفایل</a>
+            </div>
+            <div class="drawer-footer"><p>© 2026 Zerox Studio</p></div>
+        </div>
+
+        <!-- ===== HOME ===== -->
+        <div class="page active" id="page-home">
+            <div class="hero-slider" id="heroSlider">
+                <div class="hero-slide active" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
+                    <div class="hero-content">
+                        <span class="badge">🔥 جدید</span>
+                        <h2>بازی اوتلست 1 | بهترین بازی ترسناک دنیا</h2>
+                        <p>😨🏚️ Outlast | یه شب توی جهنم! امشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀</p>
+                        <button class="btn-play" onclick="event.stopPropagation(); openVideo('https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame', 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا', '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox', '۵ دقیقه', '9.2')">
+                            <i class="fas fa-play"></i> پخش فیلم
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background-image: url('https://uploadkon.ir/uploads/406920_2671129478-9827-l-3296.jpg');">
+                    <div class="hero-content">
+                        <span class="badge">🎯 ویژه</span>
+                        <h2>داستان بازی | no im not a human</h2>
+                        <p>😨🚪 No, I'm Not a Human | یه شب جهنمی! امشب رفتیم سراغ یکی از عجیب‌ترین بازی‌های ترسناک! 😶‍🌫️</p>
+                        <button class="btn-play" onclick="event.stopPropagation(); openVideo('https://www.aparat.com/video/video/embed/videohash/itl9b8h/vt/frame', 'داستان بازی | no im not a human', '😨🚪 No, I\'m Not a Human | یه شب جهنمی!\n\nامشب رفتیم سراغ یکی از عجیب‌ترین بازی‌های ترسناک! 😶‍🌫️\nباید بفهمیم کی انسانه و کی نه... 👀\n\n🎬 ساخته شده توسط Zerox\n💬 تو جای من بودی به کی اعتماد می‌کردی؟', '۹ دقیقه', '8.7')">
+                            <i class="fas fa-play"></i> پخش فیلم
+                        </button>
+                    </div>
+                </div>
+                <div class="slider-dots" id="sliderDots">
+                    <span class="active" onclick="goToSlide(0)"></span>
+                    <span onclick="goToSlide(1)"></span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2><i class="fas fa-fire" style="color:#B61C1C;"></i> جدیدترین عناوین</h2>
+                <a href="#" onclick="showPage('movies'); return false;">مشاهده همه</a>
+            </div>
+
+            <div class="movie-grid" id="movieGrid">
+                <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame', 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا', '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox', '۵ دقیقه', '9.2')">
+                    <div class="movie-poster" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
+                        <span class="badge">جدید</span>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>بازی اوتلست 1 | بهترین بازی ترسناک دنیا</h4>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> ۵ دقیقه</span>
+                            <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/itl9b8h/vt/frame', 'داستان بازی | no im not a human', '😨🚪 No, I\'m Not a Human | یه شب جهنمی!\n\nامشب رفتیم سراغ یکی از عجیب‌ترین بازی‌های ترسناک! 😶‍🌫️\nباید بفهمیم کی انسانه و کی نه... 👀\n\n🎬 ساخته شده توسط Zerox\n💬 تو جای من بودی به کی اعتماد می‌کردی؟', '۹ دقیقه', '8.7')">
+                    <div class="movie-poster" style="background-image: url('https://uploadkon.ir/uploads/406920_2671129478-9827-l-3296.jpg');">
+                        <span class="badge">ویژه</span>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>داستان بازی | no im not a human</h4>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> ۹ دقیقه</span>
+                            <span class="rating"><i class="fas fa-star"></i> 8.7</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- ===== SEARCH ===== -->
+        <div class="page" id="page-search">
+            <div class="search-page">
+                <div class="logo-big">
+                    <img src="https://uploadkon.ir/uploads/e96830_26file-000000004d2071fb9a46cad018bd1f48.png" alt="Zerox" />
+                </div>
+                <p class="subtitle">هر چیزی که دنبالشی رو پیدا کن</p>
+                <div class="search-box-big">
+                    <input type="text" placeholder="جستجوی عنوان، بازیگر..." id="searchInput" oninput="liveSearch(this.value)" onkeydown="if(event.key==='Enter'){liveSearch(this.value)}" />
+                    <button onclick="liveSearch(document.getElementById('searchInput').value)"><i class="fas fa-search"></i> جستجو</button>
+                </div>
+                <div class="search-results" id="searchResults">
+                    <div class="no-result"><i class="fas fa-search"></i> جستجو کن تا نتایج رو ببینی...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== NOTIFICATIONS ===== -->
+        <div class="page" id="page-notifications">
+            <div class="notifications-page">
+                <div class="notif-hero">
+                    <div class="notif-icon-big">
+                        <img src="https://cdn.imgurl.ir/uploads/r800856_Zerox_icon_12.png" alt="Zerox" />
+                    </div>
+                    <h2>اعلان‌ها</h2>
+                    <span class="studio-badge">🎬 Zerox Studio</span>
+                </div>
+                <div class="notif-item">
+                    <span class="notif-dot"></span>
+                    <div class="notif-icon"><i class="fas fa-play-circle"></i></div>
+                    <div class="notif-content">
+                        <h4>🎬 ویدیوی جدید <span class="studio-tag">Zerox Studio</span></h4>
+                        <p>ویدیوی <span class="highlight">«بازی اوتلست 1»</span> در Zerox Studio منتشر شد! 😨🔥</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== PROFILE ===== -->
+        <div class="page" id="page-profile">
+            <div class="profile-page">
+                <div class="profile-header">
+                    <div class="profile-avatar-big"><i class="fas fa-user"></i></div>
+                    <span class="guest-badge">👤 مهمان</span>
+                    <h2>خوش آمدی!</h2>
+                    <p>به <strong>Zerox Studio</strong> خوش اومدی 🎬</p>
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" onclick="showPage('home')"><i class="fas fa-sign-in-alt"></i> ورود / ثبت‌نام</button>
+                        <button class="btn btn-outline" onclick="showPage('home')"><i class="fas fa-eye"></i> مرور بدون حساب</button>
+                    </div>
+                </div>
+                <div class="profile-menu">
+                    <div class="menu-item" onclick="showPage('settings')">
+                        <i class="fas fa-cog"></i> تنظیمات
+                        <span class="arrow"><i class="fas fa-chevron-left"></i></span>
+                    </div>
+                    <div class="menu-item" onclick="showPage('home')" style="color:#B61C1C;">
+                        <i class="fas fa-sign-in-alt"></i> ورود به حساب
+                        <span class="arrow"><i class="fas fa-chevron-left"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== SETTINGS ===== -->
+        <div class="page" id="page-settings">
+            <h2 class="page-header"><i class="fas fa-cog"></i> تنظیمات</h2>
+            <p class="page-sub">تنظیمات حساب کاربری و برنامه</p>
+            <div class="settings-box">
+                <div class="setting-item">
+                    <span class="setting-label"><i class="fas fa-moon"></i> حالت شب</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label"><i class="fas fa-bell"></i> اعلان‌ها</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label"><i class="fas fa-video"></i> کیفیت پخش</span>
+                    <select style="font-family:'Estedad',sans-serif;background:transparent;border:none;color:#888;font-size:0.8rem;cursor:pointer;outline:none;padding:4px 8px;border-radius:8px;">
+                        <option>خودکار</option><option>۴۸۰p</option><option>۷۲۰p</option><option>۱۰۸۰p</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label"><i class="fas fa-globe"></i> زبان</span>
+                    <select style="font-family:'Estedad',sans-serif;background:transparent;border:none;color:#888;font-size:0.8rem;cursor:pointer;outline:none;padding:4px 8px;border-radius:8px;">
+                        <option>فارسی</option><option>English</option>
+                    </select>
+                </div>
+                <div class="setting-item" style="border-bottom:none;justify-content:center;gap:8px;padding:14px 18px;">
+                    <span style="font-family:'Estedad',sans-serif;color:#888;font-size:0.7rem;">Zerox Studio v2.0</span>
+                    <span style="color:#ddd;">•</span>
+                    <span style="font-family:'Estedad',sans-serif;color:#888;font-size:0.7rem;">© 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== MOVIES ===== -->
+        <div class="page" id="page-movies">
+            <h2 class="page-header"><i class="fas fa-film"></i> ویدیوها</h2>
+            <p class="page-sub">همه ویدیوهای سینمایی و کوتاه</p>
+            <div class="movie-grid" style="margin-top:16px;">
+                <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame', 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا', '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox', '۵ دقیقه', '9.2')">
+                    <div class="movie-poster" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
+                        <span class="badge">جدید</span>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>بازی اوتلست 1 | بهترین بازی ترسناک دنیا</h4>
+                        <div class="meta"><span><i class="fas fa-clock"></i> ۵ دقیقه</span><span class="rating"><i class="fas fa-star"></i> 9.2</span></div>
+                    </div>
+                </div>
+                <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/itl9b8h/vt/frame', 'داستان بازی | no im not a human', '😨🚪 No, I\'m Not a Human | یه شب جهنمی!\n\nامشب رفتیم سراغ یکی از عجیب‌ترین بازی‌های ترسناک! 😶‍🌫️\nباید بفهمیم کی انسانه و کی نه... 👀\n\n🎬 ساخته شده توسط Zerox\n💬 تو جای من بودی به کی اعتماد می‌کردی؟', '۹ دقیقه', '8.7')">
+                    <div class="movie-poster" style="background-image: url('https://uploadkon.ir/uploads/406920_2671129478-9827-l-3296.jpg');">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>داستان بازی | no im not a human</h4>
+                        <div class="meta"><span><i class="fas fa-clock"></i> ۹ دقیقه</span><span class="rating"><i class="fas fa-star"></i> 8.7</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== ZEROX GAMES ===== -->
+        <!-- ============================================ -->
+        <div class="page" id="page-games">
+            <h2 class="page-header"><i class="fas fa-gamepad"></i> زروکس گیمز</h2>
+            <p class="page-sub">بازی‌های ساخته شده توسط استودیو Zerox</p>
+            <div class="game-cards-grid">
+                <div class="game-card" onclick="showPage('game-silentgears')">
+                    <div class="game-card-img">
+                        <img src="https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg" alt="SilentGears" />
+                        <span class="game-status"><i class="fas fa-hourglass-half sand-icon"></i> در دست توسعه</span>
+                    </div>
+                    <div class="game-card-body">
+                        <h3>SilentGears | چرخ‌دنده‌ساکت</h3>
+                        <div class="game-genre">اکشن-ماجرایی • نقش‌آفرینی</div>
+                        <div class="game-desc">یک بازی پساآخرالزمانی با گیم‌پلی ریتم‌محور و داستانی عمیق...</div>
+                        <div class="game-footer">
+                            <span class="game-platform"><i class="fas fa-mobile-alt"></i> <i class="fas fa-desktop"></i> اندروید | PC</span>
+                            <button class="btn-view" onclick="event.stopPropagation(); showPage('game-silentgears')">مشاهده بازی</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-card" style="opacity:0.5;cursor:default;">
+                    <div class="game-card-img" style="background:#2a2a2a;display:flex;align-items:center;justify-content:center;">
+                        <span style="color:#666;font-family:'Estedad',sans-serif;font-size:1.2rem;">🎮</span>
+                    </div>
+                    <div class="game-card-body">
+                        <h3 style="color:#888;">پروژه بعدی</h3>
+                        <div class="game-genre">به زودی...</div>
+                        <div class="game-desc" style="color:#999;">بازی جدید استودیو Zerox در حال ساخت است</div>
+                        <div class="game-footer">
+                            <span class="game-platform">در دست توسعه</span>
+                            <span style="font-family:'Estedad',sans-serif;font-size:0.65rem;color:#666;">به زودی</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== GAME DETAIL: SilentGears ===== -->
+        <!-- ============================================ -->
+        <div class="page" id="page-game-silentgears">
+            <button class="btn-back" onclick="showPage('games')"><i class="fas fa-arrow-right"></i> بازگشت به بازی‌ها</button>
+            <div class="game-detail-hero">
+                <img src="https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg" alt="SilentGears" />
+                <div class="game-overlay">
+                    <span class="game-badge"><i class="fas fa-hourglass-half sand-icon"></i> در دست توسعه</span>
+                    <h1>SilentGears</h1>
+                    <div class="game-tagline">چرخ‌دنده‌ساکت</div>
+                </div>
+            </div>
+            <div class="game-detail-info">
+                <div class="info-item"><i class="fas fa-tag"></i><div><div class="info-label">ژانر</div><div class="info-value">اکشن-ماجرایی، نقش‌آفرینی سبک، ریتم‌محور</div></div></div>
+                <div class="info-item"><i class="fas fa-building"></i><div><div class="info-label">استودیو</div><div class="info-value">Zerox Studios</div></div></div>
+                <div class="info-item"><i class="fas fa-mobile-alt"></i><div><div class="info-label">پلتفرم</div><div class="info-value">اندروید | PC</div></div></div>
+                <div class="info-item"><i class="fas fa-clock"></i><div><div class="info-label">مدت زمان</div><div class="info-value">۱۲ تا ۱۶ ساعت</div></div></div>
+                <div class="info-item"><i class="fas fa-user"></i><div><div class="info-label">حالت بازی</div><div class="info-value">تکنفره، روایت خطی</div></div></div>
+                <div class="info-item"><i class="fas fa-flag-checkered"></i><div><div class="info-label">پایان‌ها</div><div class="info-value">۳ پایان مختلف</div></div></div>
+                <div class="info-item" style="grid-column:1/-1;background:rgba(255,165,0,0.08);border-radius:10px;padding:8px 14px;border-right:3px solid #ffa500;">
+                    <i class="fas fa-hourglass-half sand-icon" style="color:#ffa500;"></i>
+                    <div><div class="info-label" style="color:#ffa500;">وضعیت</div><div class="info-value" style="color:#ffa500;">در دست توسعه • تاریخ انتشار نامشخص</div></div>
+                </div>
+            </div>
+            <div class="game-detail-gallery">
+                <div class="gallery-title"><i class="fas fa-images"></i> گالری تصاویر</div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openImageModal('https://uploadkon.ir/uploads/5db631_26Negar-1788157838729.jpg')">
+                        <img src="https://uploadkon.ir/uploads/5db631_26Negar-1788157838729.jpg" alt="SilentGears 1" />
+                    </div>
+                    <div class="gallery-item" onclick="openImageModal('https://uploadkon.ir/uploads/6d9131_26Negar-1788163302729.jpg')">
+                        <img src="https://uploadkon.ir/uploads/6d9131_26Negar-1788163302729.jpg" alt="SilentGears 2" />
+                    </div>
+                </div>
+            </div>
+            <div class="game-detail-description">
+                <h3><i class="fas fa-info-circle"></i> درباره بازی</h3>
+                <p>🎮 <strong>SilentGears | چرخ‌دنده‌ساکت</strong> یک بازی اکشن-ماجرایی، نقش‌آفرینی سبک، ریتم‌محور (Rhythm-Based) و پساآخرالزمانی است که توسط <strong>Zerox Studios</strong> ساخته شده.</p>
+                <p style="margin-top:10px;">داستان بازی در دنیایی پس از سقوط تمدن روایت می‌شود. شما در نقش یک بازمانده تنها، باید در میان ویرانه‌های یک شهر صنعتی، راز چرخ‌دنده‌های خاموش را کشف کنید. هر تصمیم شما مسیر داستان را تغییر می‌دهد و به یکی از <strong>۳ پایان مختلف</strong> ختم می‌شود.</p>
+                <div style="margin-top:14px;padding:14px;background:rgba(255,165,0,0.06);border-radius:10px;border-right:3px solid #ffa500;">
+                    <p style="font-family:'Estedad',sans-serif;font-size:0.85rem;color:#ffa500;font-weight:600;margin:0;"><i class="fas fa-hourglass-half sand-icon"></i> این بازی در حال حاضر در دست توسعه است و به زودی منتشر خواهد شد.</p>
+                </div>
+                <div class="genre-tags">
+                    <span>🎯 اکشن-ماجرایی</span><span>🎭 نقش‌آفرینی</span><span>🎵 ریتم‌محور</span><span>🌆 پساآخرالزمانی</span><span>🎮 تکنفره</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== ZEROX OLD ===== -->
+        <!-- ============================================ -->
+        <div class="page" id="page-oldgames">
+            <h2 class="page-header"><i class="fas fa-history"></i> زروکس‌اُلد</h2>
+            <p class="page-sub">بازی‌های کلاسیک و قدیمی که توسط Zerox معرفی شدن</p>
+            <div class="old-games-grid" id="oldGamesGrid"></div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== OLD GAME DETAIL ===== -->
+        <!-- ============================================ -->
+        <div class="page" id="page-old-detail">
+            <button class="btn-back" onclick="showPage('oldgames')"><i class="fas fa-arrow-right"></i> بازگشت به زروکس‌اُلد</button>
+            <div id="oldDetailContent"></div>
+        </div>
+
+        <!-- ===== VIDEO ===== -->
+        <div class="page" id="page-video">
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe id="videoIframe" src="" allowfullscreen></iframe>
+                </div>
+                <div class="video-info-section">
+                    <h2 id="videoTitle">عنوان فیلم</h2>
+                    <div class="video-meta">
+                        <span><i class="fas fa-clock"></i> <span id="videoDuration">۰ دقیقه</span></span>
+                        <span><i class="fas fa-star" style="color:#f5b342;"></i> <span id="videoRating">۰.۰</span></span>
+                    </div>
+                    <div class="description-wrapper">
+                        <div class="description-text" id="videoDescription">توضیحات فیلم اینجا قرار می‌گیرد.</div>
+                        <button class="description-toggle" id="descToggle" onclick="toggleDescription()">
+                            <span id="toggleText">نمایش بیشتر</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="comments-section">
+                    <h3><i class="fas fa-comments"></i> نظرات</h3>
+                    <div class="comment-box">
+                        <input type="text" placeholder="نظر خود را بنویسید..." />
+                        <button>ارسال</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <h2>Zerox Studio</h2>
+            <p>پلتفرم سینمایی و سرگرمی دیجیتال</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p style="font-size:0.65rem; margin-top:10px;">© 2026 Zerox Studio. تمامی حقوق محفوظ است.</p>
+        </footer>
     </div>
-</div>
-<div id="channels" class="section">
-    <div class="channels-container">
-        <div class="channel-card">
-            <div class="channel-icon"><i class="fa-solid fa-tv"></i></div>
-            <h3>کانال آپارات</h3>
-            <p>اینجا کانال اصلی آپارات خفن زروکسه!</p>
-            <a href="https://www.aparat.com/ZEROX_GAME" target="_blank" class="channel-link"><i class="fa-solid fa-play-circle"></i> بازدید از کانال آپارات</a>
-            <div style="margin-top:20px;">
-                <p style="font-size:0.9rem; color:#666;">مارا در روبیکا هم دنبال کنید!</p>
-                <a href="https://rubika.ir/@ZEROX_GAME" target="_blank" class="channel-link" style="background:#222; margin-top:10px;"><i class="fa-solid fa-paper-plane"></i> @ZEROX_GAME در روبیکا</a>
-            </div>
-        </div>
-        <div class="channel-card">
-            <div class="icon-3d" style="animation:floatSlow 2.5s ease-in-out infinite;"><i class="fa-brands fa-youtube"></i></div>
-            <h3>کانال یوتیوب</h3>
-            <div class="coming-soon"><i class="fa-regular fa-clock"></i> به زودی...</div>
-        </div>
+
+    <!-- ===== IMAGE MODAL ===== -->
+    <div id="imageModal" onclick="closeImageModal()">
+        <button class="modal-close" onclick="event.stopPropagation(); closeImageModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="modalImage" src="" alt="تصویر بزرگ" />
     </div>
-</div>
-<footer>© 2026 ZEROX | هر بازی یک حماسه</footer>
-<script>
-// ==================== داده‌های ویدیوها ====================
-const videosData = [
-    { id:2, title:"داستان بازی اوت لست۱ | بهترین بازی ترسناک دنیا", desc:"در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن...", thumb:"https://cdn.imgurl.ir/uploads/y799019_Zerox_th12.png", link:"https://www.aparat.com/v/gkcxc4t", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۶", time:"۱۵:۳۰", fullText:"این ویدیو توسط کانال خفن زیروکس ساخته شده | در این ویدیو داستان کامل Outlast رو بررسی می‌کنیم | از ورود مایلز آپشور به تیمارستان مرموز Mount Massive تا روبه‌رو شدن با آزمایش‌های مخفی، بیماران دیوانه و موجود ترسناکی به نام Walrider. اگر به بازی‌های ترسناک و داستان‌های تاریک علاقه داری، این ویدیو رو از دست نده!" },
-    { id:1, title:"داستان کامل بازی نه من انسان نیستم | ترند و ترسناک ترین بازی در سال ۲۰۲۵", desc:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم", thumb:"https://uploadkon.ir/uploads/804c08_2671129478-9827-l-3296.jpg", link:"https://www.aparat.com/v/itl9b8h", category:"ترسناک", date:"۱۴۰۵/۰۳/۰۵", time:"۱۹:۲۰", fullText:"سلام بر شما | من امروز درمورد داستان بازی من انسان نیستم صحبت کردم | تمام نکات و همچیو توضیح دادم | امیدوارم از ویدیو لذت کافی ببرید | پارت بعدی رو به زودی زود میذارم | داستان رو تماما گفتم براتون" }
-];
 
-// ==================== داده‌های اخبار ====================
-const newsData = [
-    { id:3, title:"فال‌اوت هنوز زنده است!", summary:"بتسدا به‌تازگی آپدیت جدیدی برای Fallout 76 منتشر کرده...", image:"https://up.20script.ir/file/dbb3-fall-out-Zerox-.jpg", date:"۱۹ خرداد ۱۴۰۵", time:"۲۰:۵۱", fullText:"فال‌اوت هنوز زنده است!\nبتسدا به‌تازگی آپدیت جدیدی برای Fallout 76 منتشر کرده و محتوای تازه‌ای به بازی اضافه شده است. در این آپدیت، بازیکن‌ها با چالش‌ها و دشمنان جدیدی روبه‌رو می‌شوند و می‌توانند پاداش‌ها و آیتم‌های بیشتری به دست بیاورند.\nجالب‌تر اینکه با وجود گذشت چند سال از انتشار بازی، بتسدا همچنان به پشتیبانی از Fallout 76 ادامه می‌دهد و برنامه‌های بیشتری برای آینده آن دارد. Fallout 4 هم هنوز آپدیت دریافت می‌کند؛ اتفاقی که برای خیلی از طرفدارها غافلگیرکننده بوده است.\nبه نظر می‌رسد دنیای Fallout فعلاً قصد خداحافظی با بازیکن‌ها را ندارد.\nبرای جدیدترین اخبار دنیای بازی‌ها، همراه زروکس گیم باشید.\n— ZEROX GAME" },
-    { id:5, title:"سامر گیم داره چیکار میکنه؟", summary:"سامر گیم فست ترکوند! بالاخره بعد از کلی پچ‌پچ، ناتی داگ ماسک رو برداشت...", image:"https://uploadkon.ir/uploads/b62c08_26the-last-of-us-Zerox-.jpg", date:"۱۴۰۵/۰۳/۱۹", time:"۰۲:۱۷", fullText:"سامر گیم فست ترکوند! بالاخره بعد از کلی پچ‌پچ، ناتی داگ ماسک رو برداشت و The Last of Us Part 3 رو نشون داد. داستانش کاملاً غافلگیرکننده‌ست و خبری از الی و جوئل نیست. بعدش سونی رسماً تایید کرد که خدای جنگ داره میره مصر باستان، اونم با یه گیم‌پلی سریع‌تر که محورش روی آترئوس جوونه. تو جبهه‌ی ترسناک‌ها هم کپکام یه رزیدنت اویل جدید معرفی کرد که ظاهراً قراره یه تجربه‌ی کو-آپ بقا-محور باشه و حسابی بترسیم. خلاصه اینکه ۲۰۲۷ قراره سال شلوغی بشه. گروه_خبری زروکس!" },
-    { id:4, title:"ولورین بالاخره پنچه هاشو کشید بیرون؟", summary:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده", image:"https://uploadkon.ir/uploads/be1308_26InShot-20260606-132014431.jpg", date:"۱۴۰۵/۰۳/۱۸", time:"۲۲:۴۶", fullText:"ولورین بالاخره برگشت! اطلاعات جدیدی از Marvel's Wolverine منتشر شده و طرفدارها رو حسابی هیجان‌زده کرده. نمایش جدید بازی مبارزات سریع و خشن لوگان رو نشون می‌ده و به نظر می‌رسه با یکی از تاریک‌ترین بازی‌های مارول طرف باشیم." }
-];
+    <script>
+        // ============================================
+        // DATA
+        // ============================================
+        const oldData = [
+            { 
+                id: 3, 
+                title: "Grand Theft Auto: San Andreas | ZEROX", 
+                name: "Grand Theft Auto: San Andreas", 
+                year: "۲۰۰۴", 
+                developer: "Rockstar North", 
+                publisher: "Rockstar Games", 
+                director: "Leslie Benzies (کارگردان اصلی / لید دیزاینر) - Dan Houser (نقش مهم در نویسندگی و هدایت داستان)", 
+                producer: "Leslie Benzies - Imran Sarwar", 
+                composers: ["Michael Hunter (موسیقی اصلی بازی) - موسیقی‌های لایسنس شده از هنرمندان مختلف"], 
+                platform: "PlayStation 2, Xbox, PC (ویندوز), بعداً: موبایل", 
+                genre: "اکشن-ماجراجویی، جهان‌باز (Open World)، رانندگی، تیراندازی سوم‌شخص", 
+                engine: "RenderWare", 
+                cover: "https://uploadkon.ir/uploads/724812_26gta-sa-Zerox-.jpg", 
+                gallery: [
+                    "https://uploadkon.ir/uploads/724812_26gta-sa-Zerox-.jpg",
+                    "https://uploadkon.ir/uploads/3eb712_26InShot-20260613-014303120.jpg",
+                    "https://uploadkon.ir/uploads/777112_26InShot-20260613-014628932.jpg"
+                ],
+                music: "https://uploadkon.ir/uploads/444012_26GTA-SA-ZEROX-.mp3", 
+                desc: "داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد.", 
+                fullText: "داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد. در این مسیر طولانی و حماسی، شخصیت‌های ماندگاری مثل Big Smoke، Ryder، Sweet و Officer Tenpenny روبروی CJ قرار می‌گیرند و توطئه‌های بزرگی شکل می‌گیرد." 
+            },
+            { 
+                id: 2, 
+                title: "PRINCE OF PERSIA | ZEROX", 
+                name: "Prince of Persia", 
+                year: "۱۹۸۹", 
+                developer: "Jordan Mechner", 
+                publisher: "Brøderbund", 
+                director: "Jordan Mechner", 
+                producer: "Brøderbund Software", 
+                composers: ["صدا و موسیقی محدود و ساده"], 
+                platform: "Apple II / DOS / Commodore 64 / Amiga", 
+                genre: "اکشن، پلتفرمر، ماجراجویی", 
+                engine: "موتور اختصاصی اولیه", 
+                cover: "https://cdn.imgurl.ir/uploads/f82900_____Zerox_.jpg", 
+                gallery: [
+                    "https://cdn.imgurl.ir/uploads/f82900_____Zerox_.jpg"
+                ],
+                music: "https://uploadkon.ir/uploads/da8b10_26Prince-of-Persia-Zerox.mp3", 
+                desc: "شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد. شاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.", 
+                fullText: "شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد.\nشاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.\nگیم‌پلی بازی بر پایه دقت در حرکت، زمان‌بندی و حل کردن مسیرهای سخت طراحی شده و برای زمان خودش یکی از واقعی‌ترین انیمیشن‌های حرکتی شخصیت‌ها را داشت.\nاین بازی یکی از پایه‌گذاران سبک پلتفرمر سینمایی محسوب می‌شود و تأثیر بزرگی روی بازی‌های بعدی گذاشت." 
+            },
+            { 
+                id: 1, 
+                title: "GOD OF WAR | ZEROX", 
+                name: "God of War", 
+                year: "۲۲ مارس ۲۰۰۵", 
+                developer: "Santa Monica Studio", 
+                publisher: "Sony Computer Entertainment", 
+                director: "David Jaffe", 
+                producer: "Shannon Studstill", 
+                composers: ["Gerard Marino", "Mike Reagan", "Ron Fish", "Winifred Phillips", "Cris Velasco"], 
+                platform: "PlayStation 2", 
+                genre: "اکشن ماجراجویی، هک اند اسلش", 
+                engine: "Kinetica Engine", 
+                cover: "https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg", 
+                gallery: [
+                    "https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg"
+                ],
+                music: "https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3", 
+                desc: "کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.", 
+                fullText: "داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است." 
+            }
+        ];
 
-// ==================== داده‌های داستان‌ها ====================
-const storiesData = [
-    { title:"داستان کامل بازی خدای جنگ رکناروگ", desc:"بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره...", img:"https://uploadkon.ir/uploads/76e009_26god-of-war-123-Zerox-.jpg", full:`بعد از اتفاقات بازی قبلی، کریتوس و آترئوس توی سرزمین‌های نورس زندگی آرومی داشتن، اما این آرامش زیاد دوام نمیاره. زمستون بزرگ یا همون «فیمبول‌وینتر» شروع شده و همه می‌دونن که بعدش قراره رگناروک، یعنی پایان دنیا، از راه برسه.
+        // ============================================
+        // FUNCTIONS
+        // ============================================
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
 
-اول داستان، کریتوس و آترئوس هنوز دارن با مرگ فریا و پسرش بالدور دست و پنجه نرم می‌کنن. فریا که از دست کریتوس عصبانیه، مدام دنبال انتقامه. از اون طرف آترئوس هم کم‌کم می‌فهمه که همون «لوکی» معروف افسانه‌هاست و نقش بزرگی توی آینده دنیا داره.
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const img = document.getElementById('modalImage');
+            modal.classList.add('active');
+            img.src = src;
+            document.body.style.overflow = 'hidden';
+        }
 
-یه روز سر و کله ثور، خدای رعد و برق، پیدا میشه. همون جنگجوی غول‌پیکری که همه ازش می‌ترسن. اون همراه اودین میاد سراغ کریتوس. اودین سعی می‌کنه با حرف زدن جلوی جنگ رو بگیره، ولی همه می‌دونن که پشت این لبخندها یه نقشه بزرگ خوابیده.
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-آترئوس که دنبال جواب سوال‌هاشه، مخفیانه سفر خودش رو شروع می‌کنه. اون می‌خواد بفهمه واقعاً کیه و سرنوشتش چیه. توی این مسیر با غول‌های باقیمونده، موجودات عجیب و رازهای قدیمی روبه‌رو میشه.
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobileOverlay');
+            const drawer = document.getElementById('mobileDrawer');
+            overlay.classList.toggle('active');
+            drawer.classList.toggle('open');
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+        }
 
-در همین حال کریتوس هم درگیر این موضوعه که نکنه دوباره تبدیل به همون هیولای گذشته بشه؛ همون جنگجویی که فقط مرگ و نابودی به بار می‌آورد. اما این بار فرق کرده. حالا یه پدره و نمی‌خواد پسرش هم راه اشتباه اون رو بره.
+        function closeMobileMenu() {
+            const overlay = document.getElementById('mobileOverlay');
+            const drawer = document.getElementById('mobileDrawer');
+            overlay.classList.remove('active');
+            drawer.classList.remove('open');
+            document.body.style.overflow = '';
+        }
 
-هرچی داستان جلوتر میره، رابطه پدر و پسر بارها به چالش کشیده میشه. آترئوس می‌خواد مستقل باشه و خودش تصمیم بگیره، ولی کریتوس همیشه نگرانشه.
+        // ============================================
+        // RENDER OLD GAMES
+        // ============================================
+        function renderOldGames() {
+            const grid = document.getElementById('oldGamesGrid');
+            if (!grid) return;
 
-کم‌کم مشخص میشه که اودین سال‌ها دروغ گفته و خیلی از اتفاقات رو پشت پرده کنترل کرده. هدفش هم اینه که از سرنوشت فرار کنه و هرطور شده قدرت خودش رو حفظ کنه.
+            grid.innerHTML = oldData.map(game => `
+                <div class="old-game-card" onclick="showOldDetail(${game.id})">
+                    <div class="card-img">
+                        <img src="${game.cover}" alt="${game.name}" />
+                        <span class="card-year">${game.year}</span>
+                        <div class="card-overlay">
+                            <div class="card-title">${game.name}</div>
+                            <div class="card-dev">${game.developer}</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-genre">
+                            ${game.genre.split('،').map(g => `<span>${g.trim()}</span>`).join('')}
+                        </div>
+                        <div class="card-desc">${game.desc}</div>
+                        <div class="card-footer">
+                            <span class="card-platform"><i class="fas fa-desktop"></i> ${game.platform.split(',').slice(0,2).join(', ')}</span>
+                            <button class="btn-detail" onclick="event.stopPropagation(); showOldDetail(${game.id})">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-بعد از کلی ماجراجویی، متحدان مختلفی دور کریتوس جمع میشن؛ از فریا گرفته تا دورف‌ها و جنگجویان قلمروهای مختلف. همه آماده میشن تا جنگ نهایی رگناروک رو شروع کنن.
+        // ============================================
+        // SHOW OLD DETAIL
+        // ============================================
+        function showOldDetail(id) {
+            const game = oldData.find(g => g.id === id);
+            if (!game) return;
 
-و بالاخره جنگ بزرگ آغاز میشه. ارتش‌ها به آزگارد حمله می‌کنن. نبردهای عظیم شکل می‌گیره و هر گوشه از دنیا در آتیش جنگ می‌سوزه. کریتوس با ثور روبه‌رو میشه و یکی از حماسی‌ترین مبارزه‌های تاریخ بازی‌های ویدیویی رقم می‌خوره.
+            const container = document.getElementById('oldDetailContent');
+            if (!container) return;
 
-اما برخلاف چیزی که همه انتظار داشتن، کریتوس سعی می‌کنه چرخه کشتار رو بشکنه. اون دیگه فقط به فکر انتقام نیست.
+            let galleryHtml = '';
+            if (game.gallery && game.gallery.length > 0) {
+                galleryHtml = `
+                    <div class="old-detail-gallery">
+                        <div class="gallery-title"><i class="fas fa-images"></i> گالری تصاویر</div>
+                        <div class="gallery-grid">
+                            ${game.gallery.map(img => `
+                                <div class="gallery-item" onclick="openImageModal('${img}')">
+                                    <img src="${img}" alt="${game.name}" />
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }
 
-در نهایت ثور متوجه میشه که اودین از همه سوءاستفاده کرده، اما قبل از اینکه بتونه مسیرش رو عوض کنه، اودین خودش اون رو از بین می‌بره.
+            let musicHtml = '';
+            if (game.music) {
+                musicHtml = `
+                    <div class="old-detail-music">
+                        <div class="music-title"><i class="fas fa-music"></i> موسیقی بازی</div>
+                        <audio controls>
+                            <source src="${game.music}" type="audio/mpeg" />
+                            مرورگر شما از پخش موسیقی پشتیبانی نمی‌کند.
+                        </audio>
+                    </div>
+                `;
+            }
 
-آخرین نبرد بین کریتوس و یارانش با اودین شکل می‌گیره. بعد از مبارزه‌ای سخت، اودین شکست می‌خوره و دوران حکومتش به پایان می‌رسه.
+            container.innerHTML = `
+                <div class="old-detail-hero">
+                    <img src="${game.cover}" alt="${game.name}" />
+                    <div class="detail-overlay">
+                        <span class="detail-badge">🎮 ${game.year}</span>
+                        <h1>${game.name}</h1>
+                        <div class="detail-sub">${game.developer}</div>
+                    </div>
+                </div>
 
-بعد از پایان جنگ، آزگارد نابود میشه و دنیا وارد دوران جدیدی میشه. آترئوس تصمیم می‌گیره برای پیدا کردن غول‌های باقی‌مونده سفر خودش رو شروع کنه. کریتوس هم برای اولین بار می‌فهمه که سرنوشتش فقط نابودی نیست؛ مردم حالا اون رو به عنوان یک قهرمان و ناجی می‌شناسن.
+                <div class="old-detail-info">
+                    <div class="info-item"><i class="fas fa-building"></i><div><div class="info-label">توسعه‌دهنده</div><div class="info-value">${game.developer}</div></div></div>
+                    <div class="info-item"><i class="fas fa-globe"></i><div><div class="info-label">ناشر</div><div class="info-value">${game.publisher}</div></div></div>
+                    <div class="info-item"><i class="fas fa-user-tie"></i><div><div class="info-label">کارگردان</div><div class="info-value">${game.director}</div></div></div>
+                    <div class="info-item"><i class="fas fa-tag"></i><div><div class="info-label">ژانر</div><div class="info-value">${game.genre}</div></div></div>
+                    <div class="info-item"><i class="fas fa-desktop"></i><div><div class="info-label">پلتفرم</div><div class="info-value">${game.platform}</div></div></div>
+                    <div class="info-item"><i class="fas fa-microchip"></i><div><div class="info-label">موتور بازی</div><div class="info-value">${game.engine || 'نامشخص'}</div></div></div>
+                    ${game.composers ? `<div class="info-item" style="grid-column:1/-1;"><i class="fas fa-music"></i><div><div class="info-label">آهنگسازان</div><div class="info-value">${game.composers.join(' • ')}</div></div></div>` : ''}
+                </div>
 
-و اینجاست که داستان پدر و پسری که از ترس سرنوشت فرار می‌کردن، به داستان امید و ساختن آینده تبدیل میشه.` }
-];
+                ${musicHtml}
+                ${galleryHtml}
 
-// ==================== داده‌های موسیقی ====================
-const musicData = [
-    { id:4, title:"INSIDE | ZEROX", game:"INSIDE", platform:"PC, Xbox One, PlayStation 4, Nintendo Switch, iOS", cover:"https://cdn.imgurl.ir/uploads/e280977_inside___Zerox_.jpg", file:"https://cdn.imgurl.ir/uploads/s393413_INSIDE___ZEROX120.mp3", composers:["Martin Stig Andersen", "SØS Gunver Ryberg"], desc:"موسیقی بازی INSIDE رو Martin Stig Andersen ساخت و کارش رو حدود سال‌های ۲۰۱۴ تا ۲۰۱۶، همزمان با ساخت خود بازی انجام داد. جالبه که اینجا مثل بقیه بازی‌ها آهنگ شاد یا ملودی مشخص نداریم؛ بیشتر صداها محیطی و عجیبن. سازنده به جای موسیقی معمولی، از صداهای واقعی مثل نویز، صداهای فلزی، نفس انسان و حتی سکوت استفاده کرده و بعد اون‌ها رو تغییر داده تا حس ترس و تنش بده." },
-    { id:3, title:"GOD OF WAR | ZEROX", game:"God of War Ragnarök", platform:"PS", cover:"https://cdn.imgurl.ir/uploads/c555686_Negar_1780837093023.jpg", file:"https://uploadkon.ir/uploads/7ea308_26ef9f06-26Zerox-god-of-war.mp3", composers:["Bear McCreary"], desc:"کار روی موسیقی از حدود ۲۰۱۹ شروع شد و هم‌زمان با توسعه بازی جلو رفت، تا اینکه بازی در ۲۰۲۲ منتشر شد. و الان از سایت زروکس گوش میکنید!" },
-    { id:2, title:"HALO INFINITE | ZEROX", game:"Halo Infinite", platform:"Xbox", cover:"https://uploadkon.ir/uploads/b1f108_26InShot-20260607-161240740.jpg", file:"https://uploadkon.ir/uploads/478e08_26HALO-INFINITE-ZEROX.mp3", composers:["Gareth Coker","Curtis Schweitzer","Joel Corelitz"], desc:"این آهنگ سال و تاریخ ۸ دسامبر ۲۰۲۱ ساخته شده و برای بازی هیلو اینفینیت یک شاهکار محسوب میشه!" }
-];
+                <div class="old-detail-description">
+                    <h3><i class="fas fa-info-circle"></i> داستان کامل</h3>
+                    <p>${game.fullText || game.desc}</p>
+                </div>
+            `;
 
-// ==================== داده‌های زروکس اُلد (با اضافه شدن GTA San Adventures در بالا) ====================
-const oldData = [
-    { id:3, title:"GRAND THEFT AUTO: SAN ADVENTURES | ZEROX", name:"Grand Theft Auto: San Andreas", year:"۲۰۰۴", developer:"Rockstar North", publisher:"Rockstar Games", director:"Leslie Benzies (کارگردان اصلی / لید دیزاینر) - Dan Houser (نقش مهم در نویسندگی و هدایت داستان)", producer:"Leslie Benzies - Imran Sarwar", composers:["Michael Hunter (موسیقی اصلی بازی) - موسیقی‌های لایسنس شده از هنرمندان مختلف"], platform:"PlayStation 2, Xbox, PC (ویندوز), بعداً: موبایل", genre:"اکشن-ماجراجویی، جهان‌باز (Open World)، رانندگی، تیراندازی سوم‌شخص", engine:"RenderWare", cover:"https://uploadkon.ir/uploads/724812_26gta-sa-Zerox-.jpg", music:"https://uploadkon.ir/uploads/444012_26GTA-SA-ZEROX-.mp3", desc:"داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد.", fullText:"داستان درباره کارل \"CJ\" جانسون است که بعد از مرگ مادرش به لس سانتوس برمی‌گردد. او دوباره وارد محله و گنگ قدیمی‌اش می‌شود، اما خیلی زود درگیر فساد پلیس، خیانت، جنگ باندها و قدرت‌گیری در شهرهای مختلف ایالت سن آندریاس می‌شود. هدف اصلی CJ این است که خانواده‌اش را دوباره جمع کند و کنترل محله‌اش را پس بگیرد. در این مسیر طولانی و حماسی، شخصیت‌های ماندگاری مثل Big Smoke، Ryder، Sweet و Officer Tenpenny روبروی CJ قرار می‌گیرند و توطئه‌های بزرگی شکل می‌گیرد." },
-    { id:2, title:"PRINCE OF PERSIA | ZEROX", name:"Prince of Persia", year:"۱۹۸۹", developer:"Jordan Mechner", publisher:"Brøderbund", director:"Jordan Mechner", producer:"Brøderbund Software", composers:["صدا و موسیقی محدود و ساده (نسخه اولیه بازی موسیقی حرفه‌ای گسترده نداشت و بیشتر افکت‌های صوتی کلاسیک بود)"], platform:"Apple II / DOS / Commodore 64 / Amiga (و بعدها پورت‌های مختلف)", genre:"اکشن، پلتفرمر، ماجراجویی", engine:"موتور اختصاصی اولیه ساخته شده توسط Jordan Mechner", cover:"https://cdn.imgurl.ir/uploads/f82900_____Zerox_.jpg", music:"https://uploadkon.ir/uploads/da8b10_26Prince-of-Persia-Zerox.mp3", desc:"شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد. شاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.", fullText:"شاهزاده‌ای جوان در یک سرزمین شرقی، زمانی که سلطان در جنگ است، وزیر خبیث به نام Jaffar قدرت را در دست می‌گیرد. او به شاهزاده‌خانم اولتیماتوم می‌دهد: یا با او ازدواج کند یا در زندان بمیرد.\nشاهزاده در سیاهچال زندانی می‌شود و باید در کمتر از ۶۰ دقیقه از میان تله‌های مرگبار، شمشیرزن‌ها و مسیرهای خطرناک عبور کند تا خودش را به قصر برساند و شاهزاده‌خانم را نجات دهد.\nگیم‌پلی بازی بر پایه دقت در حرکت، زمان‌بندی و حل کردن مسیرهای سخت طراحی شده و برای زمان خودش یکی از واقعی‌ترین انیمیشن‌های حرکتی شخصیت‌ها را داشت.\nاین بازی یکی از پایه‌گذاران سبک پلتفرمر سینمایی محسوب می‌شود و تأثیر بزرگی روی بازی‌های بعدی گذاشت." },
-    { id:1, title:"GOD OF WAR | ZEROX", name:"God of War", year:"۲۲ مارس ۲۰۰۵", developer:"Santa Monica Studio", publisher:"Sony Computer Entertainment", director:"David Jaffe", producer:"Shannon Studstill", composers:["Gerard Marino","Mike Reagan","Ron Fish","Winifred Phillips","Cris Velasco"], platform:"PlayStation 2", genre:"اکشن ماجراجویی، هک اند اسلش", engine:"Kinetica Engine", cover:"https://uploadkon.ir/uploads/4c9d09_26god-of-war-Zerox-ir-28.jpg", music:"https://uploadkon.ir/uploads/157a09_26ef9f06-26Zerox-god-of-war.mp3", desc:"کریتوس، یک جنگجوی اسپارتی، برای گرفتن انتقام و رهایی از کابوس‌های گذشته‌اش به دنبال نابودی خدای جنگ یعنی Ares می‌رود. در طول مسیر با هیولاها، تایتان‌ها و خدایان اساطیر یونان روبه‌رو می‌شود.", fullText:"داستان God of War یکی از حماسی‌ترین داستان‌های تاریخ بازی است. کریتوس، جنگجوی اسپارتی، پس از اینکه آرس (خدای جنگ) او را فریب می‌دهد و خانواده‌اش را می‌کشد، تصمیم می‌گیرد انتقام بگیرد. او با کمک آتنا، خدای خرد، وارد ماجرایی می‌شود تا جعبه پاندورا را پیدا کند و آرس را نابود کند. در این مسیر با موجودات افسانه‌ای مانند مینوتور، سیرن، و مدوسا روبرو می‌شود و قدرت‌های جدیدی به دست می‌آورد. نبرد نهایی کریتوس با آرس یکی از به‌یادماندنی‌ترین نبردهای تاریخ بازی‌های ویدیویی است." }
-];
+            showPage('old-detail');
+        }
 
-function getPlatformIcon(platform){
-    if(platform==="Xbox") return '<i class="fab fa-xbox"></i>';
-    if(platform==="PS") return '<i class="fab fa-playstation"></i>';
-    if(platform==="PC") return '<i class="fab fa-windows"></i>';
-    return '<i class="fas fa-gamepad"></i>';
-}
+        // ============================================
+        // MOVIES DB
+        // ============================================
+        const moviesDB = [
+            {
+                title: 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا',
+                url: 'https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame',
+                desc: '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox',
+                duration: '۵ دقیقه',
+                rating: '9.2',
+                poster: 'https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png'
+            },
+            {
+                title: 'داستان بازی | no im not a human',
+                url: 'https://www.aparat.com/video/video/embed/videohash/itl9b8h/vt/frame',
+                desc: '😨🚪 No, I\'m Not a Human | یه شب جهنمی!\n\nامشب رفتیم سراغ یکی از عجیب‌ترین بازی‌های ترسناک! 😶‍🌫️\nباید بفهمیم کی انسانه و کی نه... 👀\n\n🎬 ساخته شده توسط Zerox\n💬 تو جای من بودی به کی اعتماد می‌کردی؟',
+                duration: '۹ دقیقه',
+                rating: '8.7',
+                poster: 'https://uploadkon.ir/uploads/406920_2671129478-9827-l-3296.jpg'
+            }
+        ];
 
-function downloadMusic(url, title){
-    fetch(url).then(r=>r.blob()).then(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=title+'.mp3';a.click();URL.revokeObjectURL(a.href);}).catch(()=>window.open(url,'_blank'));
-}
+        // ============================================
+        // HERO SLIDER
+        // ============================================
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dots span');
+        let autoPlayInterval;
 
-function getCatIcon(cat){
-    if(cat==="ترسناک") return '<i class="fa-solid fa-ghost"></i>';
-    if(cat==="هیجانی") return '<i class="fa-solid fa-bolt"></i>';
-    if(cat==="علمی") return '<i class="fa-solid fa-flask"></i>';
-    if(cat==="معرفی") return '<i class="fa-solid fa-gamepad"></i>';
-    return '<i class="fa-solid fa-tag"></i>';
-}
+        function showSlide(index) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === index));
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+            currentSlide = index;
+        }
 
-function renderVideos(containerId, filter="همه"){
-    const container = document.getElementById(containerId);
-    if(!container) return;
-    let filtered = filter==="همه" ? videosData : videosData.filter(v=>v.category===filter);
-    if(filtered.length===0){ container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-video-slash" style="font-size:48px;"></i><h3>ویدیویی یافت نشد</h3></div>`; return; }
-    container.innerHTML = filtered.map(v=>`<div class="video-card"><img class="video-thumb" src="${v.thumb}" onerror="this.src='https://via.placeholder.com/300x200'"><div class="video-badge"><i class="fa-solid fa-play"></i> تماشا</div><div class="video-info"><h3>${v.title}</h3><div class="video-meta-row"><div class="video-cat-tag">${getCatIcon(v.category)} ${v.category}</div><div class="date-time"><i class="fa-regular fa-calendar"></i> ${v.date} <i class="fa-regular fa-clock"></i> ${v.time}</div></div><p>${v.desc.substring(0, 100)}${v.desc.length > 100 ? '...' : ''}</p><div class="button-group"><button class="btn-card" onclick="event.stopPropagation(); window.open('${v.link}','_blank')"><i class="fa-solid fa-play"></i> مشاهده ویدیو</button><button class="more-btn" onclick="event.stopPropagation(); toggleVideoText(this)"><i class="fa-regular fa-eye"></i> توضیحات</button></div><div class="full-text">${v.fullText}</div></div></div>`).join('');
-}
+        function goToSlide(index) {
+            showSlide(index);
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(() => {
+                let next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }, 5000);
+        }
 
-function renderNews(containerId){
-    const container = document.getElementById(containerId);
-    if(!container) return;
-    container.innerHTML = newsData.map(n=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${n.image}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-regular fa-newspaper"></i> جدیدترین خبر</div><h2>${n.title}</h2><div style="display:flex; gap:12px; margin-bottom:12px; font-size:0.7rem; color:#777;"><i class="fa-regular fa-calendar"></i> ${n.date} <i class="fa-regular fa-clock"></i> ${n.time}</div><p class="hybrid-desc">${n.summary}</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleNewsText(this)"><i class="fa-regular fa-eye"></i> ادامه مطلب</button></div><div class="news-full-text">${n.fullText}</div></div></div></div>`).join('');
-}
+        showSlide(0);
+        autoPlayInterval = setInterval(() => {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }, 5000);
 
-function renderStories(containerId){
-    const container = document.getElementById(containerId);
-    if(!container) return;
-    container.innerHTML = storiesData.map(s=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${s.img}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-book-open"></i> داستان اختصاصی</div><h2>${s.title}</h2><p class="hybrid-desc">${s.desc.substring(0, 120)}...</p><div class="news-actions"><button onclick="event.stopPropagation(); toggleStoryText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button></div><div class="news-full-text" style="white-space:pre-line; text-align:justify;">${s.full}</div></div></div></div>`).join('');
-}
+        // ============================================
+        // PAGE NAVIGATION
+        // ============================================
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + page);
+            if (target) target.classList.add('active');
 
-function renderMusic(){
-    const container = document.getElementById('musicGrid');
-    if(!container) return;
-    if(musicData.length===0){ container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-music" style="font-size:48px;"></i><h3>هنوز موسیقی‌ای اضافه نشده</h3></div>`; return; }
-    const sortedMusic = [...musicData].sort((a,b)=>b.id - a.id);
-    container.innerHTML = sortedMusic.map(m=>`<div class="music-card"><img class="music-img" src="${m.cover}" onerror="this.src='https://via.placeholder.com/400x400'"><div class="music-info"><div class="title-platform-box"><h3>${m.title}</h3><div class="platform-badge">${getPlatformIcon(m.platform)} ${m.platform}</div></div>${m.composers ? `<div class="composers-section"><div class="composer-title"><i class="fa-solid fa-microphone-alt"></i> آهنگسازان</div><div class="composers-list">${m.composers.map(c => `<div class="composer-item"><i class="fa-regular fa-user"></i> ${c}</div>`).join('')}</div></div>` : ''}<div class="music-desc-box"><div class="music-desc-title"><i class="fa-regular fa-note-sticky"></i> توضیحات موسیقی</div><div class="music-desc-text">${m.desc}</div></div><div class="custom-player"><audio controls src="${m.file}"></audio><button class="download-music-btn" onclick="event.stopPropagation(); downloadMusic('${m.file}', '${m.title}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div>`).join('');
-}
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            const links = document.querySelectorAll('.nav-links a');
+            const map = { home: 0, movies: 1, games: 2, oldgames: 3 };
+            if (map[page] !== undefined && links[map[page]]) links[map[page]].classList.add('active');
 
-function renderOld(){
-    const container = document.getElementById('oldGrid');
-    if(!container) return;
-    if(oldData.length===0){
-        container.innerHTML = `<div style="background:white; border-radius:24px; padding:40px; text-align:center; color:var(--main);"><i class="fa-solid fa-joystick" style="font-size:48px;"></i><h3>به زودی...</h3></div>`;
-        return;
-    }
-    container.innerHTML = oldData.map(game=>`<div class="hybrid-card"><div class="hybrid-inner"><div class="hybrid-media"><img src="${game.cover}" onerror="this.src='https://via.placeholder.com/300x200'"></div><div class="hybrid-content"><div class="hybrid-badge"><i class="fa-solid fa-compact-disc"></i> زروکس اُلد | نوستالژی محض</div><h2>${game.title}</h2><div class="game-info-box"><div class="info-row"><i class="fa-solid fa-gamepad"></i> <strong>نام بازی:</strong> ${game.name}</div><div class="info-row"><i class="fa-regular fa-calendar"></i> <strong>سال انتشار:</strong> ${game.year}</div><div class="info-row"><i class="fa-solid fa-building"></i> <strong>سازنده:</strong> ${game.developer}</div><div class="info-row"><i class="fa-solid fa-box"></i> <strong>ناشر:</strong> ${game.publisher}</div><div class="info-row"><i class="fa-solid fa-user-tie"></i> <strong>کارگردان:</strong> ${game.director}</div><div class="info-row"><i class="fa-solid fa-chalkboard-user"></i> <strong>تهیه‌کننده:</strong> ${game.producer}</div><div class="info-row"><i class="fa-solid fa-music"></i> <strong>آهنگسازان:</strong> ${game.composers.join(", ")}</div><div class="info-row"><i class="fa-solid fa-tv"></i> <strong>پلتفرم:</strong> ${game.platform}</div><div class="info-row"><i class="fa-solid fa-tag"></i> <strong>سبک:</strong> ${game.genre}</div><div class="info-row"><i class="fa-solid fa-microchip"></i> <strong>موتور بازی:</strong> ${game.engine}</div></div><div class="story-box"><div class="story-title"><i class="fa-solid fa-book-open"></i> داستان بازی</div><p class="hybrid-desc">${game.desc}</p><button class="more-btn" onclick="toggleOldText(this)"><i class="fa-regular fa-eye"></i> ادامه داستان</button><div class="old-full-text">${game.fullText}</div></div><div class="custom-player"><audio controls src="${game.music}"></audio><button class="download-music-btn" onclick="downloadMusic('${game.music}', '${game.name}')"><i class="fa-solid fa-download"></i> دانلود</button></div></div></div></div>`).join('');
-}
+            document.querySelectorAll('.mobile-drawer .drawer-links a').forEach(a => a.classList.remove('active'));
+            const drawerLinks = document.querySelectorAll('.mobile-drawer .drawer-links a');
+            const drawerMap = { home: 0, movies: 1, games: 2, oldgames: 3, search: 4, notifications: 5, profile: 6 };
+            if (drawerMap[page] !== undefined && drawerLinks[drawerMap[page]]) {
+                drawerLinks[drawerMap[page]].classList.add('active');
+            }
 
-function toggleVideoText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> توضیحات'; } }
-function toggleNewsText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن متن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه مطلب'; } }
-function toggleStoryText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن داستان'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
-function toggleOldText(btn){ let full = btn.parentElement.nextElementSibling; if(full.style.display === "none" || full.style.display === ""){ full.style.display = "block"; btn.innerHTML = '<i class="fa-regular fa-eye-slash"></i> بستن'; } else { full.style.display = "none"; btn.innerHTML = '<i class="fa-regular fa-eye"></i> ادامه داستان'; } }
+            if (page === 'video') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                const desc = document.getElementById('videoDescription');
+                const toggle = document.getElementById('descToggle');
+                if (desc) desc.classList.remove('expanded');
+                if (toggle) {
+                    toggle.classList.remove('rotated');
+                    document.getElementById('toggleText').textContent = 'نمایش بیشتر';
+                }
+            }
+            if (page === 'search') {
+                setTimeout(() => {
+                    const input = document.getElementById('searchInput');
+                    if (input) input.focus();
+                }, 100);
+            }
+            if (page === 'oldgames') {
+                renderOldGames();
+            }
+            closeMobileMenu();
+        }
 
-let currentVideoFilter = "همه";
-function setupFilters(){
-    document.querySelectorAll('#video .filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ document.querySelectorAll('#video .filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); currentVideoFilter = btn.getAttribute('data-filter'); renderVideos('videosGrid', currentVideoFilter); }); });
-}
+        // ============================================
+        // LIVE SEARCH
+        // ============================================
+        function liveSearch(query) {
+            const container = document.getElementById('searchResults');
+            const q = query.trim().toLowerCase();
+            if (!q) {
+                container.innerHTML = `<div class="no-result"><i class="fas fa-search"></i> جستجو کن تا نتایج رو ببینی...</div>`;
+                return;
+            }
+            const results = moviesDB.filter(m => m.title.toLowerCase().includes(q) || m.desc.toLowerCase().includes(q));
+            if (results.length === 0) {
+                container.innerHTML = `<div class="no-result"><i class="fas fa-frown"></i> هیچ نتیجه‌ای برای "${query}" پیدا نشد!</div>`;
+                return;
+            }
+            container.innerHTML = results.map(m => `
+                <div class="result-item" onclick="openVideo('${m.url}', '${m.title.replace(/'/g, "\\'")}', '${m.desc.replace(/'/g, "\\'").replace(/\n/g, '\\n')}', '${m.duration}', '${m.rating}')">
+                    <img src="${m.poster}" alt="${m.title}" />
+                    <div class="info">
+                        <h4>${m.title}</h4>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> ${m.duration}</span>
+                            <span class="rating"><i class="fas fa-star"></i> ${m.rating}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
 
-function showTab(id){
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    if(id === 'home'){ renderVideos('homeVideosGrid', 'همه'); renderNews('homeNewsGrid'); renderStories('homeStoriesGrid'); }
-    if(id === 'news'){ renderNews('newsGrid'); }
-    if(id === 'video'){ renderVideos('videosGrid', currentVideoFilter); }
-    if(id === 'music'){ renderMusic(); }
-    if(id === 'stories'){ renderStories('storiesGrid'); }
-    if(id === 'old'){ renderOld(); }
-}
+        // ============================================
+        // DESCRIPTION TOGGLE
+        // ============================================
+        function toggleDescription() {
+            const desc = document.getElementById('videoDescription');
+            const toggle = document.getElementById('descToggle');
+            const text = document.getElementById('toggleText');
+            desc.classList.toggle('expanded');
+            toggle.classList.toggle('rotated');
+            text.textContent = desc.classList.contains('expanded') ? 'نمایش کمتر' : 'نمایش بیشتر';
+        }
 
-renderVideos('homeVideosGrid', 'همه');
-renderNews('homeNewsGrid');
-renderStories('homeStoriesGrid');
-renderNews('newsGrid');
-renderVideos('videosGrid', 'همه');
-renderStories('storiesGrid');
-renderMusic();
-renderOld();
-setupFilters();
-</script>
+        // ============================================
+        // OPEN VIDEO
+        // ============================================
+        function openVideo(url, title, desc, duration, rating) {
+            document.getElementById('videoIframe').src = url;
+            document.getElementById('videoTitle').textContent = title || 'عنوان فیلم';
+            document.getElementById('videoDescription').textContent = desc || 'توضیحات فیلم اینجا قرار می‌گیرد.';
+            document.getElementById('videoDuration').textContent = duration || '۰ دقیقه';
+            document.getElementById('videoRating').textContent = rating || '۰.۰';
+            const descEl = document.getElementById('videoDescription');
+            descEl.classList.remove('expanded');
+            const toggle = document.getElementById('descToggle');
+            if (toggle) {
+                toggle.classList.remove('rotated');
+                document.getElementById('toggleText').textContent = 'نمایش بیشتر';
+            }
+            showPage('video');
+        }
+
+        // ============================================
+        // ESC KEY
+        // ============================================
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const vp = document.getElementById('page-video');
+                if (vp && vp.classList.contains('active')) {
+                    document.getElementById('videoIframe').src = '';
+                    showPage('home');
+                }
+                closeMobileMenu();
+                closeImageModal();
+            }
+        });
+
+        // ============================================
+        // INIT
+        // ============================================
+        renderOldGames();
+    </script>
 </body>
-        </html>
+    </html>
