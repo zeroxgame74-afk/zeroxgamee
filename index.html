@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Zerox Studio | VOD Platform</title>
     
+    <!-- ===== فاویکون ===== -->
+    <link rel="icon" href="https://cdn.imgurl.ir/uploads/m73805_Negar_1788222943199.png" type="image/png" />
+    <link rel="shortcut icon" href="https://cdn.imgurl.ir/uploads/m73805_Negar_1788222943199.png" type="image/png" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -55,6 +59,17 @@
             user-drag: none;
             -webkit-user-select: none;
             user-select: none;
+        }
+
+        /* ===== انیمیشن ساعت شنی ===== */
+        @keyframes sandShake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(6deg); }
+            75% { transform: rotate(-6deg); }
+        }
+        .sand-icon {
+            display: inline-block;
+            animation: sandShake 2.5s ease-in-out infinite;
         }
 
         /* ===== HEADER ===== */
@@ -475,17 +490,6 @@
             align-items: center;
             gap: 6px;
         }
-        .game-card .game-card-img .game-status .sand-icon {
-            display: inline-block;
-            animation: sandShake 2.5s ease-in-out infinite;
-            font-size: 0.65rem;
-        }
-
-        @keyframes sandShake {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(6deg); }
-            75% { transform: rotate(-6deg); }
-        }
 
         .game-card .game-card-body {
             padding: 14px 16px 16px;
@@ -590,8 +594,6 @@
             margin-bottom: 8px;
         }
         .game-detail-hero .game-overlay .game-badge .sand-icon {
-            display: inline-block;
-            animation: sandShake 2.5s ease-in-out infinite;
             font-size: 0.65rem;
         }
         .game-detail-hero .game-overlay h1 {
@@ -2210,7 +2212,9 @@
             <div class="drawer-footer"><p>© 2026 Zerox Studio</p></div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== HOME ===== -->
+        <!-- ============================================ -->
         <div class="page active" id="page-home">
             <div class="hero-slider" id="heroSlider">
                 <div class="hero-slide active" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
@@ -2274,7 +2278,9 @@
             </div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== SEARCH ===== -->
+        <!-- ============================================ -->
         <div class="page" id="page-search">
             <div class="search-page">
                 <div class="logo-big">
@@ -2291,7 +2297,9 @@
             </div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== NOTIFICATIONS ===== -->
+        <!-- ============================================ -->
         <div class="page" id="page-notifications">
             <div class="notifications-page">
                 <div class="notif-hero">
@@ -2312,7 +2320,9 @@
             </div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== PROFILE ===== -->
+        <!-- ============================================ -->
         <div class="page" id="page-profile">
             <div class="profile-page">
                 <div class="profile-header">
@@ -2338,7 +2348,9 @@
             </div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== SETTINGS ===== -->
+        <!-- ============================================ -->
         <div class="page" id="page-settings">
             <h2 class="page-header"><i class="fas fa-cog"></i> تنظیمات</h2>
             <p class="page-sub">تنظیمات حساب کاربری و برنامه</p>
@@ -2377,7 +2389,9 @@
             </div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== MOVIES ===== -->
+        <!-- ============================================ -->
         <div class="page" id="page-movies">
             <h2 class="page-header"><i class="fas fa-film"></i> ویدیوها</h2>
             <p class="page-sub">همه ویدیوهای سینمایی و کوتاه</p>
@@ -2509,7 +2523,9 @@
             <div id="oldDetailContent"></div>
         </div>
 
+        <!-- ============================================ -->
         <!-- ===== VIDEO ===== -->
+        <!-- ============================================ -->
         <div class="page" id="page-video">
             <div class="video-container">
                 <div class="video-wrapper">
