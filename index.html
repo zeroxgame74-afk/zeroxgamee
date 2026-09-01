@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Zerox Studio | VOD Platform</title>
     
-    <!-- ===== فاویکون ===== -->
     <link rel="icon" href="https://cdn.imgurl.ir/uploads/m73805_Negar_1788222943199.png" type="image/png" />
     <link rel="shortcut icon" href="https://cdn.imgurl.ir/uploads/m73805_Negar_1788222943199.png" type="image/png" />
     
@@ -15,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ardekan:wght@400;700&display=swap" rel="stylesheet" />
 
     <style>
+        /* ===== استایل‌های قبلی ===== */
         * {
             margin: 0;
             padding: 0;
@@ -61,15 +61,15 @@
             user-select: none;
         }
 
-        /* ===== انیمیشن ساعت شنی ===== */
+        .sand-icon {
+            display: inline-block;
+            animation: sandShake 2.5s ease-in-out infinite;
+        }
+
         @keyframes sandShake {
             0%, 100% { transform: rotate(0deg); }
             25% { transform: rotate(6deg); }
             75% { transform: rotate(-6deg); }
-        }
-        .sand-icon {
-            display: inline-block;
-            animation: sandShake 2.5s ease-in-out infinite;
         }
 
         /* ===== HEADER ===== */
@@ -432,7 +432,7 @@
         }
 
         /* ============================================
-           GAME CARDS (زروکس گیمز)
+           GAME CARDS
            ============================================ */
         .game-cards-grid {
             display: grid;
@@ -556,7 +556,7 @@
         }
 
         /* ============================================
-           GAME DETAIL (زروکس گیمز)
+           GAME DETAIL
            ============================================ */
         .game-detail-hero {
             position: relative;
@@ -734,7 +734,7 @@
         }
 
         /* ============================================
-           OLD GAMES CARDS
+           OLD GAMES
            ============================================ */
         .old-games-grid {
             display: grid;
@@ -767,7 +767,6 @@
             overflow: hidden;
             background: #1a1a1a;
         }
-
         .old-game-card .card-img img {
             width: 100%;
             height: 100%;
@@ -775,7 +774,6 @@
             transition: transform 0.6s ease;
             pointer-events: none;
         }
-
         .old-game-card:hover .card-img img {
             transform: scale(1.06);
         }
@@ -810,7 +808,6 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
             margin-bottom: 2px;
         }
-
         .old-game-card .card-img .card-overlay .card-dev {
             font-family: 'Estedad', sans-serif;
             font-size: 0.7rem;
@@ -820,7 +817,6 @@
         .old-game-card .card-body {
             padding: 14px 18px 18px;
         }
-
         .old-game-card .card-body .card-genre {
             font-family: 'Estedad', sans-serif;
             font-size: 0.75rem;
@@ -830,7 +826,6 @@
             flex-wrap: wrap;
             margin-bottom: 6px;
         }
-
         .old-game-card .card-body .card-genre span {
             background: rgba(182,28,28,0.06);
             color: #B61C1C;
@@ -840,7 +835,6 @@
         body.dark-mode .old-game-card .card-body .card-genre span {
             background: rgba(182,28,28,0.15);
         }
-
         .old-game-card .card-body .card-desc {
             font-family: 'Estedad', sans-serif;
             font-size: 0.85rem;
@@ -854,7 +848,6 @@
         body.dark-mode .old-game-card .card-body .card-desc {
             color: #999;
         }
-
         .old-game-card .card-body .card-footer {
             display: flex;
             justify-content: space-between;
@@ -866,13 +859,11 @@
         body.dark-mode .old-game-card .card-body .card-footer {
             border-color: #333;
         }
-
         .old-game-card .card-body .card-footer .card-platform {
             font-family: 'Estedad', sans-serif;
             font-size: 0.7rem;
             color: #888;
         }
-
         .old-game-card .card-body .card-footer .btn-detail {
             background: #B61C1C;
             color: white;
@@ -885,7 +876,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .old-game-card .card-body .card-footer .btn-detail:hover {
             background: #8a1515;
             transform: scale(1.04);
@@ -901,7 +891,6 @@
             margin-bottom: 24px;
             box-shadow: 0 8px 40px rgba(0,0,0,0.12);
         }
-
         .old-detail-hero img {
             width: 100%;
             display: block;
@@ -909,7 +898,6 @@
             object-fit: cover;
             pointer-events: none;
         }
-
         .old-detail-hero .detail-overlay {
             position: absolute;
             bottom: 0;
@@ -918,7 +906,6 @@
             padding: 40px 30px 30px;
             background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
         }
-
         .old-detail-hero .detail-overlay .detail-badge {
             display: inline-block;
             background: #B61C1C;
@@ -930,7 +917,6 @@
             font-family: 'Estedad', sans-serif;
             margin-bottom: 8px;
         }
-
         .old-detail-hero .detail-overlay h1 {
             font-family: 'Ardekan', 'Estedad', sans-serif;
             font-size: 2.4rem;
@@ -938,7 +924,6 @@
             text-shadow: 0 2px 20px rgba(0,0,0,0.5);
             margin-bottom: 2px;
         }
-
         .old-detail-hero .detail-overlay .detail-sub {
             font-family: 'Estedad', sans-serif;
             color: rgba(255,255,255,0.7);
@@ -958,13 +943,11 @@
         body.dark-mode .old-detail-info {
             background: #252525;
         }
-
         .old-detail-info .info-item {
             display: flex;
             align-items: flex-start;
             gap: 10px;
         }
-
         .old-detail-info .info-item i {
             color: #B61C1C;
             font-size: 1.1rem;
@@ -972,13 +955,11 @@
             text-align: center;
             margin-top: 2px;
         }
-
         .old-detail-info .info-item .info-label {
             font-family: 'Estedad', sans-serif;
             font-size: 0.6rem;
             color: #888;
         }
-
         .old-detail-info .info-item .info-value {
             font-family: 'Estedad', sans-serif;
             font-size: 0.85rem;
@@ -991,7 +972,6 @@
         .old-detail-gallery {
             margin-bottom: 24px;
         }
-
         .old-detail-gallery .gallery-title {
             font-family: 'Ardekan', 'Estedad', sans-serif;
             font-size: 1.3rem;
@@ -1000,17 +980,14 @@
             align-items: center;
             gap: 10px;
         }
-
         .old-detail-gallery .gallery-title i {
             color: #B61C1C;
         }
-
         .old-detail-gallery .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 14px;
         }
-
         .old-detail-gallery .gallery-grid .gallery-item {
             border-radius: 14px;
             overflow: hidden;
@@ -1019,12 +996,10 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
         }
-
         .old-detail-gallery .gallery-grid .gallery-item:hover {
             transform: scale(1.02);
             box-shadow: 0 8px 30px rgba(182,28,28,0.12);
         }
-
         .old-detail-gallery .gallery-grid .gallery-item img {
             width: 100%;
             height: 100%;
@@ -1042,7 +1017,6 @@
         body.dark-mode .old-detail-music {
             background: #252525;
         }
-
         .old-detail-music .music-title {
             font-family: 'Estedad', sans-serif;
             font-size: 0.9rem;
@@ -1052,17 +1026,14 @@
             align-items: center;
             gap: 8px;
         }
-
         .old-detail-music .music-title i {
             color: #B61C1C;
         }
-
         .old-detail-music audio {
             width: 100%;
             border-radius: 30px;
             outline: none;
         }
-
         .old-detail-music audio::-webkit-media-controls-panel {
             background: rgba(182,28,28,0.05);
         }
@@ -1077,7 +1048,6 @@
         body.dark-mode .old-detail-description {
             background: #252525;
         }
-
         .old-detail-description h3 {
             font-family: 'Ardekan', 'Estedad', sans-serif;
             font-size: 1.2rem;
@@ -1086,11 +1056,9 @@
             align-items: center;
             gap: 10px;
         }
-
         .old-detail-description h3 i {
             color: #B61C1C;
         }
-
         .old-detail-description p {
             font-family: 'Estedad', sans-serif;
             font-size: 0.95rem;
@@ -1116,7 +1084,6 @@
             padding: 6px 0;
             margin-bottom: 12px;
         }
-
         .btn-back:hover {
             color: #8a1515;
             transform: translateX(-4px);
@@ -2213,13 +2180,23 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== HOME ===== -->
+        <!-- ===== HOME (با لینک درست) ===== -->
         <!-- ============================================ -->
         <div class="page active" id="page-home">
             <div class="hero-slider" id="heroSlider">
-                <div class="hero-slide active" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
+                <div class="hero-slide active" style="background-image: url('https://cdn.imgurl.ir/uploads/n7157_gta_6_thumbnail_.png');">
                     <div class="hero-content">
                         <span class="badge">🔥 جدید</span>
+                        <h2>تریلر و گیم‌پلی GTA6 | راکستار ترکونده!</h2>
+                        <p>🚨🔥 GTA 6 | Zerox Edition بالاخره رسید! 🔥🚨</p>
+                        <button class="btn-play" onclick="event.stopPropagation(); openVideo('https://www.aparat.com/video/video/embed/videohash/inbr16i/vt/frame', 'تریلر و گیم‌پلی GTA6 | راکستار ترکونده!', '🚨🔥 GTA 6 | Zerox Edition بالاخره رسید! 🔥🚨\n\nسلام رفقااا! 😎🎮\nویدیوی جدید زروکس منتشر شد! این بار رفتیم سراغ GTA 6 و گیم‌پلی بازی رو باهم بررسی می‌کنیم. 👀🔥\n\nاز گرافیک و جزئیات خفن بازی گرفته تا ماشین‌ها، شخصیت‌ها و دنیای جدید GTA 6؛ همه‌چی رو توی این ویدیو می‌بینیم! 😳💥\n\nاگه عاشق GTA هستی، این ویدیو رو از دست نده! 🚗💨\n\nتهیه شده در Zerox studios', '5:11', '9.2')">
+                            <i class="fas fa-play"></i> پخش فیلم
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-slide" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
+                    <div class="hero-content">
+                        <span class="badge">جدید</span>
                         <h2>بازی اوتلست 1 | بهترین بازی ترسناک دنیا</h2>
                         <p>😨🏚️ Outlast | یه شب توی جهنم! امشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀</p>
                         <button class="btn-play" onclick="event.stopPropagation(); openVideo('https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame', 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا', '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox', '۵ دقیقه', '9.2')">
@@ -2240,6 +2217,7 @@
                 <div class="slider-dots" id="sliderDots">
                     <span class="active" onclick="goToSlide(0)"></span>
                     <span onclick="goToSlide(1)"></span>
+                    <span onclick="goToSlide(2)"></span>
                 </div>
             </div>
 
@@ -2249,6 +2227,19 @@
             </div>
 
             <div class="movie-grid" id="movieGrid">
+                <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/inbr16i/vt/frame', 'تریلر و گیم‌پلی GTA6 | راکستار ترکونده!', '🚨🔥 GTA 6 | Zerox Edition بالاخره رسید! 🔥🚨\n\nسلام رفقااا! 😎🎮\nویدیوی جدید زروکس منتشر شد! این بار رفتیم سراغ GTA 6 و گیم‌پلی بازی رو باهم بررسی می‌کنیم. 👀🔥\n\nاز گرافیک و جزئیات خفن بازی گرفته تا ماشین‌ها، شخصیت‌ها و دنیای جدید GTA 6؛ همه‌چی رو توی این ویدیو می‌بینیم! 😳💥\n\nاگه عاشق GTA هستی، این ویدیو رو از دست نده! 🚗💨\n\nتهیه شده در Zerox studios', '5:11', '9.2')">
+                    <div class="movie-poster" style="background-image: url('https://cdn.imgurl.ir/uploads/n7157_gta_6_thumbnail_.png');">
+                        <span class="badge">🔥 جدید</span>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>تریلر و گیم‌پلی GTA6 | راکستار ترکونده!</h4>
+                        <div class="meta">
+                            <span><i class="fas fa-clock"></i> 5:11</span>
+                            <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame', 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا', '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox', '۵ دقیقه', '9.2')">
                     <div class="movie-poster" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
                         <span class="badge">جدید</span>
@@ -2314,7 +2305,7 @@
                     <div class="notif-icon"><i class="fas fa-play-circle"></i></div>
                     <div class="notif-content">
                         <h4>🎬 ویدیوی جدید <span class="studio-tag">Zerox Studio</span></h4>
-                        <p>ویدیوی <span class="highlight">«بازی اوتلست 1»</span> در Zerox Studio منتشر شد! 😨🔥</p>
+                        <p>ویدیوی <span class="highlight">«GTA6»</span> در Zerox Studio منتشر شد! 🚗💥</p>
                     </div>
                 </div>
             </div>
@@ -2390,12 +2381,22 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== MOVIES ===== -->
+        <!-- ===== MOVIES (با لینک درست) ===== -->
         <!-- ============================================ -->
         <div class="page" id="page-movies">
             <h2 class="page-header"><i class="fas fa-film"></i> ویدیوها</h2>
             <p class="page-sub">همه ویدیوهای سینمایی و کوتاه</p>
             <div class="movie-grid" style="margin-top:16px;">
+                <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/inbr16i/vt/frame', 'تریلر و گیم‌پلی GTA6 | راکستار ترکونده!', '🚨🔥 GTA 6 | Zerox Edition بالاخره رسید! 🔥🚨\n\nسلام رفقااا! 😎🎮\nویدیوی جدید زروکس منتشر شد! این بار رفتیم سراغ GTA 6 و گیم‌پلی بازی رو باهم بررسی می‌کنیم. 👀🔥\n\nاز گرافیک و جزئیات خفن بازی گرفته تا ماشین‌ها، شخصیت‌ها و دنیای جدید GTA 6؛ همه‌چی رو توی این ویدیو می‌بینیم! 😳💥\n\nاگه عاشق GTA هستی، این ویدیو رو از دست نده! 🚗💨\n\nتهیه شده در Zerox studios', '5:11', '9.2')">
+                    <div class="movie-poster" style="background-image: url('https://cdn.imgurl.ir/uploads/n7157_gta_6_thumbnail_.png');">
+                        <span class="badge">🔥 جدید</span>
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h4>تریلر و گیم‌پلی GTA6 | راکستار ترکونده!</h4>
+                        <div class="meta"><span><i class="fas fa-clock"></i> 5:11</span><span class="rating"><i class="fas fa-star"></i> 9.2</span></div>
+                    </div>
+                </div>
                 <div class="movie-card" onclick="openVideo('https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame', 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا', '😨🏚️ Outlast | یه شب توی جهنم!\n\nامشب رفتیم سراغ یکی از ترسناک‌ترین بازی‌های تاریخ! 👀\nببینیم می‌تونیم از این تیمارستان سالم فرار کنیم یا نه... 💀\n\n🎬 ساخته شده توسط تیم Zerox', '۵ دقیقه', '9.2')">
                     <div class="movie-poster" style="background-image: url('https://cdn.imgurl.ir/uploads/o08764_Zerox_th12.png');">
                         <span class="badge">جدید</span>
@@ -2787,9 +2788,17 @@
         }
 
         // ============================================
-        // MOVIES DB
+        // MOVIES DB (با لینک درست GTA6)
         // ============================================
         const moviesDB = [
+            {
+                title: 'تریلر و گیم‌پلی GTA6 | راکستار ترکونده!',
+                url: 'https://www.aparat.com/video/video/embed/videohash/inbr16i/vt/frame',
+                desc: '🚨🔥 GTA 6 | Zerox Edition بالاخره رسید! 🔥🚨\n\nسلام رفقااا! 😎🎮\nویدیوی جدید زروکس منتشر شد! این بار رفتیم سراغ GTA 6 و گیم‌پلی بازی رو باهم بررسی می‌کنیم. 👀🔥\n\nاز گرافیک و جزئیات خفن بازی گرفته تا ماشین‌ها، شخصیت‌ها و دنیای جدید GTA 6؛ همه‌چی رو توی این ویدیو می‌بینیم! 😳💥\n\nاگه عاشق GTA هستی، این ویدیو رو از دست نده! 🚗💨\n\nتهیه شده در Zerox studios',
+                duration: '5:11',
+                rating: '9.2',
+                poster: 'https://cdn.imgurl.ir/uploads/n7157_gta_6_thumbnail_.png'
+            },
             {
                 title: 'بازی اوتلست 1 | بهترین بازی ترسناک دنیا',
                 url: 'https://www.aparat.com/video/video/embed/videohash/gkcxc4t/vt/frame',
